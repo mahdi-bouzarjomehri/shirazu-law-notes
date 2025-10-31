@@ -102,7 +102,6 @@
   <script>
     const container = document.getElementById('container');
 
-    // ساخت 8 ترم
     for (let t = 1; t <= 8; t++) {
       const wrapper = document.createElement('div');
 
@@ -115,35 +114,38 @@
 
       const lessonsBox = document.createElement('div');
       lessonsBox.className = 'lessons';
+
       let lis = '';
-      for (let d = 1; d <= 6; d++) {
-        // لینک هر درس؛ بعداً href="#"} را با آدرس واقعی جایگزین کن
+      // فقط ترم 1، درس 1 را با عنوان واقعی و لینک می‌سازیم
+      if (t === 1) {
         lis += `
           <li>
-            <a href="#" onclick="goToLesson(${t}, ${d}); return false;">درس ${d}</a>
+            <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/moghaddame-elm-hoghogh.html">
+              مقدمه‌ی علم حقوق
+            </a>
           </li>`;
+        // بقیه درس‌های ترم 1
+        for (let d = 2; d <= 6; d++) {
+          lis += `<li><a href="#">درس ${d}</a></li>`;
+        }
+      } else {
+        // ترم‌های 2 تا 8
+        for (let d = 1; d <= 6; d++) {
+          lis += `<li><a href="#">درس ${d}</a></li>`;
+        }
       }
+
       lessonsBox.innerHTML = `<ul>${lis}</ul>`;
 
       wrapper.appendChild(card);
       wrapper.appendChild(lessonsBox);
       container.appendChild(wrapper);
 
-      // تابع باز/بسته کردن آکاردئون
       card.addEventListener('click', () => {
         const arrow = card.querySelector('.arrow');
         const isOpen = lessonsBox.classList.toggle('show');
         arrow.classList.toggle('open', isOpen);
       });
-    }
-
-    // نمونه تابع انتقال به صفحه‌ی هر درس
-    function goToLesson(term, lesson) {
-      // مثلاً برو به term3-lesson5.html
-      // window.location.href = `term${term}-lesson${lesson}.html`;
-
-      // فعلاً فقط لاگ می‌کنیم تا تست شود
-      console.log(`رفتن به ترم ${term}، درس ${lesson}`);
     }
   </script>
 
