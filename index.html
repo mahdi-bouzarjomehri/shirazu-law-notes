@@ -15,7 +15,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Tahoma", "Arial", sans-serif;
+      font-family: "Tahoma", Arial, sans-serif;
     }
     body {
       background: var(--su-light);
@@ -58,6 +58,38 @@
     .arrow {
       font-size: 1.4rem;
       color: var(--su-purple);
+      transition: transform .3s;
+    }
+    .arrow.open {
+      transform: rotate(-90deg);
+    }
+    .lessons {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+      background: #fafafa;
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-top: .5rem;
+    }
+    .lessons.show {
+      max-height: 300px;
+    }
+    .lessons ul {
+      list-style: none;
+      padding: .5rem 1.5rem 1rem;
+    }
+    .lessons li {
+      padding: .4rem 0;
+    }
+    .lessons a {
+      color: var(--su-purple);
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      padding: .2rem 0;
+    }
+    .lessons a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -65,41 +97,55 @@
 
   <h1>جزوات رشته حقوق دانشگاه شیراز</h1>
 
-  <div class="container">
-    <!-- کارت ترم‌ها -->
-    <div class="card" onclick="location.href='term1.html'">
-      <span>ترم اول</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term2.html'">
-      <span>ترم دوم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term3.html'">
-      <span>ترم سوم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term4.html'">
-      <span>ترم چهارم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term5.html'">
-      <span>ترم پنجم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term6.html'">
-      <span>ترم ششم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term7.html'">
-      <span>ترم هفتم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-    <div class="card" onclick="location.href='term8.html'">
-      <span>ترم هشتم</span>
-      <span class="arrow">&#10094;</span>
-    </div>
-  </div>
+  <div class="container" id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+
+    // ساخت 8 ترم
+    for (let t = 1; t <= 8; t++) {
+      const wrapper = document.createElement('div');
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <span>ترم ${t}</span>
+        <span class="arrow">&#10094;</span>
+      `;
+
+      const lessonsBox = document.createElement('div');
+      lessonsBox.className = 'lessons';
+      let lis = '';
+      for (let d = 1; d <= 6; d++) {
+        // لینک هر درس؛ بعداً href="#"} را با آدرس واقعی جایگزین کن
+        lis += `
+          <li>
+            <a href="#" onclick="goToLesson(${t}, ${d}); return false;">درس ${d}</a>
+          </li>`;
+      }
+      lessonsBox.innerHTML = `<ul>${lis}</ul>`;
+
+      wrapper.appendChild(card);
+      wrapper.appendChild(lessonsBox);
+      container.appendChild(wrapper);
+
+      // تابع باز/بسته کردن آکاردئون
+      card.addEventListener('click', () => {
+        const arrow = card.querySelector('.arrow');
+        const isOpen = lessonsBox.classList.toggle('show');
+        arrow.classList.toggle('open', isOpen);
+      });
+    }
+
+    // نمونه تابع انتقال به صفحه‌ی هر درس
+    function goToLesson(term, lesson) {
+      // مثلاً برو به term3-lesson5.html
+      // window.location.href = `term${term}-lesson${lesson}.html`;
+
+      // فعلاً فقط لاگ می‌کنیم تا تست شود
+      console.log(`رفتن به ترم ${term}، درس ${lesson}`);
+    }
+  </script>
 
 </body>
 </html>
