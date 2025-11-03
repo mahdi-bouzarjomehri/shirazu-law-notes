@@ -119,17 +119,26 @@
       if (t === 1) {
         lis += `
           <li>
-            <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/moghaddame-elm-hoghogh.html">
+            <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/moghaddame-elm-hoghogh.html ">
               مقدمه‌ی علم حقوق
             </a>
           </li>
           <li>
-            <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/koliyaat-hoquuq-jazaa.html">
+            <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/koliyaat-hoquuq-jazaa.html ">
               کلیات حقوق جزا
             </a>
           </li>`;
         for (let d = 3; d <= 6; d++) {
-          lis += `<li><a href="#">درس ${d}</a></li>`;
+          if (d === 3) {
+            lis += `
+              <li>
+                <a href="https://mahdi-bouzarjomehri.github.io/shirazu-law-notes/hoghuuq-asaasi-1.html">
+                  حقوق اساسی ۱
+                </a>
+              </li>`;
+          } else {
+            lis += `<li><a href="#">درس ${d}</a></li>`;
+          }
         }
       } else {
         for (let d = 1; d <= 6; d++) {
