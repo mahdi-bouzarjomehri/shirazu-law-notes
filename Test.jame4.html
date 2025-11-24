@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درسنامه مبانی جامعه‌شناسی حقوق | جلسه چهارم</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* سرمه‌ای حقوقی */
+            --accent-color: #c0392b; /* قرمز برای نکات مهم */
+            --bg-color: #fdfbf7; /* رنگ کاغذ */
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-radius: 8px;
+            --timeline-line: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: normal;
+        }
+
+        /* Timeline Structure */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--timeline-line);
+            top: 0;
+            bottom: 0;
+            right: 20px; /* خط سمت راست */
+            margin-right: -2px;
+        }
+
+        .container {
+            padding: 10px 40px 10px 10px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 11px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--accent-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .content-card {
+            padding: 25px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-right: 5px solid var(--primary-color);
+        }
+
+        /* Typography inside cards */
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Specific Boxes */
+        .definition-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .definition-title {
+            font-weight: bold;
+            color: #2980b9;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .definition-title::before {
+            content: '📌 ';
+        }
+
+        .example-box {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #d35400;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .example-title::before {
+            content: '💡 ';
+        }
+
+        .exam-tip {
+            background-color: #f9ebea;
+            border: 1px dashed var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .exam-tip-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .exam-tip-title::before {
+            content: '✨ ';
+        }
+
+        .ambiguity {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        ul, ol {
+            margin-right: 20px;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                right: 10px;
+            }
+            .container {
+                padding-right: 30px;
+            }
+            .container::after {
+                right: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>درسنامه مبانی جامعه‌شناسی حقوق</h1>
+    <h2>جلسه چهارم (جبرانی) | موضوع: مکتب اصالت تضاد</h2>
+</header>
+
+<div class="timeline">
+
+    <!-- Section 1: Introduction to Conflict Theory -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۱. کلیات و تعاریف پایه</h3>
+            <p>در این جلسه به بررسی یکی از مکاتب مهم می‌پردازیم که تحت عنوان <strong>مکتب اصالت تضاد</strong> یا همان مکتب کلاسیک شناخته می‌شود.</p>
+            
+            <div class="definition-box">
+                <span class="definition-title">مکتب اصالت تضاد (Conflict Theory)</span>
+                مکتبی است که در چارچوب تفکرات موزون به اندیشه مارکسیسم خودش را مطرح کرده است.
+            </div>
+
+            <div class="definition-box">
+                <span class="definition-title">مارکسیسم (Marxism)</span>
+                مکتبی است برگرفته از اندیشه‌های شخصیت بزرگی به نام <strong>کارل مارکس</strong> (فیلسوف بزرگ آلمانی). دیدگاه‌های او تقریباً ۱۵۰ تا ۲۰۰ سال پیش مطرح شد و به رقیبی جدی برای اندیشه‌های فکری مکتب سرمایه‌داری تبدیل گشت.
+            </div>
+
+            <div class="exam-tip">
+                <span class="exam-tip-title">نکات ظریف و کنکوری</span>
+                <ul>
+                    <li>مکتب اصالت تضاد دقیقاً در مقابل مکتب سرمایه‌داری قرار دارد.</li>
+                    <li>اساس این مکتب بر پایه اندیشه‌های کارل مارکس بنا شده است.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: The Core Philosophy of History -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۲. فلسفه تاریخ و مبارزه طبقاتی</h3>
+            <p>مکتب مارکسیسم معتقد است که سیر تحول جوامع از دنیای قدیم تا به امروز، بر مبنای <strong>مبارزات طبقاتی</strong> بوده است.</p>
+            <p>مارکس بر این باور بود که جوامع در فرایند رشد خودشان متشکل از یک‌سری طبقات هستند. به ویژه دو طبقه اصلی در هر جامعه‌ای وجود دارد:</p>
+            
+            <ol>
+                <li><strong>طبقه استثمارگر</strong> (سلطه‌گر)</li>
+                <li><strong>طبقه تحت سلطه</strong> (زیردست)</li>
+            </ol>
+
+            <p>این دو طبقه همیشه در حال مبارزه بودند؛ زیرا طبقه تحت سلطه تمایل داشت که از زیر سلطه استعمارگر بیرون بیاید.</p>
+            <p>از نظر مارکسیست‌ها (یا خود کارل مارکس)، در هر دوره تاریخی از قدیم تا امروز، طبقات متفاوتی با هم جدال داشتند.</p>
+        </div>
+    </div>
+
+    <!-- Section 3: Historical Evolution (Feudalism) -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۳. سیر تاریخی: دوران فئودالیته</h3>
+            <p>در ادوار گذشته، مبارزه میان گروه‌های زیر وجود داشته است:</p>
+            <ul>
+                <li><strong>زمین‌داران (فئودال‌ها):</strong> در این دوره طبقه استعمارگر بودند.</li>
+                <li><strong>دهقانان:</strong> طبقات زیردست بودند که زیر سیطره و سلطه فئودال قرار داشتند.</li>
+            </ul>
+
+            <p>از نظر مارکسیسم و مارکس، فرآیند تغییر به شرح زیر است:</p>
+            <ol>
+                <li>دهقانان متوجه شدند که زیر سلطه طبقه فئودال (زمین‌داران) قرار گرفته‌اند.</li>
+                <li>سعی کردند خودشان را از این وضعیت خارج کنند.</li>
+                <li>از این‌رو، <strong>مبارزات طبقاتی</strong> معنا پیدا کرد.</li>
+            </ol>
+
+            <p>علت این تلاش برای خروج از سلطه، شکل‌گیری <strong>«خودآگاهی»</strong> بود؛ اینکه به این آگاهی رسیدند که دارند استثمار می‌شوند. این آگاهی باعث می‌شود که اقدام به مبارزات طبقاتی کنند.</p>
+            <p>در طی این مبارزه، <strong>انقلاب</strong> در جامعه اتفاق می‌افتد و جامعه یک مرحله به جلو حرکت می‌کند. زیرا مارکسیست‌ها معتقد بودند:</p>
+            <blockquote>
+                «جوامع به سمت یک هدف پیش می‌روند و تاریخ دارای فلسفه‌ای است؛ و از نظر آن فلسفه، جوامع به جلو حرکت می‌کنند تا به یک هدف نهایی برسند.»
+            </blockquote>
+        </div>
+    </div>
+
+    <!-- Section 4: The Modern Struggle (Capitalism) -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۴. مبارزه در عصر کنونی: سرمایه‌داری</h3>
+            <p>مارکس معتقد است در شرایط کنونی، این مبارزه طبقاتی در قالب مناظره <span class="ambiguity">(توضیح هوش مصنوعی: احتمالاً منظور استاد "مبارزه" بوده است)</span> بین دو طبقه زیر اتفاق می‌افتد:</p>
+            
+            <div class="definition-box">
+                <span class="definition-title">طبقه بورژوازی (Bourgeoisie)</span>
+                همان طبقه سرمایه‌داری است.
+            </div>
+
+            <div class="definition-box">
+                <span class="definition-title">طبقه پرولتاریا (Proletariat)</span>
+                همان طبقه کارگر است.
+            </div>
+
+            <p><strong>مکانیسم مبارزه:</strong></p>
+            <ul>
+                <li>طبقه کارگر احساس می‌کند تحت سلطه و استعمار طبقه بورژوازی قرار گرفته است.</li>
+                <li>یک فرایند مبارزه طبقاتی آغاز می‌شود.</li>
+                <li>هدف، رسیدن به پیروزی است.</li>
+            </ul>
+
+            <p>مارکس پیش‌بینی می‌کند: طبقه پرولتاریا به پیروزی خواهد رسید و باعث می‌شود طبقه‌ای (جامعه‌ای) به نام <strong>سوسیالیستی</strong> ایجاد شود.</p>
+        </div>
+    </div>
+
+    <!-- Section 5: The Ultimate Goal (Socialism & Communism) -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۵. جامعه سوسیالیستی و کمونیستی</h3>
+            
+            <div class="definition-box">
+                <span class="definition-title">جامعه سوسیالیستی</span>
+                جامعه‌ای است که در آن دیگر چیزی به اسم <strong>مالکیت خصوصی</strong> (آن قدرت و اندازه‌ای که در زمان بورژوازی داشت) را نخواهد داشت و همه‌چیز در اختیار دولت قرار می‌گیرد؛ چون طبقه سلطه‌گر از بین رفته است.
+            </div>
+
+            <p>مارکس معتقد است پایان تاریخ، یک <strong>جامعه کمونیستی</strong> است.</p>
+            
+            <p><strong>ویژگی‌های جامعه کمونیستی (پایان تاریخ):</strong></p>
+            <ul>
+                <li>در این جامعه همه‌چیز بین انسان‌ها عادلانه توزیع می‌شود (اشتراکی شدن وسایل یا ثروت).</li>
+                <li>عدالت طبقاتی محقق می‌شود.</li>
+                <li>فلسفه مارکسیسم "از بین بردن فاصله طبقاتی" است (حذف رابطه سلطه‌گر و تحت استعمار).</li>
+                <li>رسیدن به جامعه اشتراکی که در آن عدالت باشد.</li>
+            </ul>
+
+            <div class="exam-tip">
+                <span class="exam-tip-title">نکات ظریف و کنکوری (حقوقی)</span>
+                دغدغه علم حقوق در این مکتب این است: چه مکانیسمی را در نظر بگیرد یا اجرا کند که عدالت برقرار شود؟
+                <br>
+                پاسخ مارکسیسم: عدالت زمانی تحقق خواهد یافت که <strong>استثمار طبقاتی</strong> از بین برود.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Practical Applications (Iran Context) -->
+    <div class="container">
+        <div class="content-card">
+            <h3 class="section-title">۶. مصادیق عینی و سیاست‌گذاری‌ها</h3>
+            <p>در این بخش به بررسی تأثیرات این تفکر (اصالت تضاد) بر سیاست‌گذاری‌های داخلی می‌پردازیم.</p>
+
+            <div class="example-box">
+                <span class="example-title">مثال کلاسی: سیاست‌های توزیعی در ایران</span>
+                <p><strong>۱. توزیع کوپن (دهه اول انقلاب تا ۱۳۸۰):</strong></p>
+                <p>بعد از قانون‌گذاری، توزیع کوپن در خصوص افراد نیازمند جامعه اجرا شد که نوعی نگاه مبتنی بر عدالت توزیعی بود.</p>
+                
+                <p><strong>۲. هدفمندی یارانه‌ها (اواخر دهه ۱۳۸۰):</strong></p>
+                <p>برای توزیع عادلانه‌تر ثروت‌ها، سیاست جدیدی به نام هدفمندی یارانه‌ها شکل گرفت. بعضی‌ها معتقد هستند که این هدفمندی نوعی تفکر <strong>سوسیالیستی</strong> در پشت پرده دارد.</p>
+            </div>
+
+            <p><strong>دهک‌بندی جامعه:</strong></p>
+            <ul>
+                <li>افراد به صورت دهک تقسیم می‌شوند.</li>
+                <li>مثال: دهک اول (فقیرترین) و دهک دهم (ثروتمندترین) افراد در جامعه هستند.</li>
+                <li>توزیع ثروت در این دهک‌ها، فاصله طبقاتی را کمتر می‌کند.</li>
+            </ul>
+
+            <p>خیلی‌ها معتقدند این سیاست‌ها (هدفمندی و کوپن)، ریشه در اصالت تضاد یا سوسیالیستی دارد.</p>
+
+            <div class="exam-tip">
+                <span class="exam-tip-title">جمع‌بندی اقتصادی-سیاسی</span>
+                دو رویکرد کلی وجود دارد:
+                <ol>
+                    <li><strong>تولید ثروت</strong></li>
+                    <li><strong>توزیع ثروت</strong></li>
+                </ol>
+                هر دو نظام سیاسی هستند؛ اما (طبق نظر استاد/متن) مزیت‌های <strong>تولید ثروت</strong> از توزیع ثروت بیشتر است.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>پایان یادداشت‌برداری جلسه چهارم - درس مبانی جامعه‌شناسی حقوق</p>
+    <p>تدوین و ساختاردهی توسط دستیار هوشمند حقوقی</p>
+</footer>
+
+<script>
+    // Simple Animation for Timeline on Scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const items = document.querySelectorAll('.container');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        items.forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
+
+</body>
+</html>
