@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزوه کلیات حقوق جزا - جلسه سوم</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+        :root {
+            --primary-color: #283747; /* Dark Blue */
+            --secondary-color: #1abc9c; /* Teal */
+            --accent-color: #e74c3c; /* Red */
+            --bg-color: #f4f6f7;
+            --text-color: #2c3e50;
+            --box-bg: #ffffff;
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--box-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-right: 5px solid var(--secondary-color);
+            padding-right: 15px;
+            margin-top: 50px;
+            background: linear-gradient(to left, #ecf0f1, transparent);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #5d6d7e;
+            margin-top: 30px;
+            border-bottom: 1px dashed #bdc3c7;
+            padding-bottom: 5px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Definitions Box */
+        .def-box {
+            background-color: #e8f8f5;
+            border-right: 5px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .def-title {
+            color: #148f77;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Example Box */
+        .example-box {
+            background-color: #fef9e7;
+            border: 1px solid #f1c40f;
+            border-right: 6px solid #f1c40f;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .example-title {
+            color: #d35400;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background-color: #eaecee;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            border-left: 4px solid #7f8c8d;
+        }
+        .tips-header {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        /* Hierarchy Tree Logic for Etiology */
+        .tree ul {
+            padding-top: 20px; position: relative;
+            transition: all 0.5s;
+        }
+        .tree li {
+            float: right; text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+        }
+        .tree li::before, .tree li::after{
+            content: '';
+            position: absolute; top: 0; right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%; height: 20px;
+        }
+        .tree li::after{
+            right: auto; left: 50%;
+            border-left: 1px solid #ccc;
+        }
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+        .tree li:only-child{ padding-top: 0;}
+        .tree li:first-child::before, .tree li:last-child::after{
+            border: 0 none;
+        }
+        .tree li:last-child::before{
+            border-right: 1px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+        .tree li:first-child::after{
+            border-radius: 5px 0 0 0;
+        }
+        .tree ul ul::before{
+            content: '';
+            position: absolute; top: 0; right: 50%;
+            border-left: 1px solid #ccc;
+            width: 0; height: 20px;
+        }
+        .tree-item {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #666;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            display: inline-block;
+            border-radius: 5px;
+            background: white;
+        }
+
+        strong {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>درسنامه جامع کلیات حقوق جزا (جلسه سوم)</h1>
+
+    <!-- Section 1: Social Order & Criminology -->
+    <h2>۱. مفهوم نظم اجتماعی و ناکافی بودن تدابیر کیفری</h2>
+    <p>
+        در جلسات گذشته بیان شد که در تعریف اجتماعی جرم، مفهوم «نظم اجتماعی» بسیار کلیدی است؛ یعنی جرم را پدیده‌ای می‌دانستیم که نظم اجتماعی را خدشه‌دار می‌کند. حال سوال اساسی این است: 
+        <br><strong>آیا صرفِ اتخاذ تدابیر کیفری (سزادهنده) برای حفظ نظم اجتماعی و مقابله با جرم کافی است؟</strong>
+        <br>آیا تنها مجازات کردن فرد کفایت می‌کند؟
+    </p>
+    <p>
+        پاسخ منفی است. جرم دارای دو بُعد است:
+    </p>
+    <ul>
+        <li><strong>بُعد اجتماعی:</strong> که با حفظ نظم و کیفر دادن مرتبط است.</li>
+        <li><strong>بُعد انسانی:</strong> که نباید از آن غافل شد. اگر فقط رویکرد کیفری داشته باشیم، به علت ارتکاب جرم بی‌توجهی کرده‌ایم. باید پرسید چه چیزی باعث شد یک فرد انسانی قواعد را نقض کند؟ چرا دیگران این کار را نکردند؟</li>
+    </ul>
+    <p>پاسخ به این سوالات در قلمرو علم «جرم‌شناسی» است.</p>
+
+    <div class="def-box">
+        <span class="def-title">📌 جرم‌شناسی (Criminology)</span>
+        علمی است که در کنار مباحث حقوقی به دو جهت اصلی می‌پردازد:
+        ۱. بررسی علل ارتکاب جرم (چرایی ارتکاب).
+        ۲. ارائه راهکارهای پیشگیری از ارتکاب جرم.
+    </div>
+    <p>
+        بنابراین، صرف تدابیر کیفری کافی نیست؛ زیرا ما با یک موجود انسانی سروکار داریم و جرم یک <strong>واقعیت انسانی و اجتماعی</strong> است، نه فقط یک مفهوم مجرد حقوقی.
+    </p>
+
+    <!-- Section 2: Relativity of Social vs. Absolute Moral Order -->
+    <h2>۲. نسبیت در نظم اجتماعی و اطلاق در نظم اخلاقی</h2>
+    <p>سوال بعدی این است که آیا «نظم اجتماعی» مفهومی مطلق است یا نسبی؟</p>
+    
+    <h3>الف) نسبیت نظم اجتماعی</h3>
+    <p>
+        نظم اجتماعی مفهومی <strong>نسبی</strong> است. آنچه از نظم اجتماعی و جرم فهمیده می‌شود، در زمان‌ها و مکان‌های مختلف متفاوت است.
+    </p>
+    <div class="example-box">
+        <span class="example-title">💡 مثال کلاسی: تفاوت مکانی و فرهنگی</span>
+        در برخی کشورهای غربی که مسائل شرعی کمرنگ‌تر است، روابط با جنس مخالف در سنین بالای ۱۸ سال به رضایت شخصی واگذار شده است. اما در کشور ما (ایران) که متأثر از شرع است، در مسائل جنسی نظم ما یک <strong>نظم مطلق</strong> است و چیزی به نام توافق (زنای با تراضی) نداریم و جرم محسوب می‌شود.
+    </div>
+    <p>
+        بنابراین، چون ارزش‌ها و هنجارها تغییر می‌کنند، نظم اجتماعی نیز تغییر می‌کند (نسبیت).
+    </p>
+
+    <h3>ب) اطلاق نظم اخلاقی</h3>
+    <p>
+        در کنار نظم اجتماعی، مفهومی به نام <strong>نظم اخلاقی</strong> داریم. برخلاف نظم اجتماعی، نظم اخلاقی <strong>مطلق</strong> است.
+    </p>
+    <div class="example-box">
+        <span class="example-title">💡 مثال کلاسی:</span>
+        بحث «سخن‌چینی» در مباحث اخلاقی؛ این رفتار همیشه و در همه زمان‌ها قابل سرزنش بوده و هست و گذر زمان تغییری در قبح آن ایجاد نمی‌کند.
+    </div>
+
+    <!-- Section 3: Classification of Crimes (Natural vs. Contractual) -->
+    <h2>۳. طبقه‌بندی جرایم از منظر ثبات و تغییر (جرم‌زدایی)</h2>
+    <p>آیا همه رفتارها مشمول تغییر و «جرم‌زدایی» می‌شوند؟ آیا روزی می‌رسد که برخی رفتارها دیگر جرم نباشند؟</p>
+
+    <h3>۱. جرایم طبیعی (Natural Crimes)</h3>
+    <div class="def-box">
+        <span class="def-title">📌 جرایم طبیعی</span>
+        جرایمی که تعدادشان محدود است و معمولاً در همه جوامع و در طول تاریخ قابل سرزنش و نکوهش بوده‌اند. این جرایم هیچ‌گاه مشمول جرم‌زدایی نمی‌شوند.
+    </div>
+    <div class="example-box">
+        <span class="example-title">💡 مثال کلاسی:</span>
+        جرم قتل و جرم سرقت. هیچ سیستم قانونگذاری در هیچ کشوری نیست که قتل یا سرقت را جرم‌انگاری نکرده باشد.
+    </div>
+
+    <h3>۲. جرایم قراردادی یا ساختگی (Contractual Crimes)</h3>
+    <div class="def-box">
+        <span class="def-title">📌 جرایم قراردادی</span>
+        جرایمی که مبنای جرم‌انگاری آن‌ها «نیازهای جامعه» و «نظم اجتماعی» در یک مقطع خاص است. این جرایم با تغییر شرایط، ممکن است جرم‌زدایی شوند یا ایجاد گردند.
+    </div>
+    <div class="example-box">
+        <span class="example-title">💡 مثال‌های کلاسی:</span>
+        <ul>
+            <li><strong>صید غیرقانونی:</strong> وضع قانون مجازات صید غیرقانونی از دریای خزر در یک بازه زمانی خاص.</li>
+            <li><strong>زمان جنگ:</strong> وضع قوانین قیمت‌گذاری کالاها توسط دولت در زمان جنگ.</li>
+            <li><strong>زمان انتخابات:</strong> قوانین پیش‌بینی شده برای شرایط انتخاباتی.</li>
+        </ul>
+        این قوانین محدود به شرایط خاص هستند و پس از گذشت آن زمان، موضوعیت ندارند.
+    </div>
+
+    <!-- Section 4: Public Order in Private Crimes -->
+    <h2>۴. اختلال در نظم اجتماعی در جرایم خصوصی</h2>
+    <p>
+        <strong>سوال:</strong> در جرایمی مانند سرقت که متضرر یک فرد حقیقی است (مثلاً تلویزیون شخصی دزدیده شده)، چرا معتقدیم نظم اجتماعی مختل شده است؟
+    </p>
+    <p>
+        <strong>پاسخ:</strong>
+        <br>۱. <strong>ایجاد ناامنی روانی:</strong> به محض کشف جرم و اطلاع دیگران، یک ذهنیت یا هیجان منفی و ترس در عموم ایجاد می‌شود. مردم نگران می‌شوند که «نکند ما هم قربانی شویم». (مانند اخبار کلاهبرداری‌های مالی اخیر در فضای مجازی).
+        <br>۲. <strong>حالت خطرناک بدون جرم:</strong> در برخی موارد، جامعه حتی بدون وقوع جرم احساس خطر می‌کند و برای حفظ نظم تدابیر پیشگیرانه می‌چیند.
+    </p>
+    <div class="example-box">
+        <span class="example-title">💡 مثال کلاسی:</span>
+        خطر ناشی از افراد مجنون (حالت خطرناک) که نیازمند اقدامات تأمینی و پیشگیری است تا نظم اجتماعی مختل نشود.
+    </div>
+
+    <!-- Section 5: Etiology (Causes of Crime) -->
+    <h2>۵. عوامل ارتکاب جرم (سبب‌شناسی)</h2>
+    <p>چرا برخی افراد مرتکب جرم می‌شوند؟ عوامل به دو دسته کلی تقسیم می‌شوند:</p>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div class="tree">
+            <ul>
+                <li>
+                    <span class="tree-item"><strong>عوامل ارتکاب جرم</strong></span>
+                    <ul>
+                        <li>
+                            <span class="tree-item"><strong>عوامل بیرونی (محیطی)</strong></span>
+                            <ul>
+                                <li>
+                                    <span class="tree-item">محیط طبیعی (دما)</span>
+                                    <ul>
+                                        <li><span class="tree-item" style="background:#ffebee; border-color:red;">قانون حرارتی جرم</span></li>
+                                    </ul>
+                                </li>
+                                <li><span class="tree-item">محیط اقتصادی (فقر/تحریم)</span></li>
+                                <li><span class="tree-item">محیط اجتماعی (دوستان)</span></li>
+                                <li><span class="tree-item">محیط خانوادگی (طلاق)</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="tree-item"><strong>عوامل درونی (انسانی)</strong></span>
+                            <ul>
+                                <li>
+                                    <span class="tree-item"><strong>ارثی (ژنتیک)</strong></span>
+                                    <ul>
+                                        <li><span class="tree-item">اختلالات کروموزومی</span></li>
+                                        <li><span class="tree-item">صفات والدین</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="tree-item"><strong>اکتسابی</strong></span>
+                                    <ul>
+                                        <li><span class="tree-item">ارادی (مثل اعتیاد)</span></li>
+                                        <li><span class="tree-item">غیرارادی (مثل کاهش اکسیژن جنین)</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>تحلیل عوامل بیرونی (محیط طبیعی)</h3>
+    <div class="def-box">
+        <span class="def-title">📌 قانون حرارتی جرم (Thermic Law of Delinquency)</span>
+        این نظریه (مطرح شده در فرانسه) بیان می‌کند که دمای هوا در نوع جرم ارتکابی موثر است:
+        <ul>
+            <li><strong>مناطق گرم و مرطوب:</strong> جرایم علیه اشخاص، خشونت، درگیری و هتک ناموس بیشتر است.</li>
+            <li><strong>مناطق سردسیر:</strong> جرایم علیه اموال (سرقت) و جرایم پیچیده مثل جاسوسی و خیانت بیشتر است.</li>
+        </ul>
+    </div>
+    <div class="example-box">
+        <span class="example-title">💡 مثال کلاسی (تطبیق با استان فارس):</span>
+        هرچند آمار دقیق رسمی نداریم، اما در دادگاه‌های جنوب استان (گرم)، جرایم منافی عفت و درگیری بالاتر است، در حالی که در مناطق سردسیر استان، سرقت و جرایم مالی بیشتر مشاهده می‌شود.
+    </div>
+
+    <!-- Section 6: Criminal Policy -->
+    <h2>۶. سیاست جنایی (Criminal Policy)</h2>
+    <div class="def-box">
+        <span class="def-title">📌 تعریف سیاست جنایی</span>
+        سیاست و تدابیر کلی است که دولت‌ها (اسلام، ایران، غرب) از منظر جزایی و کیفری اتخاذ می‌کنند تا بتوانند علیه جرم واکنش نشان دهند و از آن پیشگیری کنند.
+    </div>
+
+    <h3>ضرورت‌های پنج‌گانه در سیاست جنایی اسلام و ایران</h3>
+    <p>نظام کیفری ایران با الهام از احکام فقهی، بر حفظ ۵ ارزش و ضرورت مهم تأکید دارد:</p>
+    <ol>
+        <li><strong>دین:</strong> مقابله با جرایم علیه دین.</li>
+        <li><strong>نفس:</strong> حفظ جان انسان.</li>
+        <li><strong>عقل:</strong> مقابله با جرایمی که عقل را زائل می‌کند (مانند شرب خمر).</li>
+        <li><strong>مال:</strong> حفظ مالکیت.</li>
+        <li><strong>نسل:</strong> حفظ کیان خانواده و نسل.</li>
+    </ol>
+
+    <!-- Section 7: Classification of Punishments in Islam -->
+    <h2>۷. دسته‌بندی مجازات‌ها در حقوق اسلام</h2>
+    <p>در سیاست جنایی اسلام، مجازات‌ها به چهار دسته تقسیم می‌شوند:</p>
+
+    <ul>
+        <li>
+            <strong>۱. حد:</strong>
+            <div class="def-box">
+                مجازاتی است که موجب، نوع، میزان و کیفیت آن در شرع مشخص شده است و قاضی حق تغییر (کم یا زیاد کردن) آن را ندارد.
+            </div>
+            <div class="example-box">💡 مثال: شرب خمر، زنا، قذف، مساحقه، سرقت حدی.</div>
+        </li>
+        
+        <li>
+            <strong>۲. تعزیر:</strong>
+            <div class="def-box">
+                مجازاتی است که نوع و میزان آن در شرع تعیین نشده و به نظر حاکم اسلامی (قاضی) واگذار شده است. این مجازات‌ها متأثر از تحولات اجتماعی هستند و دارای «حداقل و حداکثر» می‌باشند.
+            </div>
+            <div class="example-box">💡 مثال: حبس‌ها و شلاق‌های تعزیری که بین بازه خاصی تعیین می‌شوند.</div>
+        </li>
+
+        <li>
+            <strong>۳. قصاص:</strong>
+            <div class="def-box">
+                مجازاتی است در قبال جنایت بر «نفس» (جان) یا «عضو» بدن فرد دیگر. موضوع آن صرفاً بدن اشخاص است (چشم در برابر چشم، جان در برابر جان).
+            </div>
+        </li>
+
+        <li>
+            <strong>۴. دیه:</strong>
+            <div class="def-box">
+                مالی است که به عنوان خون‌بها جهت جنایات (غیرعمدی یا زمانی که قصاص ممکن نیست) به نفس یا عضو مجنی‌علیه یا ولی‌دم پرداخت می‌شود.
+            </div>
+        </li>
+    </ul>
+
+    <div class="tips-box">
+        <span class="tips-header">📝 نکات ظریف و کنکوری:</span>
+        <ul>
+            <li>نظم اجتماعی <strong>نسبی</strong> است، اما نظم اخلاقی <strong>مطلق</strong> است.</li>
+            <li>جرایم طبیعی (قتل/سرقت) همواره جرم هستند، اما جرایم قراردادی ممکن است دستخوش جرم‌زدایی شوند.</li>
+            <li>عوامل اکتسابی جرم می‌توانند ارادی (اعتیاد) یا غیرارادی (نقص جنینی) باشند.</li>
+            <li>در تعزیرات، دست قاضی برای تعیین مجازات (بین حداقل و حداکثر) باز است، برخلاف حدود.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+  </html>
