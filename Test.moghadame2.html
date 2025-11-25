@@ -2,452 +2,287 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درسنامه جامع حقوق: اوصاف قاعده حقوقی</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <title>درسنامه جامع مقدمه علم حقوق - جلسه دوم</title>
     <style>
-        :root {
-            --primary-color: #2c3e50; /* سرمه‌ای حقوقی */
-            --accent-color: #c0392b; /* قرمز برای نکات مهم */
-            --highlight-color: #f39c12; /* طلایی برای مثال‌ها */
-            --bg-color: #fdfdfd;
-            --card-bg: #ffffff;
-            --text-color: #333;
-            --border-radius: 12px;
-            --line-color: #bdc3c7;
-        }
-
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: #f4f7f6;
-            color: var(--text-color);
-            line-height: 1.8;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* Header Styling */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 900;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-
-        /* Timeline Trend Line Structure */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 40px; /* خط روند سمت راست */
-            width: 4px;
-            background: var(--line-color);
-            border-radius: 2px;
-        }
-
-        .section-card {
-            background: var(--card-bg);
-            margin-bottom: 40px;
-            margin-right: 70px; /* فاصله از خط روند */
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-            border-right: 5px solid var(--primary-color);
-        }
-
-        /* Node on the timeline */
-        .section-card::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            right: -77px; /* تنظیم روی خط */
-            width: 18px;
-            height: 18px;
-            background: var(--primary-color);
-            border: 4px solid #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--line-color);
-            z-index: 1;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-size: 1.8rem;
-        }
-
-        h3 {
-            color: #444;
-            margin-top: 25px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h3::before {
-            content: '🔹';
-            margin-left: 10px;
-            font-size: 1rem;
-        }
-
-        /* Specialized Boxes */
-        .definition-box {
-            background-color: #e8f4f8;
-            border-right: 4px solid #3498db;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        .definition-title {
-            font-weight: bold;
-            color: #2980b9;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .example-box {
-            background-color: #fffcf2;
-            border: 1px solid #f1c40f;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .example-box::before {
-            content: '💡 مثال کلاسی:';
-            display: block;
-            font-weight: bold;
-            color: #d35400;
-            margin-bottom: 10px;
-        }
-
-        .legal-quote {
-            background-color: #f9f9f9;
-            border-right: 5px solid #7f8c8d;
-            padding: 15px 20px;
-            font-style: italic;
-            margin: 20px 0;
-            color: #555;
-        }
-
-        .konkuri-points {
-            background-color: #ffebee;
-            border: 2px dashed var(--accent-color);
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 8px;
-        }
-
-        .konkuri-title {
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-            text-align: center;
-        }
-
-        .conflict-box {
-            background: #fef9e7;
-            padding: 10px;
-            border-left: 4px solid #f1c40f;
-            margin: 10px 0;
-        }
-
-        .ambiguity {
-            color: red;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        ul, ol {
-            padding-right: 25px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        strong {
-            color: #000;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .timeline::before {
-                right: 20px;
-            }
-            .section-card {
-                margin-right: 40px;
-                padding: 20px;
-            }
-            .section-card::after {
-                right: -47px;
-            }
-        }
+        body { font-family: 'Tahoma', 'Segoe UI', sans-serif; line-height: 1.9; background-color: #f4f6f7; color: #2c3e50; padding: 20px; }
+        .container { max-width: 950px; margin: 0 auto; background: #fff; padding: 50px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-top: 8px solid #2c3e50; }
+        h1 { color: #1a252f; border-bottom: 2px solid #3498db; padding-bottom: 15px; text-align: center; margin-bottom: 40px; font-size: 2.2em; }
+        h2 { color: #2980b9; margin-top: 50px; padding-right: 15px; border-right: 6px solid #e74c3c; background: #fdfefe; padding: 10px; border-radius: 4px; }
+        h3 { color: #34495e; margin-top: 30px; font-weight: bold; border-bottom: 1px dashed #bdc3c7; padding-bottom: 5px; width: fit-content; }
+        
+        /* Definitions */
+        .def-box { background-color: #eaf2f8; border-right: 5px solid #3498db; padding: 15px 20px; margin: 20px 0; border-radius: 5px; text-align: justify; }
+        .def-title { font-weight: bold; color: #2980b9; display: block; margin-bottom: 8px; font-size: 1.1em; }
+        
+        /* Examples */
+        .example-box { background-color: #fff9c4; border: 1px solid #fbc02d; padding: 15px; margin: 20px 0; border-radius: 8px; display: flex; align-items: flex-start; }
+        .example-icon { font-size: 1.6em; margin-left: 15px; color: #f57f17; }
+        
+        /* Exam Tips */
+        .tips-box { background-color: #fdedec; border: 2px dashed #e74c3c; padding: 20px; margin-top: 30px; border-radius: 8px; }
+        .tips-title { color: #c0392b; font-weight: bold; margin-bottom: 10px; display: block; font-size: 1.1em; }
+        
+        /* Lists */
+        ul, ol { padding-right: 25px; }
+        li { margin-bottom: 10px; }
+        
+        /* Highlights */
+        .highlight { font-weight: bold; color: #c0392b; }
+        .legal-term { font-weight: bold; color: #2e86c1; }
+        
+        /* Distinction Box */
+        .distinction { background-color: #e8daef; border-right: 5px solid #8e44ad; padding: 15px; margin: 20px 0; }
+        
+        /* Blockquote for Laws */
+        blockquote { background: #f4f6f6; border-right: 5px solid #95a5a6; margin: 20px 0; padding: 15px; font-style: italic; color: #555; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>درسنامه حقوقی: اوصاف قاعده حقوقی</h1>
-        <p>برگرفته از کلاس استاد (متن کامل و ویراستاری شده)</p>
-    </header>
 
-    <div class="timeline">
+    <h1>درسنامه مقدمه علم حقوق (جلسه دوم)</h1>
+    <p><strong>موضوع:</strong> ادامه اوصاف قاعده حقوقی (ضمانت اجرا، کلی بودن، اجتماعی بودن) و تعریف نهایی قاعده حقوقی.</p>
 
-        <!-- SECTION 1: INTRODUCTION & SANCTIONS -->
-        <div class="section-card">
-            <h2>۱. مرور و مقدمه بحث ضمانت اجرا</h2>
-            <p>در جلسه گذشته ویژگی اول قاعده حقوقی یعنی «الزام‌آور بودن» را بررسی کردیم. ویژگی دوم، «داشتن ضمانت اجرا» است.</p>
-            
-            <div class="definition-box">
-                <span class="definition-title">📌 فلسفه ضمانت اجرا</span>
-                قواعد حقوقی ذاتاً الزام‌آور هستند، اما این الزام زمانی مبنای درست و فایده دارد که پشتوانه‌ای به نام ضمانت اجرا داشته باشد. اگر ضمانت اجرا وجود نداشته باشد، الزام‌آور بودن (اجباری بودن) عملاً بی‌فایده است.
-            </div>
+    <!-- Section 1: Sanctions Intro -->
+    <h2>بخش اول: ویژگی دوم؛ داشتن ضمانت اجرا (ادامه مبحث)</h2>
+    <p>در جلسه قبل بیان شد که قواعد حقوقی ذاتاً الزام‌آور هستند. اما این الزام زمانی فایده و مبنای درستی دارد که پشتوانه‌ای به نام «ضمانت اجرا» داشته باشد. اگر الزام باشد اما ضمانت اجرا نباشد، عملاً آن قاعده بی‌فایده است.</p>
 
-            <div class="definition-box">
-                <span class="definition-title">📌 تفاوت ضمانت اجرا و تضمین (نکته دقیق)</span>
-                <strong>ضمانت اجرا:</strong> واکنشی است که اگر قاعده حقوقی نقض شد، اتفاق می‌افتد (مثل مجازات یا بطلان).<br>
-                <strong>تضمین (ضمانت):</strong> سپردن تعهد برای انجام کار است (مثل چک یا سفته).<br>
-                <em>نکته استاد:</em> چک ضمانت اجرا نیست، بلکه یک تضمین است. اگر چک پاس نشود، باید ببینیم ضمانت اجرای آن چیست. لزوماً ضمانت‌ها (تضمین‌ها) منجر به حصول نتیجه نمی‌شوند (مثلاً چک برگشت می‌خورد).
-            </div>
-        </div>
-
-        <!-- SECTION 2: TYPES OF SANCTIONS -->
-        <div class="section-card">
-            <h2>۲. طبقه‌بندی انواع ضمانت اجراهای حقوقی</h2>
-            <p>زمانی که یک قاعده حقوقی نقض می‌شود، چهار نوع ضمانت اجرا ممکن است اعمال شود:</p>
-
-            <h3>الف) مجازات (Punishment)</h3>
-            <p>مجازات‌ها خود به دو دسته تقسیم می‌شوند:</p>
-            <ol>
-                <li><strong>مجازات کیفری:</strong> ویژه زمانی که «جرم» اتفاق می‌افتد.</li>
-                <li><strong>مجازات اداری/انتظامی/انضباطی:</strong> ویژه زمانی که «تخلف» رخ می‌دهد (نه لزوماً جرم).</li>
-            </ol>
-
-            <div class="example-box">
-                <strong>💡 مصادیق مجازات کیفری:</strong> اعدام، قصاص، حبس، شلاق، جزای نقدی، مجازات‌های جایگزین حبس، مصادره اموال (در جرایم سنگین مثل مواد مخدر).
-            </div>
-
-            <div class="example-box">
-                <strong>💡 مصادیق مجازات اداری/انتظامی:</strong>
-                <ul>
-                    <li><strong>کارمندان دولت:</strong> هیئت‌های رسیدگی به تخلفات اداری (توبیخ، کسر حقوق، انفصال موقت، انفصال دائم/اخراج).</li>
-                    <li><strong>قضات:</strong> دادگاه انتظامی قضات.</li>
-                    <li><strong>وکلا:</strong> دادگاه انتظامی کانون وکلا.</li>
-                    <li><strong>فوتبالیست‌ها:</strong> کمیته انضباطی فدراسیون فوتبال.</li>
-                    <li><strong>دانشجویان:</strong> کمیته انضباطی (محرومیت از تحصیل، اخراج).</li>
-                    <li><strong>اعضای هیئت علمی:</strong> هیئت‌های انتظامی رسیدگی به تخلفات.</li>
-                </ul>
-            </div>
-
-            <div class="definition-box">
-                <span class="definition-title">📌 انفصال موقت</span>
-                یعنی فرد برای مدتی از کار بیکار می‌شود.
-            </div>
-            <div class="definition-box">
-                <span class="definition-title">📌 انفصال دائم</span>
-                یعنی فرد کلاً از کار اخراج می‌شود.
-            </div>
-
-            <h3>ب) اجرای مستقیم قاعده (Direct Execution)</h3>
-            <p>در این حالت، اگر فرد الزام را با زبان خوش انجام ندهد، حاکمیت به زور آن را انجام می‌دهد.</p>
-            <div class="example-box">
-                <strong>💡 مثال‌ها:</strong>
-                <ul>
-                    <li><strong>حکم تخلیه:</strong> مستأجر پس از پایان مدت نمی‌رود -> دادگاه حکم تخلیه صادر و اجرا می‌کند.</li>
-                    <li><strong>توقیف و فروش اموال بدهکار:</strong> بدهکار پول نمی‌دهد -> دادگاه اموال را می‌گیرد، می‌فروشد و طلب را می‌دهد.</li>
-                    <li><strong>خلع ید:</strong> در غصب ملک، دادگاه غاصب را بیرون می‌کند.</li>
-                    <li><strong>الزام به تحویل مورد معامله:</strong> فروشنده ماشین را تحویل نمی‌دهد -> دادگاه ماشین را گرفته و به خریدار می‌دهد.</li>
-                    <li><strong>تخریب ساخت و ساز غیرمجاز:</strong> در حریم رودخانه.</li>
-                    <li><strong>مهریه:</strong> توقیف اموال مرد و پرداخت به زوجه.</li>
-                </ul>
-            </div>
-
-            <div class="conflict-box">
-                ⚡ <strong>تمایز بسیار مهم:</strong> 
-                <strong>توقیف و فروش اموال بدهکار</strong> (اجرای مستقیم قاعده) با <strong>مصادره اموال</strong> (مجازات کیفری) متفاوت است. در مصادره، پول به جیب دولت می‌رود (جریمه)، اما در توقیف بدهی، پول به طلبکار داده می‌شود.
-            </div>
-
-            <div class="legal-quote">
-                <strong>اصل ۴۹ قانون اساسی (نقل به مضمون استاد):</strong> درآمدهای نامشروع (مثل قمار، ربا، جاسوسی، فروش مواد مخدر) باید مصادره و به نفع دولت ضبط شود. (مثلاً در قانون جدید جاسوسی برای رژیم صهیونیستی، مصادره اموال پیش‌بینی شده است).
-                <br><em>*تبصره: اموالی که ارث رسیده یا مشروع بوده و اموال ضروری برای زندگی خانواده (مستثنیات دین) معمولاً مصادره نمی‌شود.</em>
-            </div>
-
-            <h3>ج) انحلال یا بطلان عمل حقوقی (Nullity)</h3>
-            <p>گاهی ضمانت اجرا، برهم خوردن معامله یا عمل حقوقی است. برای فهم این بخش، ابتدا باید دسته‌بندی پدیده‌های حقوقی را بدانید:</p>
-            
-            <div class="definition-box">
-                <span class="definition-title">📌 پدیده حقوقی</span>
-                هر چیزی که اثر حقوقی دارد. شامل دو دسته است: ۱. اعمال حقوقی ۲. وقایع حقوقی.
-            </div>
-            <div class="definition-box">
-                <span class="definition-title">📌 اعمال حقوقی (Legal Acts)</span>
-                اراده اشخاص در آن مؤثر است و با اراده انجام می‌شود. شامل:
-                <ul>
-                    <li><strong>عقد:</strong> نیاز به دو اراده (ازدواج، بیع، اجاره، صلح، هبه).</li>
-                    <li><strong>ایقاع:</strong> نیاز به یک اراده (طلاق، ابراء، وقف، فسخ).</li>
-                </ul>
-            </div>
-            <div class="definition-box">
-                <span class="definition-title">📌 وقایع حقوقی (Legal Events)</span>
-                بدون اراده اشخاص (یا بدون نقش داشتن اراده در اثر) رخ می‌دهد اما اثر حقوقی دارد.
-                <br><em>مثال:</em> تولد (ارث می‌برد)، فوت (اموال تقسیم می‌شود)، مسئولیت مدنی (تصادف).
-            </div>
-            <div class="definition-box">
-                <span class="definition-title">📌 ابراء</span>
-                بخشش یک دین (طلب) که یک طرفه است و نیاز به قبول مدیون ندارد.
-            </div>
-
-            <p><strong>انواع ضمانت اجرای انحلال:</strong></p>
-            <ul>
-                <li><strong>بطلان:</strong> عمل از اساس باطل است (مثلاً معامله مجنون یا معامله بدون تعیین موضوع).</li>
-                <li><strong>فسخ:</strong> حق برهم زدن معامله توسط یک طرف (مثل خیار عیب). فسخ یک «ایقاع» است.</li>
-                <li><strong>انفساخ:</strong> برهم خوردن خودبه‌خود معامله بدون اراده طرفین (مثل تلف مبیع قبل از قبض - مرگ اسب قبل از تحویل).</li>
-                <li><strong>عدم نفوذ:</strong> معامله‌ای که ناقص است و نیاز به اجازه دارد (مثل معامله اکراهی که با اسلحه روی سر انجام شده). اگر تنفیذ شود صحیح، اگر رد شود باطل می‌شود.</li>
-            </ul>
-
-            <h3>د) مسئولیت مدنی (Civil Liability)</h3>
-            <p>همان جبران خسارت است. اگر کسی تعهدی را نقض کند یا خسارتی بزند، مسئول است.</p>
-            
-            <div class="conflict-box">
-                ⚡ <strong>تفاوت تعهد و مسئولیت:</strong> تعهد (الزام/تکلیف) وظیفه است، اما مسئولیت، ضمانت اجرای نقض تعهد است.
-            </div>
-
-            <div class="konkuri-points">
-                <span class="konkuri-title">نکات ظریف و کنکوری بخش ضمانت اجرا</span>
-                <ul>
-                    <li>امکان <strong>جمع ضمانت اجراها</strong> وجود دارد. یک عمل می‌تواند همزمان چند ضمانت اجرا داشته باشد.</li>
-                    <li><strong>مثال جامع (اختلاس):</strong> کارمند دولت اختلاس می‌کند -> ۱. کیفری (حبس) ۲. اداری (انفصال/اخراج) ۳. مدنی (جبران خسارت).</li>
-                    <li><strong>مثال جامع (سرقت خودرو و فروش آن):</strong> ۱. مجازات سرقت (کیفری) ۲. رد مال/استرداد خودرو (اجرای مستقیم قاعده) ۳. بطلان معامله فروش مال مسروقه (بطلان عمل حقوقی) ۴. جبران خسارت وارده به خودرو (مسئولیت مدنی).</li>
-                    <li>هدیه (هبه) عقد است و دو طرفه (نیاز به قبول دارد)، اما ابراء ایقاع است.</li>
-                    <li>خیار عیب (کالا معیوب است) با خیار غبن (کالا سالم است اما گران/ارزان فروخته شده) متفاوت است.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SECTION 3: CHARACTERISTIC 3 - GENERALITY -->
-        <div class="section-card">
-            <h2>۳. ویژگی سوم: کلی بودن (Generality)</h2>
-            <div class="definition-box">
-                <span class="definition-title">📌 تعریف کلی بودن قاعده حقوقی</span>
-                قاعده در مورد «هر کس» که شرایط اعمال آن را داشته باشد، اجرا شود. کلی بودن به معنای شامل شدن همه افراد جامعه نیست، بلکه شامل شدن تمام افرادِ دارای آن شرایط خاص است (حتی اگر آن شرایط فقط بر یک نفر صدق کند).
-            </div>
-
-            <div class="example-box">
-                <strong>💡 مثال تطبیقی (قانون vs قاعده):</strong>
-                <ul>
-                    <li><strong>حالت اول:</strong> مصوبه‌ای می‌گوید «هر کس در المپیک طلا بگیرد، می‌تواند خودرو وارد کند». -> <strong>این قاعده حقوقی است</strong> (چون کلی است، حتی اگر فقط ۳ نفر طلا بگیرند).</li>
-                    <li><strong>حالت دوم:</strong> مصوبه‌ای می‌گوید «اسامی لیست پیوست (۱۰۰ نفر) می‌توانند خودرو وارد کنند». -> <strong>این قاعده حقوقی نیست</strong> (چون کلی نیست و ناظر به افراد معین است).</li>
-                </ul>
-            </div>
-
-            <div class="conflict-box">
-                ⚡ <strong>رابطه قانون و قاعده حقوقی:</strong> رابطه عموم و خصوص من‌وجه است.
-                <ul>
-                    <li>برخی قوانین، قاعده حقوقی نیستند (چون کلی نیستند، مثل قانون استخدام یک فرد خاص).</li>
-                    <li>برخی قواعد حقوقی، قانون نیستند (از عرف، رویه قضایی یا دکترین آمده‌اند).</li>
-                    <li>بخش مشترک: اکثر قوانین ما قاعده حقوقی هستند.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SECTION 4: CHARACTERISTIC 4 - SOCIAL NATURE -->
-        <div class="section-card">
-            <h2>۴. ویژگی چهارم: ارتباط با نظام اجتماعی (Social Nature)</h2>
-            <p>قاعده حقوقی باید مرتبط با زندگی اجتماعی و نظم عمومی باشد. امور کاملاً شخصی وارد قلمرو حقوق نمی‌شوند.</p>
-
-            <div class="example-box">
-                <strong>💡 مثال نماز vs روزه‌خواری:</strong>
-                <ul>
-                    <li><strong>نماز خواندن:</strong> امر شخصی است، ضمانت اجرای دولتی ندارد و قاعده حقوقی نیست.</li>
-                    <li><strong>روزه‌خواری:</strong> خودِ روزه نگرفتن (در خانه) قاعده حقوقی نیست. اما <strong>روزه‌خواری در ملاء عام</strong> چون نظم عمومی را برهم می‌زند، جرم است و قاعده حقوقی محسوب می‌شود.</li>
-                    <li><strong>منع تجسس:</strong> حقوق وارد حریم خصوصی نمی‌شود مگر اینکه نمود بیرونی داشته باشد (مثل خانه فساد که مزاحمت برای همسایه دارد).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SECTION 5: FINAL DEFINITION -->
-        <div class="section-card">
-            <h2>۵. تعریف جامع قاعده حقوقی</h2>
-            <p>برای تعریف قاعده حقوقی، ۴ ویژگی (اوصاف) را با ۲ هدف جمع می‌کنیم:</p>
-            <div class="definition-box">
-                <span class="definition-title">📌 فرمول تعریف قاعده حقوقی</span>
-                <strong>اوصاف (۴ مورد) + اهداف (نظم و عدالت)</strong>
-            </div>
-            
-            <div class="definition-box">
-                <span class="definition-title">📌 تعریف دکتر کاتوزیان</span>
-                قاعده‌ای است <strong>الزام‌آور</strong> (ویژگی ۱) که به منظور <strong>ایجاد نظم و استقرار عدالت</strong> (اهداف) بر <strong>زندگی اجتماعی</strong> انسان (ویژگی ۴) حکومت می‌کند و اجرای آن از طرف دولت <strong>تضمین</strong> می‌شود (ویژگی ۲) و <strong>کلی</strong> است (ویژگی ۳).
-            </div>
-        </div>
-
-        <!-- SECTION 6: Q&A Scenarios -->
-        <div class="section-card">
-            <h2>۶. نکات تکمیلی و پاسخ به سوالات کلاسی</h2>
-            
-            <h3>تحلیل قتل و تصادفات (عمد و غیرعمد)</h3>
-            <ul>
-                <li><strong>قتل عمد:</strong> مجازاتش قصاص است. قصاص حق اولیای دم است. می‌توانند رضایت دهند (مجانی یا با دریافت دیه یا بیشتر/کمتر از دیه).</li>
-                <li><strong>قتل غیرعمد (ناشی از رانندگی):</strong> قصاص ندارد. مجازاتش پرداخت دیه + حبس تعزیری (۶ ماه تا ۲ سال) است.</li>
-                <li><strong>تأثیر فرار راننده:</strong> فرار باعث نمی‌شود قتل "عمد" شود، اما باعث تشدید مجازات و عدم تخفیف می‌شود.</li>
-                <li><strong>تأثیر مستی راننده:</strong> مستی قتل را عمد نمی‌کند (مگر اثبات شود مشروب خورده تا بکشد)، اما مجازات را تشدید می‌کند.</li>
-                <li><strong>سقوط از بلندی:</strong> 
-                    <ul>
-                        <li>اگر خود را عمداً روی کسی بیندازد -> قتل عمد.</li>
-                        <li>اگر بیفتد و زیری بمیرد -> غیرعمد (دیه).</li>
-                        <li>اگر کسی او را هل دهد -> هل‌دهنده ضامن است.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <div class="konkuri-points">
-                <span class="konkuri-title">نکات پایانی</span>
-                <ul>
-                    <li><strong>محاسبه ایام بازداشت:</strong> اگر متهم قبل از حکم بازداشت باشد، این مدت از حبس نهایی کسر می‌شود.</li>
-                    <li><strong>جرایم قابل گذشت vs غیرقابل گذشت:</strong> در جرایم غیرقابل گذشت (مثل مواد مخدر یا قتل حیث عمومی) نیاز به شاکی خصوصی نیست و دادستان اقدام می‌کند.</li>
-                    <li><strong>تشخیص عمد/غیرعمد:</strong> وابسته به "قصد" یا "نوع عمل" است (جزئیات در مباحث آتی).</li>
-                </ul>
-            </div>
-            <p class="ambiguity">(نیاز به بازشنوایی فایل صوتی: بخش مربوط به سوال "اگر اشتباهی باشه چی؟" توضیح استاد کوتاه بود).</p>
-        </div>
-
+    <div class="distinction">
+        <strong>⚡ تفاوت «ضمانت اجرا» با «تضمین/ضمانت»:</strong><br>
+        نباید اصطلاح ضمانت اجرا را با چک و سفته یا ضامن وام اشتباه گرفت. چک و سفته «تضمین» هستند، نه ضمانت اجرای حقوقی.
+        <ul>
+            <li><strong>تضمین (ضمانت):</strong> سپردن سندی (مثل چک) برای انجام تعهد است که ممکن است خود آن هم پاس نشود.</li>
+            <li><strong>ضمانت اجرا (Sanction):</strong> واکنشی است که نظام حقوقی در صورت نقض قاعده (و نقض آن تضمین) نشان می‌دهد.</li>
+        </ul>
     </div>
+
+    <h3>انواع چهارگانه ضمانت اجراهای حقوقی</h3>
+    <p>اگر یک قاعده حقوقی نقض شود، یکی از چهار حالت زیر (یا ترکیبی از آن‌ها) رخ می‌دهد:</p>
+
+    <!-- Type 1: Punishment -->
+    <h4>۱. مجازات (Punishment)</h4>
+    <p>این نوع ضمانت اجرا به دو دسته تقسیم می‌شود:</p>
+    
+    <ol>
+        <li>
+            <strong>مجازات کیفری:</strong> زمانی که «جرم» اتفاق افتاده باشد.
+            <div class="def-box">
+                <span class="def-title">📌 مصادیق مجازات کیفری:</span>
+                اعدام، قصاص، حبس، شلاق، جزای نقدی، مصادره اموال (در جرایم سنگین مثل مواد مخدر یا اصل ۴۹)، و مجازات‌های جایگزین حبس.
+            </div>
+        </li>
+        <li>
+            <strong>مجازات اداری/انتظامی/انضباطی:</strong> زمانی که «تخلف» اتفاق افتاده باشد (نه لزوماً جرم). این مجازات‌ها ویژه اصناف و گروه‌های خاص است.
+            <div class="example-box">
+                <span class="example-icon">💡</span>
+                <div>
+                    <strong>مثال‌های کلاسی (تخلفات):</strong><br>
+                    <ul>
+                        <li><strong>کارمندان دولت:</strong> دیر آمدن یا غیبت (رسیدگی در هیئت رسیدگی به تخلفات اداری).</li>
+                        <li><strong>قضات:</strong> تخلفات قضایی (رسیدگی در دادگاه انتظامی قضات).</li>
+                        <li><strong>وکلا:</strong> رسیدگی در دادگاه انتظامی کانون وکلا.</li>
+                        <li><strong>فوتبالیست‌ها:</strong> رسیدگی در کمیته انضباطی فدراسیون.</li>
+                        <li><strong>دانشجویان:</strong> رسیدگی در کمیته انضباطی (محرومیت از تحصیل).</li>
+                        <li><strong>اعضای هیئت علمی:</strong> هیئت‌های انتظامی اساتید.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="def-box">
+                <span class="def-title">📌 مصادیق مجازات اداری:</span>
+                توبیخ، کسر حقوق، انفصال موقت (بیکاری موقت)، انفصال دائم (اخراج کامل)، محرومیت از تحصیل.
+            </div>
+        </li>
+    </ol>
+
+    <p><em>(ارجاع استاد: تیتر شماره ۳۸ کتاب وسایل اجبار قواعد)</em></p>
+
+    <!-- Type 2: Direct Execution -->
+    <h4>۲. اجرای مستقیم قاعده (Direct Execution)</h4>
+    <p>در این حالت، اگر فرد با زبان خوش الزام را انجام ندهد، حاکمیت به زور همان کار را انجام می‌دهد.</p>
+
+    <div class="def-box">
+        <span class="def-title">📌 اجرای مستقیم قاعده:</span>
+        الزام فرد به انجام عین تعهدی که بر عهده داشته است توسط دادگاه و اجرای احکام.
+    </div>
+
+    <div class="example-box">
+        <span class="example-icon">💡</span>
+        <div>
+            <strong>مثال‌های کلاسی:</strong>
+            <ul>
+                <li><strong>تخلیه ملک:</strong> مستأجر پس از پایان قرارداد نمی‌رود ⬅️ دادگاه حکم تخلیه صادر و اجرا می‌کند.</li>
+                <li><strong>بدهکار:</strong> بدهی را نمی‌دهد ⬅️ دادگاه اموالش را توقیف کرده و می‌فروشد تا بدهی را بدهد (توقیف و فروش اموال).</li>
+                <li><strong>خلع ید:</strong> غاصب زمین را پس نمی‌دهد ⬅️ دادگاه او را بیرون کرده و ملک را به مالک می‌دهد.</li>
+                <li><strong>تحویل مبیع:</strong> فروشنده ماشین یا خانه را تحویل نمی‌دهد ⬅️ دادگاه الزام به تحویل می‌کند.</li>
+                <li><strong>تخریب بنای غیرمجاز:</strong> ساخت و ساز در حریم رودخانه ⬅️ تخریب توسط حاکمیت.</li>
+                <li><strong>مهریه:</strong> عدم پرداخت مهریه ⬅️ توقیف اموال شوهر و پرداخت به زوجه.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <span class="tips-title">⚡ نکته ظریف و بسیار مهم (تفاوت مصادره و توقیف):</span>
+        <p><strong>توقیف و فروش اموال بدهکار</strong> با <strong>مصادره اموال</strong> تفاوت ماهوی دارد:</p>
+        <ul>
+            <li><strong>مصادره اموال:</strong> نوعی «مجازات» است و مال به نفع دولت ضبط می‌شود (مثل اموال قاچاقچیان یا درآمدهای نامشروع جاسوسی و قمار - اصل ۴۹ قانون اساسی).</li>
+            <li><strong>توقیف و فروش اموال بدهکار:</strong> مصداق «اجرای مستقیم قاعده» است و پول حاصل از فروش به طلبکار داده می‌شود (نه دولت).</li>
+        </ul>
+    </div>
+
+    <!-- Type 3: Dissolution/Nullity -->
+    <h4>۳. انحلال یا بطلان عمل حقوقی</h4>
+    <p>گاهی ضمانت اجرا این است که عمل حقوقی انجام شده، بی‌اثر می‌شود. برای درک این موضوع ابتدا باید مفاهیم پایه را بشناسیم:</p>
+
+    <div class="distinction">
+        <strong>تقسیم‌بندی پدیده‌های حقوقی:</strong>
+        <ol>
+            <li><strong>اعمال حقوقی (Acts):</strong> اراده اشخاص در آن موثر است (مثل عقد و ایقاع).</li>
+            <li><strong>وقایع حقوقی (Events):</strong> بدون اراده اشخاص رخ می‌دهد ولی اثر حقوقی دارد (مثل تولد، فوت، مسئولیت مدنی ناشی از تصادف).</li>
+        </ol>
+    </div>
+
+    <div class="def-box">
+        <span class="def-title">📌 عقد (Contract):</span>
+        عمل حقوقی که نیاز به دو اراده (یا بیشتر) دارد. مثل: خرید و فروش (بیع)، اجاره، ازدواج، صلح، هبه.
+    </div>
+    <div class="def-box">
+        <span class="def-title">📌 ایقاع (Unilateral Act):</span>
+        عمل حقوقی که با یک اراده انجام می‌شود و نیاز به قبولی طرف مقابل ندارد. مثل: طلاق، ابراء (بخشیدن طلب)، فسخ معامله، وقف (در مرحله ایجاب).
+    </div>
+    <div class="def-box">
+        <span class="def-title">📌 ابراء:</span>
+        صرف‌نظر کردن طلبکار از طلب خود (بخشش دین) که عملی یک‌طرفه است.
+    </div>
+
+    <p><strong>انواع ضمانت اجراهای مربوط به انحلال:</strong></p>
+    <ul>
+        <li><strong>بطلان (Nullity):</strong> اگر ارکان اصلی معامله (مثل اهلیت طرفین یا معین بودن مورد معامله) رعایت نشود، معامله از اساس باطل است و هیچ اثری ندارد.</li>
+        <li><strong>فسخ (Rescission):</strong> حقی که به یکی از طرفین داده می‌شود تا معامله را برهم بزند (ایقاع است).
+            <br><em>مثال:</em> خیار عیب (اگر کالا معیوب باشد) یا خیار غبن (اگر گران خریده یا ارزان فروخته باشد).
+        </li>
+        <li><strong>انفساخ (Automatic Dissolution):</strong> معامله خودبه‌خود و بدون اراده طرفین برهم می‌خورد.
+            <br><em>مثال:</em> تلف مبیع قبل از قبض (اسبی که فروخته شده، قبل از تحویل بمیرد).
+        </li>
+        <li><strong>عدم نفوذ (Non-enforceability):</strong> معامله‌ای که ناقص است و نیاز به اجازه دارد.
+            <br><em>مثال:</em> معامله اکراهی (با زور اسلحه). اگر بعداً رضایت دهد (تنفیذ)، صحیح می‌شود و اگر رد کند، باطل می‌شود.
+        </li>
+    </ul>
+
+    <!-- Type 4: Civil Liability -->
+    <h4>۴. مسئولیت مدنی (جبران خسارت)</h4>
+    <p>چهارمین نوع ضمانت اجرا، جبران خسارت است که زیرمجموعه «وقایع حقوقی» قرار می‌گیرد.</p>
+
+    <div class="def-box">
+        <span class="def-title">📌 مسئولیت مدنی:</span>
+        الزام به جبران خسارتی که به دیگری وارد شده است (چه عمدی و چه غیرعمدی).
+    </div>
+
+    <div class="tips-box">
+        <span class="tips-title">⚡ تفاوت تعهد و مسئولیت:</span>
+        <ul>
+            <li><strong>تعهد (الزام):</strong> وظیفه‌ای است که باید انجام شود (تکلیف).</li>
+            <li><strong>مسئولیت:</strong> ضمانت اجرای نقض تعهد است (پیامد انجام ندادن تکلیف).</li>
+        </ul>
+    </div>
+
+    <h3>اجتماع ضمانت اجراها (نکته ترکیبی)</h3>
+    <p>ممکن است یک رفتار واحد، منجر به اعمال چند نوع ضمانت اجرا به صورت همزمان شود. این موضوع بستگی به نظر قانون‌گذار دارد.</p>
+    
+    <div class="example-box">
+        <span class="example-icon">💡</span>
+        <div>
+            <strong>مثال جامع کلاسی (سارق خودرو):</strong><br>
+            شخصی خودرویی را می‌دزدد، به آن خسارت می‌زند و سپس آن را می‌فروشد. در اینجا ۴ ضمانت اجرا جمع می‌شود:
+            <ol>
+                <li><strong>مجازات کیفری:</strong> به دلیل ارتکاب جرم سرقت (حبس/شلاق).</li>
+                <li><strong>اجرای مستقیم قاعده:</strong> الزام به استرداد (پس دادن) خودرو به مالک.</li>
+                <li><strong>مسئولیت مدنی:</strong> الزام به جبران خسارات وارده به خودرو.</li>
+                <li><strong>بطلان عمل حقوقی:</strong> معامله فروش خودروی دزدی باطل است.</li>
+            </ol>
+        </div>
+    </div>
+    
+    <p><em>مثال دیگر:</em> کارمند دولتی که اختلاس می‌کند (مجازات کیفری حبس + مجازات اداری اخراج + رد مال و جریمه).</p>
+
+    <!-- Section 2: Generality -->
+    <h2>بخش دوم: ویژگی سوم؛ کلی بودن (Generality)</h2>
+    <div class="def-box">
+        <span class="def-title">📌 کلی بودن قاعده حقوقی:</span>
+        قاعده باید به گونه‌ای باشد که هر کس شرایط آن را داشته باشد، مشمول آن شود (نه اینکه برای یک فرد خاص وضع شده باشد).
+    </div>
+    
+    <p><strong>نکته:</strong> کلی بودن به معنای شمول بر «همه افراد جامعه» نیست؛ ممکن است مخاطب قاعده، گروه خاصی (مثل نظامیان یا کارمندان) باشند. مهم این است که نام فرد خاصی ذکر نشود.</p>
+
+    <div class="example-box">
+        <span class="example-icon">💡</span>
+        <div>
+            <strong>مثال مقایسه‌ای (مدال آوران المپیک):</strong>
+            <ul>
+                <li><strong>حالت الف (کلی):</strong> قانونی تصویب شود که «هر کس در المپیک طلا بگیرد، مجوز واردات خودرو دارد». (این قاعده حقوقی است، حتی اگر فقط ۳ نفر طلا بگیرند).</li>
+                <li><strong>حالت ب (شخصی):</strong> قانونی تصویب شود که «آقایان ایکس، ایگرگ و زد (لیست پیوست) مجوز واردات دارند». (این قاعده حقوقی <u>نیست</u>، چون کلی نیست).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tips-box">
+        <span class="tips-title">⚡ رابطه «قانون» و «قاعده حقوقی»:</span>
+        <p>رابطه این دو، <strong>عموم و خصوص من وجه</strong> است:</p>
+        <ul>
+            <li>ممکن است قانونی باشد که قاعده حقوقی نیست (چون کلی نیست، مثل قانون استخدام یک فرد خاص).</li>
+            <li>ممکن است قاعده حقوقی باشد که در قانون نیامده (مثل قواعد ناشی از عرف یا رویه قضایی).</li>
+            <li>بخش مشترک: اکثر قوانین ما، قاعده حقوقی هستند.</li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Social Nature -->
+    <h2>بخش سوم: ویژگی چهارم؛ ارتباط با نظام اجتماعی (Social Nature)</h2>
+    <div class="def-box">
+        <span class="def-title">📌 اجتماعی بودن قاعده حقوقی:</span>
+        قاعده حقوقی باید مرتبط با نظم عمومی و زندگی اجتماعی بشر باشد. امور کاملاً شخصی و فردی وارد قلمرو حقوق نمی‌شوند.
+    </div>
+
+    <ul>
+        <li><strong>نماز:</strong> واجبی شخصی است و ضمانت اجرای دولتی ندارد ⬅️ قاعده حقوقی نیست.</li>
+        <li><strong>روزه‌خواری در ملاءعام:</strong> چون نظم عمومی را خدشه‌دار می‌کند جرم است ⬅️ قاعده حقوقی است (اما خودِ روزه نگرفتن در خفا جرم نیست).</li>
+        <li><strong>ازدواج و طلاق:</strong> چون مربوط به روابط اشخاص است ⬅️ قاعده حقوقی است.</li>
+        <li><strong>حریم خصوصی:</strong> اگر تخلف نمود بیرونی نداشته باشد (مثل نوشیدن مشروب در خانه به تنهایی)، حقوق مداخله نمی‌کند (مگر اینکه خانه فساد دایر شود که جنبه اجتماعی دارد).</li>
+    </ul>
+
+    <!-- Section 4: Final Definition -->
+    <h2>بخش چهارم: تعریف جامع قاعده حقوقی</h2>
+    <p>برای تعریف قاعده حقوقی، کافی است ۴ ویژگی (اوصاف) را با ۲ هدف حقوق (نظم و عدالت) ترکیب کنیم.</p>
+
+    <div class="def-box">
+        <span class="def-title">📌 فرمول تعریف قاعده حقوقی:</span>
+        <strong>(الزام‌آور بودن + ضمانت اجرا داشتن + کلی بودن + اجتماعی بودن) + (هدف ایجاد نظم + هدف استقرار عدالت)</strong>
+    </div>
+
+    <p><strong>تعریف دکتر کاتوزیان:</strong> قاعده‌ای است <strong>الزام‌آور</strong> که به منظور <strong>ایجاد نظم و استقرار عدالت</strong> بر <strong>زندگی اجتماعی</strong> انسان حکومت می‌کند و اجرای آن از طرف <strong>دولت تضمین می‌شود</strong>.</p>
+
+    <hr>
+
+    <!-- Q&A Section -->
+    <h3>❓ نکات تکمیلی و پاسخ به سوالات کلاسی</h3>
+    
+    <div class="tips-box">
+        <span class="tips-title">نکات حقوق جزایی مطرح شده در کلاس:</span>
+        <ul>
+            <li><strong>قتل عمد و غیرعمد:</strong> در قتل عمد مجازات «قصاص» است (حق اولیای دم). در غیرعمد (مثل تصادف) مجازات «دیه» است.</li>
+            <li><strong>بخشش در قتل عمد:</strong> اولیای دم می‌توانند قصاص کنند، رایگان ببخشند، یا در ازای مبلغی (کمتر، مساوی یا بیشتر از دیه) رضایت دهند.</li>
+            <li><strong>فرار از صحنه تصادف:</strong> ماهیت قتل غیرعمد را به عمد تبدیل نمی‌کند، اما باعث تشدید مجازات تعزیری (حبس) می‌شود و تخفیفات قانونی را حذف می‌کند.</li>
+            <li><strong>مستی در رانندگی:</strong> اگر مستی باعث تصادف منجر به فوت شود، قتل همچنان غیرعمد است اما مجازات راننده تشدید می‌شود (مگر اینکه ثابت شود مشروب خورده تا بکشد که بحث جداگانه‌ای است).</li>
+            <li><strong>جرایم قابل گذشت و غیرقابل گذشت:</strong>
+                <ul>
+                    <li>قابل گذشت: نیاز به شاکی خصوصی دارد (اگر رضایت دهد پرونده بسته می‌شود).</li>
+                    <li>غیرقابل گذشت: دادستان به عنوان مدعی‌العموم پیگیری می‌کند و رضایت شاکی فقط جنبه تخفیفی دارد (مثل مواد مخدر یا قتل).</li>
+                </ul>
+            </li>
+            <li><strong>احتساب ایام بازداشت:</strong> اگر متهم قبل از حکم قطعی بازداشت باشد، این مدت از میزان حبس نهایی او کسر می‌شود.</li>
+        </ul>
+    </div>
+
 </div>
 
 </body>
-  </html>
+</html>
