@@ -4,10 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>درسنامه اصول فقه | منطق حقوق</title>
-  <!-- فونت وزیر از CDN -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
   <style>
+    :root {
+      --bg: #f8f5f0;
+      --card-bg: #ffffff;
+      --card-border: #e8dfd3;
+      --text: #2e241f;
+      --heading: #1e2b3c;
+      --accent: #c49b5c;
+      --accent-light: #e7dacb;
+      --highlight-bg: #fdf6e8;
+      --highlight-border: #dbbc7c;
+      --hero-bg-start: #1e2b3c;
+      --hero-bg-end: #2c3e50;
+      --hero-text: #faf7f2;
+      --hero-goal-bg: rgba(255,255,240,0.12);
+      --hero-goal-border: rgba(255,255,200,0.25);
+      --hero-strong: #ffd78b;
+      --step-bg: #faf8f5;
+      --step-accent: #c49b5c;
+      --step-number: #9b6f3c;
+      --session-header-bg: #fffbf5;
+      --session-header-border: #eee4d5;
+      --session-text: #2c2416;
+      --session-content-bg: #ffffff;
+      --arrow-color: #b5956b;
+      --golden-bg: #fff7e6;
+      --golden-border: #cf9f4a;
+      --glossary-bg: #2d2a24;
+      --glossary-text: #f7f3e9;
+      --glossary-item-bg: #3e3830;
+      --glossary-item-strong: #e9c67a;
+      --final-bg: #eaf0f2;
+      --final-text: #1c2c38;
+      --final-border: #b8ccda;
+      --session-num-bg: #e7dacb;
+      --session-num-text: #4e3e2b;
+      --shadow: 0 8px 18px rgba(0,0,0,0.04);
+      --hero-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      --toggle-bg: #ffffff;
+      --toggle-icon: #1e2b3c;
+    }
+
+    body.dark {
+      --bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --card-border: #3d3d3d;
+      --text: #e0d7cc;
+      --heading: #cbbfa0;
+      --accent: #c49b5c;
+      --accent-light: #4d3e2b;
+      --highlight-bg: #2e2b22;
+      --highlight-border: #c49b5c;
+      --hero-bg-start: #111820;
+      --hero-bg-end: #1c2530;
+      --hero-text: #e6e0d4;
+      --hero-goal-bg: rgba(255,255,240,0.08);
+      --hero-goal-border: rgba(255,255,200,0.15);
+      --hero-strong: #f5c96a;
+      --step-bg: #252525;
+      --step-accent: #c49b5c;
+      --step-number: #c49b5c;
+      --session-header-bg: #2c2c2c;
+      --session-header-border: #444;
+      --session-text: #ddd;
+      --session-content-bg: #2a2a2a;
+      --arrow-color: #c49b5c;
+      --golden-bg: #332e22;
+      --golden-border: #c49b5c;
+      --glossary-bg: #1e1e1e;
+      --glossary-text: #ddd;
+      --glossary-item-bg: #2c2c2c;
+      --glossary-item-strong: #f5c96a;
+      --final-bg: #1e2b2e;
+      --final-text: #cbd8e0;
+      --final-border: #3a505a;
+      --session-num-bg: #3b3326;
+      --session-num-text: #d4b87a;
+      --shadow: 0 8px 18px rgba(0,0,0,0.3);
+      --hero-shadow: 0 15px 30px rgba(0,0,0,0.4);
+      --toggle-bg: #333;
+      --toggle-icon: #f5c96a;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,31 +97,59 @@
 
     body {
       font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
-      background: #f8f5f0;
-      color: #2e241f;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.8;
       padding: 16px 12px 32px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: background 0.3s, color 0.3s;
     }
 
     .container {
       width: 100%;
       max-width: 580px;
       margin: 0 auto;
+      position: relative;
+    }
+
+    /* دکمه تغییر تم */
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      background: var(--toggle-bg);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--toggle-icon);
+      transition: background 0.3s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle:active {
+      transform: scale(0.92);
     }
 
     /* هدر اصلی */
     .hero {
-      background: linear-gradient(135deg, #1e2b3c 0%, #2c3e50 100%);
+      background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
       border-radius: 28px;
       padding: 28px 20px 22px;
       margin-bottom: 22px;
-      color: #faf7f2;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      color: var(--hero-text);
+      box-shadow: var(--hero-shadow);
       text-align: center;
+      transition: background 0.3s, box-shadow 0.3s;
     }
     .hero .icon-large {
       font-size: 3.2rem;
@@ -54,29 +163,31 @@
       margin-bottom: 12px;
     }
     .hero .goal {
-      background: rgba(255,255,240,0.12);
+      background: var(--hero-goal-bg);
       backdrop-filter: blur(4px);
       padding: 12px 14px;
       border-radius: 18px;
       font-size: 0.95rem;
       font-weight: 500;
-      border: 1px solid rgba(255,255,200,0.25);
+      border: 1px solid var(--hero-goal-border);
       margin-top: 12px;
       line-height: 1.7;
+      transition: background 0.3s, border 0.3s;
     }
     .goal strong {
-      color: #ffd78b;
+      color: var(--hero-strong);
       font-weight: 700;
     }
 
     /* کارت نقشه راه */
     .roadmap-card {
-      background: #ffffff;
+      background: var(--card-bg);
       border-radius: 24px;
       padding: 18px 16px;
       margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-      border: 1px solid #e8dfd3;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--card-border);
+      transition: background 0.3s, border 0.3s, box-shadow 0.3s;
     }
     .roadmap-title {
       font-size: 1.2rem;
@@ -85,7 +196,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #1e2b3c;
+      color: var(--heading);
     }
     .steps {
       display: flex;
@@ -93,18 +204,19 @@
       gap: 12px;
     }
     .step-item {
-      background: #faf8f5;
+      background: var(--step-bg);
       border-radius: 16px;
       padding: 12px 14px;
-      border-right: 5px solid #c49b5c;
-      transition: all 0.2s;
+      border-right: 5px solid var(--step-accent);
       font-size: 0.9rem;
       font-weight: 500;
       box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      transition: background 0.3s, border-color 0.3s;
+      color: var(--text);
     }
     .step-item span {
       font-weight: 800;
-      color: #9b6f3c;
+      color: var(--step-number);
       margin-left: 6px;
     }
 
@@ -116,15 +228,15 @@
       margin-bottom: 24px;
     }
     .session {
-      background: white;
+      background: var(--card-bg);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
-      border: 1px solid #e6dbcb;
-      transition: all 0.25s ease;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--card-border);
+      transition: all 0.25s ease, background 0.3s, border 0.3s;
     }
     .session-header {
-      background: #fffbf5;
+      background: var(--session-header-bg);
       padding: 16px 18px;
       font-weight: 700;
       font-size: 1.05rem;
@@ -133,22 +245,24 @@
       align-items: center;
       cursor: pointer;
       user-select: none;
-      border-bottom: 1px solid #eee4d5;
-      color: #2c2416;
+      border-bottom: 1px solid var(--session-header-border);
+      color: var(--session-text);
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
     }
     .session-header .session-num {
-      background: #e7dacb;
-      color: #4e3e2b;
+      background: var(--session-num-bg);
+      color: var(--session-num-text);
       padding: 4px 12px;
       border-radius: 30px;
       font-size: 0.8rem;
       font-weight: 700;
       margin-left: 8px;
+      transition: background 0.3s, color 0.3s;
     }
     .arrow {
       font-size: 1.2rem;
-      transition: transform 0.2s;
-      color: #b5956b;
+      transition: transform 0.3s, color 0.3s;
+      color: var(--arrow-color);
     }
     .session.open .arrow {
       transform: rotate(180deg);
@@ -157,11 +271,11 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease-in-out;
-      background: #ffffff;
+      background: var(--session-content-bg);
       padding: 0 18px;
     }
     .session.open .session-content {
-      max-height: 2000px; /* مقدار کافی برای محتوای بلند */
+      max-height: 2000px;
       padding: 16px 18px 20px;
     }
     .session-content p {
@@ -183,38 +297,43 @@
       content: "•";
       position: absolute;
       right: 0;
-      color: #b39364;
+      color: var(--accent);
       font-weight: bold;
       font-size: 1.3rem;
       line-height: 1.2;
+      transition: color 0.3s;
     }
     .highlight-box {
-      background: #fdf6e8;
+      background: var(--highlight-bg);
       border-radius: 14px;
       padding: 12px 14px;
       margin: 14px 0;
-      border: 1px dashed #dbbc7c;
+      border: 1px dashed var(--highlight-border);
       font-weight: 500;
-      color: #4b3a22;
+      color: var(--text);
       font-size: 0.9rem;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
     }
     .golden-note {
-      background: #fff7e6;
-      border-right: 4px solid #cf9f4a;
+      background: var(--golden-bg);
+      border-right: 4px solid var(--golden-border);
       border-radius: 8px;
       padding: 10px 14px;
       margin: 10px 0;
       font-weight: 600;
+      color: var(--text);
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
     }
 
     /* واژه‌نامه */
     .glossary {
-      background: #2d2a24;
+      background: var(--glossary-bg);
       border-radius: 24px;
       padding: 20px 18px;
-      color: #f7f3e9;
+      color: var(--glossary-text);
       margin: 20px 0 18px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
     }
     .glossary h3 {
       font-size: 1.2rem;
@@ -224,26 +343,28 @@
       gap: 6px;
     }
     .glossary-item {
-      background: #3e3830;
+      background: var(--glossary-item-bg);
       border-radius: 12px;
       padding: 10px 14px;
       margin-bottom: 8px;
       font-size: 0.85rem;
+      transition: background 0.3s;
     }
     .glossary-item strong {
-      color: #e9c67a;
+      color: var(--glossary-item-strong);
     }
 
     /* توصیه نهایی */
     .final-tip {
-      background: #eaf0f2;
+      background: var(--final-bg);
       border-radius: 20px;
       padding: 18px 16px;
       font-weight: 500;
-      color: #1c2c38;
-      border: 1px solid #b8ccda;
+      color: var(--final-text);
+      border: 1px solid var(--final-border);
       margin-top: 8px;
       font-size: 0.93rem;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
     }
     .final-tip span {
       font-size: 1.4rem;
@@ -261,6 +382,9 @@
   </style>
 </head>
 <body>
+  <!-- دکمه تغییر حالت شب/روز -->
+  <button class="theme-toggle" id="themeToggle" aria-label="تغییر حالت شب و روز">🌙</button>
+
   <div class="container">
     <!-- هیرو / هدف اصلی -->
     <div class="hero">
@@ -382,11 +506,43 @@
   </div>
 
   <script>
+    // مدیریت حالت شب/روز
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // بررسی ذخیره‌سازی یا تنظیمات سیستم
+    function getInitialTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) return savedTheme;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.add('dark');
+        themeToggle.innerHTML = '☀️'; // خورشید برای روز (روشن کردن)
+      } else {
+        body.classList.remove('dark');
+        themeToggle.innerHTML = '🌙'; // ماه برای شب (تاریک کردن)
+      }
+    }
+
+    const currentTheme = getInitialTheme();
+    applyTheme(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // مدیریت آکاردئون
     function toggleSession(header) {
       const session = header.parentElement;
       session.classList.toggle('open');
     }
-    // باز گذاشتن اولین جلسه به صورت پیش‌فرض (اختیاری)
+    // باز بودن جلسه اول به صورت پیش‌فرض
     document.addEventListener('DOMContentLoaded', function() {
       const firstSession = document.querySelector('.session');
       if (firstSession) {
