@@ -2,425 +2,435 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- تنظیمات حیاتی برای نمایش درست در موبایل و مقیاس صحیح -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>درسنامه استدلالی اصول فقه | جلد اول</title>
-    
-    <!-- فونت وزیرمتن (استاندارد حقوقی) - بدون تأخیر در لود -->
+    <title>درسنامه کامل اصول فقه – جلسه اول (مباحث الفاظ)</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/gh/vismaad/Vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
-    
     <style>
-        /* ================================
-           🧱 ریست و متغیرهای پایه (هماهنگ با پرینت)
-           ================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         :root {
-            --color-bg: #f4f2ef;
-            --color-card: #fffdf9;
-            --color-gold: #b39264;
-            --color-dark: #3d3427;
-            --color-text: #1e1e1e;
-            --font-main: 'Vazirmatn', 'B Nazanin', 'Tahoma', sans-serif;
+            --bg: #f4f2ef;
+            --card: #fffdf9;
+            --gold: #b39264;
+            --dark: #3d3427;
+            --text: #1e1e1e;
+            --font: 'Vazirmatn','B Nazanin','Tahoma',sans-serif;
         }
-
         body {
-            background-color: var(--color-bg);
-            font-family: var(--font-main);
-            color: var(--color-text);
-            line-height: 2;
-            padding: 1rem;
+            background: var(--bg);
+            font-family: var(--font);
+            color: var(--text);
+            line-height: 2.1;
+            padding: 0.8rem;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            transition: all 0.2s ease;
+            justify-content: center;
         }
-
-        /* ================================
-           📦 کانتینر اصلی درسنامه (چاپ‌پسند + واکنش‌گرا)
-           ================================ */
         .lesson-container {
             max-width: 960px;
             width: 100%;
-            background: var(--color-card);
+            background: #fffefb;
             border-radius: 2rem;
-            padding: 2rem 1.8rem;
-            margin: 1rem auto;
+            padding: 2rem 2rem;
+            margin: 0.8rem auto;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border: 1px solid rgba(180,150,110,0.15);
-            background: #fffefb;
         }
-
-        /* عناوین اصلی */
         h1 {
-            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-size: clamp(1.9rem,5vw,2.7rem);
             font-weight: 900;
             color: #4a3b2c;
             border-bottom: 4px solid #c5a772;
             padding-bottom: 0.6rem;
-            margin-bottom: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
-        h1::before {
-            content: "⚖️";
-            font-size: 2.2rem;
-            margin-left: 0.3rem;
-        }
-
+        h1::before { content:"⚖️ "; margin-left:0.3rem; }
         h2 {
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-size: clamp(1.5rem,4.5vw,1.9rem);
             font-weight: 800;
-            color: var(--color-dark);
-            margin: 2.8rem 0 1.2rem;
-            background: linear-gradient(to left, transparent, #efe3d1, transparent);
+            color: var(--dark);
+            margin: 3rem 0 1.3rem;
+            background: linear-gradient(to left,transparent,#efe3d1,transparent);
             padding: 0.5rem 1.2rem;
-            border-right: 7px solid var(--color-gold);
+            border-right: 7px solid var(--gold);
             border-radius: 0 20px 20px 0;
         }
-
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #6b5a45;
-            margin: 1.8rem 0 0.9rem;
+            margin: 2rem 0 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
-        h3::before {
-            content: "📎";
-        }
+        h3::before { content:"📎"; }
+        p { margin-bottom:1rem; text-align:justify; }
 
-        p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            text-align: justify;
-        }
-
-        /* ================================
-           🃏 کارت‌های تخصصی (تعاریف، مثال، تله تستی)
-           ================================ */
         .definition-card {
             background: #fcf7f2;
             border-right: 6px solid #b79762;
             border-radius: 16px;
             padding: 1.2rem 1.6rem;
-            margin: 1.6rem 0;
+            margin:1.6rem 0;
             box-shadow: 0 6px 16px rgba(0,0,0,0.03);
-            font-weight: 500;
         }
-        .definition-card .icon { font-size: 1.4rem; margin-left: 0.4rem; }
-        .definition-card strong { color: #7b5e3b; font-size: 1.15rem; display: block; margin-bottom: 0.2rem; }
+        .definition-card .icon { font-size:1.4rem; margin-left:0.5rem; }
+        .definition-card strong { color:#7b5e3b; font-size:1.15rem; display:block; margin-bottom:0.3rem; }
 
         .example-box {
             background: #f4f9fa;
             border-right: 6px solid #5f8b8b;
             border-radius: 14px;
             padding: 1.2rem 1.6rem;
-            margin: 1.4rem 0;
+            margin:1.5rem 0;
         }
         .example-title {
-            font-weight: 800;
-            color: #1c5c5c;
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-weight:800;
+            color:#1c5c5c;
+            margin-bottom:0.5rem;
+            display:flex;
+            align-items:center;
+            gap:6px;
         }
 
         .trap-box {
             background: #fff6ed;
-            border: 2px solid #d68b3c;
-            border-radius: 24px;
-            padding: 1.4rem 1.8rem;
-            margin: 1.8rem 0;
-            box-shadow: 0 10px 24px rgba(200,130,20,0.1);
+            border:2px solid #d68b3c;
+            border-radius:24px;
+            padding:1.4rem 1.8rem;
+            margin:1.8rem 0;
+            box-shadow:0 10px 24px rgba(200,130,20,0.1);
         }
-        .trap-box h3 {
-            color: #b45d1b;
-            margin-top: 0;
-        }
+        .trap-box h3 { color:#b45d1b; margin-top:0; }
         .golden-note {
-            background: #ffe8c7;
-            padding: 0.15rem 0.7rem;
-            border-radius: 20px;
-            font-weight: 700;
-            color: #623d14;
-            display: inline-block;
+            background:#ffe8c7;
+            padding:0.15rem 0.7rem;
+            border-radius:20px;
+            font-weight:700;
+            color:#623d14;
+            display:inline-block;
         }
 
         blockquote {
-            background: #f5efe7;
-            border-radius: 18px;
-            padding: 1.4rem 1.8rem;
-            margin: 1.6rem 0;
-            border: 1px dashed #b49464;
-            position: relative;
+            background:#f5efe7;
+            border-radius:18px;
+            padding:1.4rem 1.8rem;
+            margin:1.6rem 0;
+            border:1px dashed #b49464;
+            position:relative;
         }
         blockquote::before {
-            content: "📜 متن قانون";
-            position: absolute;
-            top: -13px;
-            right: 18px;
-            background: #e7d7be;
-            padding: 0.1rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #4b3b23;
+            content:"📜 متن قانون";
+            position:absolute;
+            top:-13px;
+            right:18px;
+            background:#e7d7be;
+            padding:0.1rem 1.2rem;
+            border-radius:30px;
+            font-size:0.75rem;
+            font-weight:800;
+            color:#4b3b23;
         }
 
         .summary-section {
-            background: #e5ddd1;
-            border-radius: 28px;
-            padding: 1.8rem 2rem;
-            margin-top: 2.2rem;
-            border: 1px solid #b7a48b;
-            font-weight: 500;
+            background:#e5ddd1;
+            border-radius:28px;
+            padding:1.8rem 2rem;
+            margin-top:2.5rem;
+            border:1px solid #b7a48b;
+            font-weight:500;
         }
 
         .incomplete-warning {
-            color: #c6362a;
-            font-weight: 800;
-            background: #ffe9e9;
-            display: inline-block;
-            padding: 0.2rem 0.9rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
+            color:#c6362a;
+            font-weight:800;
+            background:#ffe9e9;
+            display:inline-block;
+            padding:0.2rem 0.9rem;
+            border-radius:25px;
+            font-size:0.85rem;
+            margin:0.5rem 0;
         }
 
-        ul, ol { padding-right: 2rem; margin: 1rem 0; }
-        li { margin-bottom: 0.5rem; }
+        ul, ol { padding-right:2rem; margin:1rem 0; }
+        li { margin-bottom:0.5rem; }
 
-        hr {
-            border: none;
-            border-top: 2px solid #e2d6c2;
-            margin: 2.2rem 0 1.2rem;
-            opacity: 0.7;
+        hr { border:none; border-top:2px solid #e2d6c2; margin:2.2rem 0 1.5rem; opacity:0.7; }
+
+        @media screen and (max-width:600px) {
+            body { padding:0.3rem; }
+            .lesson-container { padding:1.2rem 1rem; border-radius:1.5rem; }
+            h2 { padding:0.4rem 0.9rem; }
+            .definition-card,.example-box,.trap-box { padding:1rem 1.1rem; }
         }
 
-        /* ================================
-           📱 واکنش‌گرایی موبایل (Mobile First)
-           ================================ */
-        @media screen and (max-width: 600px) {
-            body { padding: 0.4rem; }
-            .lesson-container {
-                padding: 1.5rem 1rem;
-                border-radius: 1.5rem;
-            }
-            h2 {
-                padding: 0.4rem 0.9rem;
-                border-right-width: 5px;
-            }
-            .definition-card, .example-box, .trap-box {
-                padding: 1rem 1.1rem;
-            }
-            ul, ol { padding-right: 1.3rem; }
-        }
-
-        /* ================================
-           🖨️ استایل پرینت (Print-Friendly)
-           ================================ */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-                font-size: 11pt;
-                color: black;
-            }
-            .lesson-container {
-                box-shadow: none;
-                border: none;
-                max-width: 100%;
-                width: 100%;
-                padding: 0.8cm;
-                margin: 0;
-                border-radius: 0;
-                background: white;
-            }
-            h1, h2, h3 {
-                color: black;
-                background: none;
-                border-color: #aaa;
-            }
-            .trap-box, .example-box, .definition-card, .summary-section {
-                background: #f9f9f9;
-                box-shadow: none;
-                border: 1px solid #ccc;
-                break-inside: avoid;  /* جلوگیری از شکستن کارت‌ها وسط صفحه */
-            }
-            .incomplete-warning {
-                background: #fff0f0;
-                border: 1px solid red;
-            }
-            /* حذف آیتم‌های غیرضروری در پرینت */
-            hr { border-color: #ccc; }
-            /* اطمینان از نمایش کامل متن */
-            p, li { orphans: 3; widows: 3; }
+            body { background:white; padding:0; font-size:11pt; color:black; }
+            .lesson-container { box-shadow:none; border:none; max-width:100%; padding:0.8cm; margin:0; border-radius:0; background:white; }
+            h1,h2,h3 { color:black; background:none; border-color:#aaa; }
+            .trap-box,.example-box,.definition-card,.summary-section { background:#f9f9f9; box-shadow:none; border:1px solid #ccc; break-inside:avoid; }
+            .incomplete-warning { background:#fff0f0; border:1px solid red; }
         }
-
-        /* ================================
-           📌 کامنت راهنما برای اضافه کردن جلسات بعدی:
-           ================================ 
-           ✍️ برای جلسه دوم، کافی است یک <section> جدید
-           داخل .lesson-container (بعد از بخش چکیده) باز کنید.
-           از ساختار زیر استفاده کنید تا استایل‌ها خودکار اعمال شوند:
-           
-           <section class="session-block" id="session-2">
-               <h2>جلسه دوم: عنوان جلسه</h2>
-               <div class="definition-card"> ... </div>
-               <p> متن درسنامه </p>
-               <div class="example-box"> ... </div>
-               <div class="trap-box"> ... </div>
-           </section>
-           
-           می‌توانید بخش‌های تکراری را کپی کرده و محتوایش را جایگزین کنید.
-           ================================ */
+        /*
+        📌 راهنمای افزودن جلسات بعدی:
+        پس از بسته شدن تگ summary-section (یا قبل از بسته شدن lesson-container)
+        یک <section class="session-block" id="session-2"> باز کنید.
+        عنوان را با <h2> و محتوا را با همان کارت‌های تعریف و مثال پر کنید.
+        استایل‌ها به صورت خودکار اعمال می‌شوند.
+        */
     </style>
 </head>
 <body>
-
 <div class="lesson-container">
-    
-    <!-- ========== هدر درسنامه ========== -->
+
     <h1>درسنامه استدلالی اصول فقه<br><span style="font-size:1.3rem; font-weight:500;">جلد اول: مباحث الفاظ</span></h1>
 
-    <!-- ========== مقدمه ========== -->
+    <!-- ================= مقدمه ================= -->
     <h2>مقدمه و جایگاه درس</h2>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>اصول فقه</b> را «منطق اختصاصی حقوق» نیز می‌نامند.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>اصول فقه</b> را «منطق اختصاصی حقوق» نیز می‌گویند.
     </div>
-    <p>منطق در مفهوم عام، شیوه درست اندیشیدن و استدلال کردن را می‌آموزد. انسان دارای عقل است و این سرمایه وجه تمایز اوست. منطق فنی است که مانع انحراف ذهن در عملیات فکری می‌شود. <b>منطق خصوصی علم حقوق، همان اصول فقه است.</b></p>
+    <p>منطق در مفهوم عام خود، شیوه درست اندیشیدن و درست استدلال کردن را به ما می‌آموزد و در واقع، کیفیت چینش معلومات برای رسیدن به مجهولات را نشان می‌دهد. این منطق عمومی در همه علوم کاربرد دارد. انسان دارای عقل است و این سرمایه ارزشمند، وجه تمایز او از سایر موجودات است. عقل و ذهن انسان همواره راه درست را از خطا تشخیص نمی‌دهد و ممکن است دچار اشتباه شود. منطق، فنی است که اگر قواعد آن رعایت شود، ذهن ما را از اشتباه در عملیات ذهنی بازمی‌دارد و مانع انحراف و خطای در اندیشه می‌شود.</p>
+    <p>هر رشته‌ای یک منطق خصوصی نیز دارد. <b>منطق خصوصی علم حقوق، همان اصول فقه است.</b></p>
 
-    <!-- ========== فصل اول ========== -->
+    <!-- ================= فصل اول ================= -->
     <h2>فصل اول: چیستی اصول فقه و نسبت آن با فقه و حقوق</h2>
 
     <h3>۱. موضوع علم فقه و علم حقوق</h3>
+    <p>هر علمی دارای موضوعی است. موضوع، محور اصلی بررسی‌های آن علم را تشکیل می‌دهد. برای مثال، موضوع علم پزشکی و علم تربیت بدنی هر دو «بدن انسان» است، لکن اهداف آنها متفاوت است: هدف علم پزشکی درمان بیماری و هدف تربیت بدنی پیشگیری از بروز آن بیماری است.</p>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>موضوع علم فقه</b>، «افعال مکلفین» است؛ یعنی افعال انسان‌های مکلّف. طفل دو ساله موضوع این علم نیست.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>موضوع علم فقه</b>، «افعال مکلفین» است؛ یعنی افعال انسان‌های مکلّفی که تکلیف دارند. به عنوان نمونه، فعل نماز خواندن یا روزه گرفتن، متعلق حکم شرعی قرار می‌گیرد. طفل دو ساله که تکلیف ندارد، موضوع این علم نیست.
     </div>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>موضوع علم حقوق</b> نیز «افعال مکلفین» می‌باشد (برای نمونه کلاهبرداری).
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>موضوع علم حقوق</b> نیز «افعال مکلفین» است. برای مثال، کلاهبرداری یک فعل انسانی است که باید حکم آن در نظام حقوقی مشخص شود.
     </div>
-    <p>بنابراین موضوع فقه و حقوق یکسان است و کار فقیه و حقوقدان شباهت ماهوی دارد.</p>
+    <p>بنابراین، موضوع فقه و موضوع حقوق، هر دو <b>افعال مکلفین</b> است. از این رو، کار فقیه و کار حقوقدان شباهت ماهوی دارد.</p>
 
     <h3>۲. کار فقیه و فرایند استنباط</h3>
-    <p>فقیه باید حکم افعال مکلفین را از <b>منابع فقه</b> به ترتیب استخراج کند:</p>
+    <p>فقیه باید حکم افعال مکلفین را از <b>منابع فقه</b> استخراج کند. منابع فقه به ترتیب مراجعه عبارتند از:</p>
     <ol>
-        <li><b>کتاب</b> (قرآن)</li>
-        <li><b>سنت</b> (احادیث و روایات)</li>
-        <li><b>اجماع</b> (اتفاق فقهای یک عصر)</li>
+        <li><b>کتاب (قرآن کریم)</b></li>
+        <li><b>سنت</b> (احادیث و روایات پیامبر و امامان)</li>
+        <li><b>اجماع</b> (اتفاق نظر علمای فقهای یک عصر در مورد یک موضوع)</li>
         <li><b>عقل</b></li>
     </ol>
+    <p>فقیه نمی‌تواند از پیش خود حکمی صادر کند و موظف است با مراجعه به این منابع، حکم فعل مکلف را به دست آورد.</p>
+
     <div class="example-box">
         <div class="example-title">💡 مثال کلیدی:</div>
-        <p>اگر حکم نماز پرسیده شود: «نماز واجب است». مستند آن «اَقِمِ الصَّلاةَ» است. «اَقِمْ» فعل امر است و در مبحث اوامر ثابت می‌شود که <b>امر دلالت بر وجوب می‌کند</b>.</p>
+        <p>اگر کسی حکم نماز را نداند و سؤال کند، فقیه پاسخ می‌دهد: «نماز واجب است». مستند این حکم، آیه شریفه <b>«اَقِمِ الصَّلاةَ»</b> است. واژه «اَقِمْ» فعل امر است و در <b>مبحث اوامر</b> (از مباحث الفاظ اصول فقه جلد اول) اثبات می‌شود که <b>امر دلالت بر وجوب می‌کند</b>. بنابراین، فقیه با استدلال از منبع (کتاب) و با استفاده از قاعده اصولی (دلالت امر بر وجوب)، حکم شرعی را استنباط کرده است.</p>
     </div>
-    <p>🔑 <b>نتیجه:</b> کار فقیه، <b>استنباط احکام شرعی از منابع فقه</b> است.</p>
+    <p>🔑 <b>نتیجه:</b> کار فقیه، <b>استنباط احکام شرعی افعال مکلفین از منابع فقه</b> است. به این عملیات ذهنی و روش‌مند، <b>استنباط</b> گفته می‌شود.</p>
 
     <h3>۳. ریشه لغوی «استنباط»</h3>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>استنباط</b> از «نَبط» به معنای کشیدن آب از چاه با دلو است. فقیه با ابزار اصول فقه، احکام را از منابع استخراج می‌کند.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>استنباط</b> از ریشه «نَبط» به معنای استخراج آب از اعماق چاه با استفاده از دلو و بند است. همان‌گونه که شخص با ابزاری مشخص، آب زلال را از عمق زمین بیرون می‌کشد، فقیه نیز با ابزار <b>اصول فقه</b>، احکام الهی را از منابع فقه (کتاب و سنت) استخراج می‌کند.
     </div>
 
     <h3>۴. تعریف اصول فقه</h3>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>اصول فقه</b> مجموعه‌ای از قواعد و مباحث است که در استنباط احکام شرعی یا حقوقی از منابع به ما کمک می‌کند.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>اصول فقه</b> مجموعه‌ای از قواعد و مباحثی است که در فرایند <b>استنباط احکام شرعی</b> (از منابع فقه) یا <b>احکام حقوقی</b> (از منابع حقوق) به ما کمک می‌کند. این مباحث، فرمول‌هایی را برای روان‌سازی عملیات استنباط و استخراج احکام ارائه می‌دهند.
     </div>
-    <p>مباحث الفاظ: اوامر و نواهی، مفاهیم و منطوق، عام و خاص، مطلق و مقید، مجمل و مبین، دلالت نهی بر فساد.</p>
+    <p>مهم‌ترین مباحث اصول فقه که ذیل <b>مباحث الفاظ</b> مطالعه می‌شوند، عبارتند از:</p>
+    <ul>
+        <li>اوامر و نواهی</li>
+        <li>مفاهیم و منطوق</li>
+        <li>عام و خاص</li>
+        <li>مطلق و مقید</li>
+        <li>مجمل و مبین</li>
+        <li>دلالت نهی بر فساد</li>
+    </ul>
 
-    <h3>۵. کار حقوقدان</h3>
-    <p>منابع حقوق: <b>قانون، عرف، رویه قضایی، دکترین</b>. نخستین منبع فقه و حقوق هر دو <b>الفاظ</b> هستند.</p>
+    <h3>۵. کار حقوقدان و قیاس آن با فقیه</h3>
+    <p>کار حقوقدان، قاضی و وکیل، دقیقاً مشابه کار فقیه است. همان‌گونه که فقیه حکم شرعی را از منابع فقه استخراج می‌کند، حقوقدان نیز باید <b>احکام حقوقی را از منابع حقوق استنباط کند.</b></p>
+    <p>منابع حقوق عبارتند از:</p>
+    <ol>
+        <li><b>قانون</b></li>
+        <li><b>عرف و عادت</b></li>
+        <li><b>رویه قضایی</b></li>
+        <li><b>نظریه‌های دکترین</b></li>
+    </ol>
+    <p>نخستین منبع فقه (کتاب) و نخستین منبع حقوق (قانون)، هر دو <b>مجموعه‌ای از الفاظ</b> هستند. لذا مهم‌ترین بخش اصول فقه نیز به <b>مباحث الفاظ</b> اختصاص یافته است.</p>
+    <p>📌 <b>اصول فقه</b>، منطق اختصاصی حقوق و طریقه درست استدلال کردن و درست استنباط کردن را می‌آموزد.</p>
 
     <h3>۶. منطوق و مفهوم</h3>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>منطوق</b> معنای ظاهری، <b>مفهوم</b> معنای پنهان کلام است.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>منطوق</b>، معنای ظاهری و مستقیم کلام است که از نطق و تلفظ گوینده برداشت می‌شود.
+    </div>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>مفهوم</b>، معنای پنهان کلام است که به طور غیرمستقیم و با کمی تعقل از کلام استخراج می‌شود.
     </div>
     <div class="example-box">
         <div class="example-title">💡 مثال کلیدی:</div>
-        <p>«من تشنه‌ام»: منطوق آن اعلام تشنگی، مفهوم آن «برایم آب بیاور» است.</p>
+        <p>گوینده می‌گوید: «من تشنه‌ام».</p>
+        <ul>
+            <li><b>معنای منطوقی:</b> اعلام وضعیت تشنگی.</li>
+            <li><b>معنای مفهومی:</b> «برای من آب بیاور». این معنا به صراحت گفته نشده اما از کلام فهمیده می‌شود. <i>(توضیح: این مثال برای تقریب ذهن به بحث «مفهوم موافق» و «مفهوم مخالف» است که در ادامه اصول فقه ۱ تدریس خواهد شد.)</i></li>
+        </ul>
     </div>
 
     <hr>
 
-    <!-- ========== فصل دوم ========== -->
+    <!-- ================= فصل دوم ================= -->
     <h2>فصل دوم: حکم و اقسام آن</h2>
 
     <h3>۱. تعریف حکم</h3>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>حکم</b> دستوری از مقام صلاحیت‌دار درباره افعال انسان‌هاست.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>حکم</b> دستوری است که از مقام صلاحیت‌دار (شارع، قانونگذار یا قاضی) صادر می‌شود و موضوع آن، افعال انسان‌هاست.
     </div>
+    <ul>
+        <li>مصداق در حکم شرعی: «نماز واجب است» (حکم به وجوب).</li>
+        <li>مصداق در حکم قضایی: «محکوم‌علیه حسن، محکوم به پرداخت ۲۰۰ میلیون تومان به حسین است».</li>
+    </ul>
 
-    <h3>۲. تقسیم اول: تکلیفی و وضعی</h3>
-    <p><b>تکلیفی:</b> مستقیماً به افعال (وجوب، حرمت...). <b>وضعی:</b> غیرمستقیم (زوجیت، ملکیت...).</p>
-    <div class="trap-box">
-        <h3>🎯 تله‌های تستی</h3>
-        <ul>
-            <li><span class="golden-note">نکته طلایی:</span> در <b>تکلیفیه</b> بلوغ و عقل شرط است.</li>
-            <li><span class="golden-note">نکته طلایی:</span> در <b>وضعیه</b> بلوغ و عقل شرط نیست.</li>
-        </ul>
-    </div>
-
-    <h3>۳. تقسیم دوم: واقعی و ظاهری</h3>
-    <p><b>حکم واقعی اولی:</b> حالت عادی. <b>ثانوی:</b> اضطراری.</p>
+    <h3>۲. تقسیم اول: حکم تکلیفی و حکم وضعی</h3>
+    <h4>الف) حکم تکلیفی</h4>
     <div class="definition-card">
-        <span class="icon">📌</span> <strong>حکم ظاهری:</strong> در فرض شک و عدم دسترسی به واقع، برای رفع بلاتکلیفی صادر می‌شود.
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>احکام تکلیفی</b>، احکامی از دسته احکام شرعی هستند که مستقیماً به افعال انسان‌ها و مکلفین مربوط می‌شوند و وظایف آنها را در برابر خدا و سایر افراد جامعه مشخص می‌کنند. این احکام همان «بایدها و نبایدها» هستند.
     </div>
+    <p><b>احکام خمسه تکلیفیه</b> (پنج‌گانه) عبارتند از:</p>
+    <ol>
+        <li><b>وجوب</b> (مانند: وجوب نماز، وجوب نفقه زوج به زوجه)</li>
+        <li><b>حرمت</b> (مانند: حرمت ظلم، حرمت تصرف در مال غیر)</li>
+        <li><b>استحباب</b></li>
+        <li><b>کراهت</b></li>
+        <li><b>اباحه</b></li>
+    </ol>
 
-    <h3>۴. ادله احکام</h3>
-    <div class="trap-box">
-        <h3>🎯 تله‌های تستی</h3>
+    <h4>ب) حکم وضعی</h4>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>احکام وضعی</b>، احکامی هستند که یک وضعیت حقوقی خاص را ایجاد می‌کنند و به صورت <b>غیرمستقیم</b> به افعال انسان‌ها مربوط می‌شوند. این احکام، مستقیماً به فعل مکلف تعلق نمی‌گیرند.
+    </div>
+    <div class="example-box">
+        <div class="example-title">💡 مثال کلیدی:</div>
         <ul>
-            <li><span class="golden-note">خط قرمز آزمونی:</span> دلیل حکم ظاهری = <b>ادله فقاهتی (اصول عملیه)</b></li>
-            <li><b>اصول عملیه:</b> برائت، احتیاط، تخییر، <b>استصحاب</b> (ابقاء ما کان).</li>
+            <li><b>زوجیت:</b> یک حکم وضعی است. این وضعیت موجب می‌شود زوج به طور تکلیفی ملزم به پرداخت نفقه شود و زوجه ملزم به تمکین گردد. (تأثیر غیرمستقیم بر افعال).</li>
+            <li><b>ملکیت:</b> رابطه‌ای بین مالک و مبیع ایجاد می‌کند که به موجب آن، تصرف مالک مجاز و تصرف دیگران ممنوع می‌شود.</li>
+        </ul>
+    </div>
+    <p><b>سایر احکام وضعی (بی‌شمارند) شامل:</b> زوجیت، ملکیت، صحت، لزوم، بطلان، شرطیت، مانعیت، طهارت، نجاست، سببیت، حجیت، وکالت، ولایت، ضمانت.</p>
+
+    <h4>ج) ثمره تفکیک حکم تکلیفی و وضعی</h4>
+    <div class="trap-box">
+        <h3>🎯 تله‌های تستی و نکات ظریف</h3>
+        <ul>
+            <li><span class="golden-note">نکته طلایی:</span> در <b>احکام تکلیفیه</b>، <b>بلوغ و عقل شرط</b> است؛ یعنی حکم تکلیفی فقط شامل مکلف (بالغ و عاقل) می‌شود.</li>
+            <li><span class="golden-note">نکته طلایی:</span> در <b>احکام وضعیه</b>، بلوغ و عقل <b>شرط نیست</b>. این احکام میان مکلف و غیرمکلف (صغیر، مجنون) تفاوتی قائل نمی‌شوند.
+                <ul>
+                    <li><i>نتیجه:</i> اگر طفلی مالک چیزی باشد (حکم وضعی ملکیت)، تصرف در مال او برای هیچ‌کس جایز نیست. همچنین در بحث ارث که حکمی وضعی است، عقل و بلوغ تأثیری در تحقق آن ندارد.</li>
+                </ul>
+            </li>
         </ul>
     </div>
 
+    <h3>۳. تقسیم دوم: حکم واقعی و حکم ظاهری</h3>
+    <h4>الف) حکم واقعی</h4>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>حکم واقعی</b>، حکمی است که از جانب خداوند برای اعمال انسان‌ها از روز ازل مقرر شده است. تمام افعال انسان‌ها نزد خداوند دارای حکمی از احکام شرعی است. علم و جهل مکلف هیچ دخالتی در وجود این حکم ندارد.
+    </div>
+    <p><b>حکم واقعی خود بر دو قسم است:</b></p>
+
+    <h5>حکم واقعی اولی</h5>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>احکام واقعی اولی</b>، احکامی هستند که شارع و قانونگذار با توجه به مصالح و مفاسد واقعی و <b>در حالت عادی</b> (بدون در نظر گرفتن حالات استثنایی و اضطراری) برای مکلفین مقرر کرده است.
+    </div>
+    <div class="example-box">
+        <div class="example-title">💡 مثال کلیدی:</div>
+        <ul>
+            <li>روزه گرفتن در حالت عادی <b>واجب</b> است.</li>
+            <li>تصرف در مال غیر در حالت عادی <b>حرام</b> است.</li>
+            <li>پرداخت نفقه در حالت عادی <b>واجب</b> است.</li>
+        </ul>
+    </div>
+
+    <h5>حکم واقعی ثانوی</h5>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>حکم واقعی ثانوی</b>، حکمی است که به جهت عروض یک حالت استثنایی و اضطراری (عنوان ثانوی) جایگزین حکم اولی می‌شود.
+    </div>
+    <div class="example-box">
+        <div class="example-title">💡 مثال کلیدی:</div>
+        <ul>
+            <li><b>روزه:</b> حکم اولی آن وجوب است، اما اگر برای فرد ضرر داشته باشد (عنوان ثانوی اضطرار)، حکم ثانوی آن حرمت یا عدم وجوب است.</li>
+            <li><b>شکستن شیشه ماشین:</b> حکم اولی آن حرمت و جرم است. اما اگر برای نجات جان طفلی باشد که در حال خفگی است (عنوان ثانوی اضطرار)، این فعل <b>واجب</b> می‌شود.</li>
+            <li><b>پرداخت دین و مهریه:</b> حکم اولی آن وجوب است. اما اگر فرد <b>مُعسر</b> (ندار) باشد (عنوان ثانوی اعسار)، وجوب از او ساقط می‌شود.</li>
+        </ul>
+    </div>
+
+    <h4>ب) حکم ظاهری</h4>
+    <div class="definition-card">
+        <span class="icon">📌</span> <strong>اصطلاح:</strong> <b>حکم ظاهری</b>، حکمی است که در موارد شک و عدم دسترسی به <b>حکم واقعی</b>، برای خروج مکلف از حالت بلاتکلیفی، از طرف فقیه یا قاضی صادر می‌شود. این حکم ممکن است با حکم واقعی مطابقت نداشته باشد، اما به دلیل عدم امکان دسترسی به واقع، معتبر است.
+    </div>
+    <div class="example-box">
+        <div class="example-title">💡 مثال کلیدی:</div>
+        <p>قاضی در دعوایی به دلیل فقدان ادله کافی، در حالت <b>شک</b> به سر می‌برد. او نمی‌تواند پرونده را بلاتکلیف نگه دارد. در این حالت، با استناد به اصل برائت (یک اصل عملی)، حکم به برائت متهم صادر می‌کند. این حکم، <b>حکم ظاهری</b> است.</p>
+    </div>
+
+    <h3>۴. ادله احکام (جمع‌بندی طلایی)</h3>
+    <p>هر حکمی نیازمند دلیل است:</p>
+
+    <h4>الف) دلیل حکم واقعی: ادله اجتهادی</h4>
+    <p>منظور، ادله‌ای هستند که مجتهد برای کشف حکم واقعی به آنها رجوع می‌کند:</p>
+    <ol>
+        <li><b>کتاب</b></li>
+        <li><b>سنت</b></li>
+        <li><b>اجماع</b></li>
+        <li><b>عقل</b></li>
+    </ol>
+
+    <h4>ب) دلیل حکم ظاهری: ادله فقاهتی (اصول عملیه)</h4>
+    <div class="trap-box">
+        <h3>🎯 تله‌های تستی و نکات ظریف</h3>
+        <ul>
+            <li><span class="golden-note">خط قرمز آزمونی:</span> دلیل حکم ظاهری را <b>«ادله فقاهتی»</b> یا <b>«اصول عملیه»</b> می‌گویند. این مبحث همواره در امتحانات مورد سؤال قرار می‌گیرد.</li>
+            <li><b>اصول عملیه چهارگانه</b> عبارتند از:
+                <ol>
+                    <li><b>اصل برائت</b> <i>(توضیح هوش مصنوعی: جاری در شبهات بدوی پس از فحص)</i></li>
+                    <li><b>اصل احتیاط</b> <i>(جاری در شبهات مقرون به علم اجمالی یا در موارد دماء و فروج بنابر نظر برخی)</i></li>
+                    <li><b>اصل تخییر</b> <i>(جاری در دوران امر بین محذورین)</i></li>
+                    <li><b>اصل استصحاب</b> (به معنای «ابقاء ما کان»: حکم به بقاء آنچه بوده است)</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <div class="example-title">💡 مثال کلیدی برای اصل استصحاب:</div>
+        <p>ملکی سابقاً در مالکیت من بوده است. شخصی ادعا می‌کند که این ملک را از من خریده است، اما دلیلی ارائه نمی‌دهد. قاضی به استناد <b>اصل استصحاب</b>، حکم به بقای مالکیت سابق من می‌دهد، مگر اینکه خواهان دلیلی قطع‌آور یا ظن‌آور برای اثبات انتقال مالکیت ارائه کند. <i>(توضیح: حالت‌های ذهنی (قطع، ظن، شک، وهم) به طور کامل در اصول فقه ۲ تدریس می‌شود.)</i></p>
+    </div>
+
+    <!-- اخطار جمله‌های ناقص -->
     <div class="incomplete-warning">
-        ⚠️ جمله ناقص در متن اصلی: «پرداخت دین در حالت* ادلی* واجب...» – <b>بازبینی فایل صوتی</b>
+        ⚠️ جمله ناقص در متن اصلی: «پرداخت دین در حالت* ادلی* واجب اگر معسر بودی نداربودی واجب نیست.» – <b>نیاز به بازبینی فایل صوتی/تصویری</b>
     </div>
     <div class="incomplete-warning">
-        ⚠️ «شما رفتی دادخواست د» – <b>نیاز به بازبینی</b>
+        ⚠️ جمله ناقص در ابتدای متن اصلی: «شما رفتی دادخواست د» – <b>نیاز به بازبینی فایل صوتی/تصویری</b>
     </div>
 
     <hr>
 
-    <!-- ========== چکیده پایانی ========== -->
+    <!-- ================= چکیده استراتژیک ================= -->
     <div class="summary-section">
         <h3 style="color:#3f3321; margin-top:0;">🧠 چکیده استراتژیک جلسه</h3>
-        <p><b>موضوع مشترک</b> فقه و حقوق «افعال مکلفین» است. دو تقسیم کلیدی حکم: <b>تکلیفی/وضعی</b> (ثمره در شرط بلوغ) و <b>واقعی/ظاهری</b> (نقش اصول عملیه). اصول فقه = منطق استدلال حقوقی.</p>
+        <p>در این جلسه، بنیان‌های معرفت‌شناختی اصول فقه و نسبت آن با علم حقوق تبیین شد. نخست، موضوع مشترک فقه و حقوق (افعال مکلفین) و تشابه کار فقیه و حقوقدان در «استنباط حکم از منابع» را آموختیم. سپس به تعریف حکم و دو تقسیم‌بندی بنیادین آن پرداخته شد: <b>تقسیم نخست</b> (تکلیفی در برابر وضعی) که ثمره آن در شرطیت بلوغ و عقل منحصراً در احکام تکلیفیه است و برای تست‌ها حیاتی است؛ و <b>تقسیم دوم</b> (واقعی در برابر ظاهری) که مشخص می‌کند در غیاب ادله اجتهادی، چگونه اصول عملیه (ادله فقاهتی) مکلف را از بلاتکلیفی نجات می‌دهند. دستاورد اصلی این جلسه، درک ساختار «منابع» و «ادله» به عنوان مواد خام، و «اصول» به عنوان ابزار استخراج حکم است.</p>
     </div>
 
-    <!-- 
+    <!--
     ////////////////////////////////////////////////////////////////
-    📌 [کامنت فارسی راهنما برای افزودن جلسه بعدی]
+    📌 [کامنت فارسی راهنما برای افزودن جلسات بعدی]
     ////////////////////////////////////////////////////////////////
-    ✍️ برای جلسه دوم، یک سکشن جدید دقیقاً همینجا (بعد از چکیده
-    و قبل از بسته شدن .lesson-container) باز کنید:
+    ✍️ برای افزودن جلسه دوم، یک <section> جدید دقیقاً همینجا
+    (پیش از بسته شدن </div> اصلی) ایجاد کنید:
     
     <section class="session-block" id="session-2">
-        <h2>جلسه دوم: عنوان دقیق جلسه</h2>
-        ... (محتوای استاندارد با کارت‌های تعریف و مثال)
+        <h2>جلسه دوم: عنوان جلسه</h2>
+        ... (محتوای درسنامه با همان کارت‌های تعریف و مثال)
     </section>
     
-    می‌توانید از همان ساختار <div class="definition-card"> و
-    <div class="example-box"> استفاده کنید. استایل‌ها خودکار
-    و یکسان اعمال می‌شوند. برای جلسات بعدی هم به همین ترتیب.
+    می‌توانید از همین ساختار استفاده کنید. تمام استایل‌ها
+    به صورت خودکار و یکپارچه اعمال می‌شوند.
     ////////////////////////////////////////////////////////////////
     -->
 
 </div> <!-- پایان lesson-container -->
-
 </body>
 </html>
