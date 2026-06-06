@@ -3,392 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📌 جلسه اول اصول فقه | نقشه ذهنی و ابزار حفظ</title>
-    <!-- فونت وزیرمتن -->
+    <title>جلسه اول اصول فقه کاربردی | یادگیرانه</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         :root {
-            --bg: #f5f7fb;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --text-soft: #475569;
-            --border: #e2e8f0;
+            --bg: #ffffff;
+            --surface: #f9fafb;
+            --text: #111827;
+            --text-secondary: #4b5563;
+            --border: #e5e7eb;
             --accent: #0f766e;
-            --accent-light: #ccfbf1;
-            --warning: #b45309;
-            --warning-bg: #fffbeb;
-            --danger: #b91c1c;
-            --danger-bg: #fef2f2;
-            --primary: #1d4ed8;
-            --primary-light: #e0e7ff;
-            --shadow: 0 6px 18px rgba(0,0,0,0.05);
-            --toggle-bg: #e2e8f0;
-            --table-stripe: #f8fafc;
-            --mind-bg: #f0fdf4;
+            --accent-bg: #f0fdfa;
+            --accent-border: #99f6e4;
+            --red: #b91c1c;
+            --red-bg: #fef2f2;
+            --red-border: #fecaca;
+            --amber: #92400e;
+            --amber-bg: #fffbeb;
+            --amber-border: #fde68a;
+            --blue: #1d4ed8;
+            --blue-bg: #eff6ff;
+            --blue-border: #bfdbfe;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --radius: 12px;
         }
-
         .dark-mode {
             --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text: #e2e8f0;
-            --text-soft: #94a3b8;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
             --border: #334155;
             --accent: #2dd4bf;
-            --accent-light: #0f2b2f;
-            --warning: #fcd34d;
-            --warning-bg: #2d2a17;
-            --danger: #fca5a5;
-            --danger-bg: #2d1b1b;
-            --primary: #60a5fa;
-            --primary-light: #1a2b4a;
-            --shadow: 0 6px 18px rgba(0,0,0,0.4);
-            --toggle-bg: #334155;
-            --table-stripe: #253449;
-            --mind-bg: #162b1b;
+            --accent-bg: #0f2b2a;
+            --accent-border: #134e4a;
+            --red: #fca5a5;
+            --red-bg: #2d1a1a;
+            --red-border: #7f1d1d;
+            --amber: #fcd34d;
+            --amber-bg: #2d2510;
+            --amber-border: #78350f;
+            --blue: #60a5fa;
+            --blue-bg: #1a2740;
+            --blue-border: #1e3a5f;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: 'Vazirmatn', sans-serif;
             background: var(--bg);
             color: var(--text);
-            padding: 20px 16px;
-            line-height: 1.85;
-            transition: background 0.3s, color 0.3s;
-        }
-        .container { max-width: 800px; margin: 0 auto; }
-
-        /* دکمه تم */
-        .theme-toggle {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-        .theme-btn {
-            background: var(--toggle-bg);
-            border: 1px solid var(--border);
-            padding: 10px 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--text);
-            font-family: 'Vazirmatn', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .theme-btn:hover { opacity: 0.8; }
-
-        /* کارت‌ها */
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .card h3 { font-size: 1.2rem; margin: 16px 0 8px; }
-        .highlight {
-            background: var(--accent-light);
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 16px 0;
-            border-right: 4px solid var(--accent);
-            font-weight: 600;
-        }
-        .danger-box {
-            background: var(--danger-bg);
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 16px 0;
-            border-right: 4px solid var(--danger);
-        }
-        .warning-box {
-            background: var(--warning-bg);
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 16px 0;
-            border-right: 4px solid var(--warning);
-        }
-
-        /* جداول */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 0.9rem;
-        }
-        th {
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 12px;
-            text-align: center;
-            font-weight: 800;
-            border: 1px solid var(--border);
-        }
-        td {
-            padding: 10px 12px;
-            border: 1px solid var(--border);
-            text-align: center;
-            vertical-align: middle;
-        }
-        tr:nth-child(even) td {
-            background: var(--table-stripe);
-        }
-
-        /* تصویرسازی ذهنی (تمثیل) */
-        .metaphor {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin: 16px 0;
+            line-height: 2;
             padding: 16px;
-            background: var(--mind-bg);
-            border-radius: 16px;
-            border: 1px dashed var(--accent);
+            transition: background 0.3s, color 0.3s;
+            font-size: 15px;
         }
-        .metaphor span { font-size: 2rem; }
-
-        /* کدواژه‌ها */
-        .keyword {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 700;
-            margin: 4px 4px;
-            font-size: 0.85rem;
-            letter-spacing: -0.3px;
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        /* لیست شمارشی با استایل */
-        ol.styled { padding-right: 24px; }
-        ol.styled li { margin-bottom: 12px; }
-
-        /* دکمه بازشو */
-        .accordion-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            width: 100%;
-            text-align: right;
-            padding: 14px 18px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 12px;
-            color: var(--text);
-            font-family: 'Vazirmatn', sans-serif;
-            transition: 0.2s;
+        /* header */
+        .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4px;
         }
-        .accordion-btn:hover { background: var(--bg); }
-        .accordion-content {
-            display: none;
-            padding: 16px;
+        .page-header h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .page-header .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+        .toggle-btn {
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 12px 12px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
         }
-        .accordion-content.show { display: block; }
+        .toggle-btn:hover {
+            background: var(--border);
+        }
 
-        @media (max-width: 480px) {
-            .card h2 { font-size: 1.2rem; }
-            table { font-size: 0.75rem; }
+        /* sections */
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            box-shadow: var(--shadow-sm);
+        }
+        section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        section h2 .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        section h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 16px 0 8px;
+            color: var(--text);
+        }
+        section p {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        section p strong {
+            color: var(--text);
+        }
+
+        /* tables */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 14px 0;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 500px;
+        }
+        th {
+            background: var(--accent-bg);
+            color: var(--accent);
+            font-weight: 700;
+            padding: 10px 12px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-border);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        td {
+            padding: 9px 12px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+            color: var(--text-secondary);
+        }
+        td strong {
+            color: var(--text);
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* callout boxes */
+        .callout {
+            margin: 14px 0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.9;
+        }
+        .callout.info {
+            background: var(--blue-bg);
+            border: 1px solid var(--blue-border);
+            color: var(--blue);
+        }
+        .callout.warn {
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            color: var(--amber);
+        }
+        .callout.danger {
+            background: var(--red-bg);
+            border: 1px solid var(--red-border);
+            color: var(--red);
+        }
+        .callout.accent {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+        }
+        .callout strong {
+            color: inherit;
+        }
+
+        /* flow */
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 14px;
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            margin: 14px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .flow .step {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+        .flow .arrow {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .flow .result {
+            background: var(--blue-bg);
+            border: 1px solid var(--blue-border);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: var(--blue);
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* comparison grid */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 14px 0;
+        }
+        @media (max-width: 500px) {
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 0.75rem;
+            }
+        }
+        .compare-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            background: var(--bg);
+        }
+        .compare-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .compare-card ul {
+            list-style: none;
+            padding: 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .compare-card ul li {
+            margin-bottom: 6px;
+            padding-right: 14px;
+            position: relative;
+        }
+        .compare-card ul li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* keywords */
+        .kw {
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 1px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .kw-red {
+            font-weight: 700;
+            color: var(--red);
+            background: var(--red-bg);
+            padding: 1px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* mindmap block */
+        .mind-block {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 14px 0;
+            font-family: 'Vazirmatn', monospace;
+            direction: rtl;
+            text-align: right;
+            line-height: 2.3;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .mind-block strong {
+            color: var(--text);
+        }
+
+        /* tip footer */
+        .tip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .tip-tag {
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            color: var(--amber);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="theme-toggle">
-            <button class="theme-btn" onclick="toggleTheme()">
-                <span id="themeIcon">🌙</span> حالت شب
+
+        <!-- سربرگ -->
+        <div class="page-header">
+            <div>
+                <h1>اصول فقه کاربردی · جلسه اول</h1>
+                <span class="subtitle">جایگاه و ضرورت علم اصول فقه · منبع: دکتر قافی و دکتر شریعتی، انتشارات سمت</span>
+            </div>
+            <button class="toggle-btn" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span> شب
             </button>
         </div>
 
-        <!-- تیتر اصلی -->
-        <div class="card" style="text-align:center;">
-            <h1 style="font-size:2rem;">🧠 نقشه ذهنی جلسه اول اصول فقه</h1>
-            <p style="color:var(--text-soft);">منطق اختصاصی حقوق · موضوع: افعال مکلفین · استنباط حکم</p>
-        </div>
-
-        <!-- ۱. تمثیل استنباط -->
-        <div class="card">
-            <h2>💧 تمثیل مرکزی: استنباط = کشیدن آب از چاه</h2>
-            <div class="metaphor">
-                <span>🪣</span> دلو (اصول فقه) <span>⬇️</span>
-                <span>🕳️</span> چاه (قرآن و سنت) <span>➡️</span>
-                <span>💎</span> آب زلال (حکم شرعی)
+        <!-- ۱. چیستی اصول فقه -->
+        <section>
+            <h2><span class="num">۱</span> چیستیِ اصول فقه: منطقِ حقوق</h2>
+            <p>
+                در همه‌ی علوم، یک <strong>منطق عمومی</strong> داریم که شیوه‌ی درست اندیشیدن را می‌آموزد.
+                هر رشته هم یک <strong>منطق خصوصی</strong> دارد مخصوصِ خودش.
+                <span class="kw">اصول فقه</span> دقیقاً <strong>منطقِ خصوصیِ علم حقوق</strong> است؛
+                یعنی مجموعه‌قواعدی که ذهنِ حقوقدان را از خطا در استدلال بازمی‌دارد.
+            </p>
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <h4>منطق عمومی</h4>
+                    <ul>
+                        <li>در همه‌ی علوم کاربرد دارد</li>
+                        <li>شیوه‌ی درست فکر کردن می‌آموزد</li>
+                        <li>در دبیرستان تدریس می‌شود</li>
+                    </ul>
+                </div>
+                <div class="compare-card">
+                    <h4>منطق خصوصی (اصول فقه)</h4>
+                    <ul>
+                        <li>مختصّ علم حقوق و فقه است</li>
+                        <li>شیوه‌ی درست <strong>استنباط</strong> کردن می‌آموزد</li>
+                        <li>ابزارِ کارِ قاضی، وکیل و فقیه است</li>
+                    </ul>
+                </div>
             </div>
-            <p><span class="keyword">استنباط</span> از ریشه «نَبَطَ» به معنی <strong>بیرون کشیدن آب</strong> از اعماق است. فقیه با ابزار <span class="keyword">اصول فقه</span> حکم را از منابع استخراج می‌کند.</p>
-            <div class="highlight">
-                🧠 **رمز حفظ:** هر وقت کلمه «استنباط» را دیدی، تصویر «سطل و چاه» را به یاد بیاور.
-            </div>
-        </div>
+        </section>
 
-        <!-- ۲. مقایسه فقه و حقوق -->
-        <div class="card">
-            <h2>⚖️ مقایسه فقه و حقوق (موضوع مشترک، هدف متفاوت)</h2>
-            <table>
-                <tr><th>ویژگی</th><th>فقه</th><th>حقوق</th></tr>
-                <tr><td>📌 موضوع</td><td colspan="2" style="font-weight:800;">افعال مکلفین (انسان بالغ و عاقل)</td></tr>
-                <tr><td>🎯 هدف (غایت)</td><td>استخراج <strong>حکم شرعی</strong></td><td>استنباط <strong>حکم حقوقی</strong></td></tr>
-                <tr><td>📚 منابع</td><td>کتاب، سنت، اجماع، عقل</td><td>قانون، عرف، رویه قضایی، دکترین</td></tr>
-            </table>
-            <div class="highlight">
-                💡 **کد طلایی:** هر دو برای «آدم بزرگ‌ها» (مکلفین) قانون می‌نویسند؛ فقط ابزار و منبعشان فرق دارد.
+        <!-- ۲. موضوع فقه و حقوق -->
+        <section>
+            <h2><span class="num">۲</span> موضوع مشترک فقه و حقوق: افعال مکلفین</h2>
+            <p>
+                <span class="kw">مکلّف</span> یعنی انسانِ <strong>بالغ و عاقل</strong> که تکلیف متوجه او می‌شود.
+                افعالِ کسی که تکلیف ندارد (مثلاً کودکِ دو ساله) موضوع این دو علم نیست.
+                فقه و حقوق هر دو به <strong>رفتارِ انسانِ مکلّف</strong> می‌پردازند،
+                امّا <strong>منبع</strong> و <strong>غایت</strong>شان متفاوت است:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>ویژگی</th><th>علم فقه</th><th>علم حقوق</th></tr>
+                    <tr><td>موضوع</td><td colspan="2"><strong>افعال مکلفین</strong> (انسان بالغ و عاقل)</td></tr>
+                    <tr><td>هدف</td><td>استخراج <strong>حکم شرعی</strong></td><td>استنباط <strong>حکم حقوقی</strong></td></tr>
+                    <tr><td>منابع</td><td>کتاب، سنّت، اجماع، عقل</td><td>قانون، عرف، رویه قضایی، دکترین</td></tr>
+                </table>
             </div>
-        </div>
+        </section>
 
-        <!-- ۳. دو تقسیم‌بندی اصلی حکم -->
-        <div class="card">
-            <h2>🔀 دو تقسیم‌بندی طلایی «حکم»</h2>
-            <p>حکم در اصول فقه به دو شکل کاملاً متفاوت دسته‌بندی می‌شود. این دو را با هم قاطی نکنید:</p>
+        <!-- ۳. فرایند استنباط -->
+        <section>
+            <h2><span class="num">۳</span> استنباط: کشیدنِ حکم از دلِ منابع</h2>
+            <p>
+                <span class="kw">استنباط</span> از ریشه‌ی «نَبَط» به معنی
+                <strong>بیرون کشیدن آب زلال از ته چاه با دَلو و طناب</strong> است.
+                فقیه با دَلوی به نام <strong>اصول فقه</strong>، آبِ زلالِ «حکم شرعی» را
+                از چاهِ عمیقِ «قرآن و سنّت» بالا می‌کشد.
+            </p>
+            <div class="flow">
+                <span class="step">منبع (آیه/روایت/ماده قانونی)</span>
+                <span class="arrow">←</span>
+                <span class="step">قاعده اصولی (کبرای قیاس)</span>
+                <span class="arrow">→</span>
+                <span class="result">حکم شرعی/حقوقی</span>
+            </div>
+            <div class="callout accent">
+                <strong>مثالِ کلیدی:</strong>
+                از آیه‌ی «أَقِمِ الصَّلَاةَ» وجوبِ نماز را این‌گونه استنباط می‌کنیم:<br>
+                صغرای قیاس: «أَقِم» فعل امر است.<br>
+                <strong>کبرای قیاس: هر فعل امری ظهور در وجوب دارد</strong> (قاعده‌ای از مبحث اوامر در اصول فقه).<br>
+                نتیجه: نماز واجب است.
+            </div>
+        </section>
+
+        <!-- ۴. منطوق و مفهوم -->
+        <section>
+            <h2><span class="num">۴</span> منطوق و مفهوم (پیش‌نمایش مباحث الفاظ)</h2>
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <h4>منطوق</h4>
+                    <ul>
+                        <li>معنای <strong>ظاهری و مستقیم</strong> کلام</li>
+                        <li>از تلفّظ جمله فوراً فهمیده می‌شود</li>
+                        <li>نیازی به تعقّل ندارد</li>
+                    </ul>
+                </div>
+                <div class="compare-card">
+                    <h4>مفهوم</h4>
+                    <ul>
+                        <li>معنای <strong>پنهان و غیرمستقیم</strong> کلام</li>
+                        <li>با کمی تأمّل و تعقّل به دست می‌آید</li>
+                        <li>همان «حرفِ پشتِ حرف» است</li>
+                    </ul>
+                </div>
+            </div>
+            <p><strong>مثال:</strong> جمله‌ی «من تشنه‌ام» → منطوق: احساس تشنگی دارم. مفهوم: برایم آب بیاور.</p>
+        </section>
+
+        <!-- ۵. تعریف حکم -->
+        <section>
+            <h2><span class="num">۵</span> تعریف «حکم» و دو تقسیمِ اصلی آن</h2>
+            <p>
+                <span class="kw">حکم</span> در این درس یعنی <strong>دستوری که از یک مقام صلاحیت‌دار</strong>
+                (شارع، قانون‌گذار، قاضی) صادر شده و موضوعش <strong>افعال انسان‌ها</strong>ست.
+            </p>
 
             <!-- تقسیم اول: تکلیفی و وضعی -->
-            <h3>۱. حکم تکلیفی 🆚 حکم وضعی</h3>
-            <table>
-                <tr><th>حکم تکلیفی (باید/نباید)</th><th>حکم وضعی (رابطه/وضعیت)</th></tr>
-                <tr>
-                    <td>مستقیماً به فعل مکلف می‌خورد</td>
-                    <td>غیرمستقیم به فعل مربوط می‌شود</td>
-                </tr>
-                <tr>
-                    <td><span class="keyword">منحصر در ۵ مورد</span><br>(وجوب، حرمت، استحباب، کراهت، اباحه)</td>
-                    <td><span class="keyword">نامحدود</span><br>(زوجیت، ملکیت، طهارت، ضمان، ولایت...)</td>
-                </tr>
-                <tr>
-                    <td style="background:var(--danger-bg);">❌ شرط: <strong>بلوغ و عقل</strong></td>
-                    <td style="background:var(--accent-light);">✅ بدون شرط بلوغ و عقل<br>(کودک هم مالک می‌شود)</td>
-                </tr>
-            </table>
-            <div class="danger-box">
-                ⚠️ **تله تستی:** «کودک نمی‌تواند مالک شود» ← غلط است! احکام وضعی (مثل ملکیت) برای کودک نیز جاری است.
+            <h3>تقسیم اول: حکم تکلیفی در برابر حکم وضعی</h3>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>حکم تکلیفی</th><th>حکم وضعی</th></tr>
+                    <tr>
+                        <td><strong>مستقیماً</strong> به فعل مکلّف تعلّق می‌گیرد</td>
+                        <td><strong>غیرمستقیم</strong> به فعل مربوط می‌شود (یک وضعیت حقوقی می‌سازد)</td>
+                    </tr>
+                    <tr>
+                        <td>همان «بایدها و نبایدها»ست</td>
+                        <td>همان «رابطه‌ها و وضعیت‌ها»ست</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kw-red">منحصر در ۵ حکم:</span> وجوب، حرمت، استحباب، کراهت، اباحه</td>
+                        <td><span class="kw">نامحدود:</span> زوجیت، ملکیت، طهارت، نجاست، ضمان، ولایت، وکالت، شرطیت، مانعیت، سببیت، صحت، بطلان، لزوم...</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kw-red">شرط: بلوغ و عقل</span> (کودک و مجنون مکلّف نیستند)</td>
+                        <td><span class="kw">بدون شرط بلوغ و عقل</span> (کودک هم مالک می‌شود، ارث می‌برد)</td>
+                    </tr>
+                </table>
             </div>
-            <div class="highlight">
-                🖐️ **انگشت‌شمار:** تکلیفی = ۵ انگشت. وضعی = بی‌نهایت (∞). هر وقت عدد ۵ آمد، تکلیفی است.
+            <div class="callout danger">
+                <strong>ثمره‌ی حیاتی این تفکیک:</strong>
+                در احکام وضعی، <strong>بلوغ و عقل شرط نیست</strong>.
+                کودک صغیر می‌تواند مالک شود و تصرّف دیگران در مال او حرام است.
+                ارث هم که حکمی وضعی است، به صغیر و مجنون هم تعلّق می‌گیرد.
             </div>
+            <p><strong>مثال برای زوجیت (حکم وضعی):</strong> رابطه‌ی زوجیت خودش یک «باید» نیست،
+            امّا از دل آن <strong>احکام تکلیفی</strong> زاده می‌شود: وجوبِ نفقه بر زوج، وجوبِ تمکین بر زوجه.</p>
+            <p><strong>مثال برای ملکیت (حکم وضعی):</strong> مالکیتِ من بر خودرویم یک وضعیت است.
+            از آن، <strong>اباحه‌ی تصرّف</strong> برای من و <strong>حرمت تصرّف</strong> برای دیگران ناشی می‌شود.</p>
 
             <!-- تقسیم دوم: واقعی و ظاهری -->
-            <h3>۲. حکم واقعی 🆚 حکم ظاهری</h3>
-            <table>
-                <tr><th>حکم واقعی</th><th>حکم ظاهری</th></tr>
-                <tr>
-                    <td>از ابتدا نزد خداوند مقرر است</td>
-                    <td>وقتی به واقعی دسترسی نداریم صادر می‌شود</td>
-                </tr>
-                <tr>
-                    <td>علم و جهل ما تأثیر ندارد</td>
-                    <td>برای <strong>رفع تحیّر</strong> و خروج از بلاتکلیفی</td>
-                </tr>
-                <tr>
-                    <td>دلیل: <span class="keyword">ادله اجتهادی</span> (کتاب، سنت، اجماع، عقل)</td>
-                    <td>دلیل: <span class="keyword">ادله فقاهتی / اصول عملیه</span> (برائت، احتیاط، تخییر، استصحاب)</td>
-                </tr>
-            </table>
-            <p><strong>حکم واقعی</strong> خود دو شاخه دارد:</p>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom:8px;">🔹 <span class="keyword">اولی</span> = حالت عادی (مثال: روزه واجب است)</li>
-                <li style="margin-bottom:8px;">🔸 <span class="keyword">ثانوی</span> = حالت اضطراری (مثال: روزه در بیماری حرام می‌شود)</li>
-            </ul>
-            <div class="highlight">
-                📌 **جمله‌ی طلایی:** «واقعی = خورشید (هست، چه بدانی چه ندانی)» | «ظاهری = چراغ قوه (وقتی تاریک است روشن می‌کنی)»
+            <h3>تقسیم دوم: حکم واقعی در برابر حکم ظاهری</h3>
+            <p>
+                تمام افعال انسان‌ها نزد خداوند یک <strong>حکم معیّن</strong> دارد که
+                <span class="kw">حکم واقعی</span> نامیده می‌شود. علم یا جهلِ مکلّف هیچ تأثیری در آن ندارد.
+                امّا گاهی فقیه یا قاضی <strong>به این حکم واقعی دسترسی ندارد</strong>
+                و نمی‌تواند مکلّف را بلاتکلیف رها کند.
+                در این حالت، برای <strong>رفع تحیّر</strong>، <span class="kw">حکم ظاهری</span> صادر می‌کند.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>نوع حکم</th><th>ویژگی</th><th>دلیل اثبات</th></tr>
+                    <tr>
+                        <td><strong>حکم واقعی اولی</strong></td>
+                        <td>حکم در <strong>حالت عادی</strong>، با توجّه به مصالح و مفاسد واقعی</td>
+                        <td rowspan="2"><span class="kw">ادله اجتهادی:</span> کتاب، سنّت، اجماع، عقل</td>
+                    </tr>
+                    <tr>
+                        <td><strong>حکم واقعی ثانوی</strong></td>
+                        <td>حکم در <strong>حالت اضطراری و استثنایی</strong> (عروض عسر، حرج، ضرر، اضطرار)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>حکم ظاهری</strong></td>
+                        <td>حکم در <strong>مقام شک و ناآگاهی</strong>، برای خروج از بلاتکلیفی</td>
+                        <td><span class="kw">ادله فقاهتی (اصول عملیه):</span> برائت، احتیاط، تخییر، استصحاب</td>
+                    </tr>
+                </table>
             </div>
-        </div>
+            <p><strong>مثال برای اولی و ثانوی:</strong> روزه در ماه رمضان <strong>واجب</strong> است (حکم اولی).
+            همین روزه اگر برای شخص ضرر جانی داشته باشد <strong>حرام</strong> می‌شود (حکم ثانوی).
+            شکستن شیشه‌ی ماشین دیگری در حالت عادی <strong>حرام</strong> است (اولی)،
+            امّا برای نجات جان یک کودک از خفگی <strong>واجب</strong> می‌شود (ثانوی).</p>
+            <p><strong>مثال برای ظاهری:</strong> در دعوای مالکیت، قاضی نمی‌داند ملک واقعاً به چه کسی تعلّق دارد.
+            با استناد به <strong>اصل استصحاب</strong> (ابقاء ما کان) حکم به بقای مالکیتِ سابق می‌دهد.
+            این یک <strong>حکم ظاهری</strong> است؛ ممکن است در واقع خلافش باشد،
+            امّا قاضی تمام تلاش خود را برای کشف واقع کرده و حالا باید پرونده را مختومه کند.</p>
+        </section>
 
-        <!-- ۴. جدول ادله (بسیار مهم) -->
-        <div class="card">
-            <h2>📖 جدول ادله احکام (شکار همیشگی تست‌ها)</h2>
-            <table>
-                <tr><th>نوع حکم</th><th>نام دلیل</th><th>مصادیق</th></tr>
-                <tr>
-                    <td style="font-weight:800;">حکم واقعی</td>
-                    <td>ادله اجتهادی</td>
-                    <td><span class="keyword">ک</span>تاب، <span class="keyword">س</span>نت، <span class="keyword">ا</span>جماع، <span class="keyword">ع</span>قل</td>
-                </tr>
-                <tr>
-                    <td style="font-weight:800;">حکم ظاهری</td>
-                    <td>ادله فقاهتی (اصول عملیه)</td>
-                    <td>برائت، احتیاط، تخییر، استصحاب</td>
-                </tr>
-            </table>
-            <div class="highlight">
-                🔑 **رمز حفظ با حروف اول:** «ک س ا ع» مثل اسم یک گروه ۴ نفره برای ادله اجتهادی. چهار اصل عملی را هم به صورت «ب – ا – ت – ا» (برائت، احتیاط، تخییر، استصحاب) زمزمه کن.
+        <!-- ۶. جدول ادله -->
+        <section>
+            <h2><span class="num">۶</span> نقشه‌ی ادله: کدام دلیل برای کدام حکم؟</h2>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>نوع حکم</th><th>نام دسته‌ی ادله</th><th>مصادیق</th></tr>
+                    <tr>
+                        <td><strong>حکم واقعی</strong> (اولی و ثانوی)</td>
+                        <td><strong>ادله‌ی اجتهادی</strong></td>
+                        <td>۱. کتاب (قرآن) &nbsp; ۲. سنّت (روایات) &nbsp; ۳. اجماع &nbsp; ۴. عقل</td>
+                    </tr>
+                    <tr>
+                        <td><strong>حکم ظاهری</strong></td>
+                        <td><strong>ادله‌ی فقاهتی</strong> (اصول عملیه)</td>
+                        <td>۱. اصل برائت &nbsp; ۲. اصل احتیاط &nbsp; ۳. اصل تخییر &nbsp; ۴. اصل استصحاب</td>
+                    </tr>
+                </table>
             </div>
-        </div>
-
-        <!-- ۵. مثال‌های کلیدی با داستان -->
-        <div class="card">
-            <h2>📝 مثال‌های فراموش‌نشدنی</h2>
-            <ol class="styled">
-                <li><strong>استنباط وجوب نماز:</strong> «اَقِمِ الصَّلاهَ» ← فعل امر ← <em>هر امری ظهور در وجوب دارد</em> ← نماز واجب است.</li>
-                <li><strong>زوجیت (وضعی) و نفقه (تکلیفی):</strong> ازدواج (وضعی) یک رابطه می‌سازد؛ از دل آن «وجوب پرداخت نفقه» (تکلیفی) بیرون می‌آید.</li>
-                <li><strong>کودک و ارث:</strong> کودک صغیر ارث می‌برد (حکم وضعی بدون شرط بلوغ).</li>
-                <li><strong>شکستن شیشه ماشین:</strong> در حالت عادی حرام (اولی)؛ برای نجات جان کودک واجب می‌شود (ثانوی).</li>
-                <li><strong>دعوای مالکیت و استصحاب:</strong> قاضی با استصحاب (ابقاء ما کان) حکم به بقای مالکیت سابق می‌دهد.</li>
-            </ol>
-            <div class="warning-box">
-                🧠 **تکنیک حفظ:** هر مثال را با یک تصویر ذهنی عجیب ترکیب کن. مثلاً «کودکی که یک گاو بزرگ (ملکیت) را بغل کرده» تا فراموش نکنی کودک مالک می‌شود.
+            <div class="callout warn">
+                <strong>هشدار تستی:</strong> جابه‌جایی این دو ردیف یکی از رایج‌ترین تله‌های امتحانی است.
+                <strong>ادله‌ی اجتهادی → حکم واقعی</strong> /
+                <strong>ادله‌ی فقاهتی (اصول عملیه) → حکم ظاهری</strong>.
+                این را با تکرارِ «اجتهادی = واقعی» و «فقاهتی = ظاهری» ملکه‌ی ذهن کن.
             </div>
-        </div>
+        </section>
 
-        <!-- ۶. مایندمپ نهایی -->
-        <div class="card">
-            <h2>🗺️ مایندمپ نهایی جلسه اول</h2>
-            <pre style="background:var(--mind-bg); padding:16px; border-radius:12px; overflow-x:auto; font-family:'Vazirmatn',monospace; direction:rtl; text-align:right;">
-📘 اصول فقه (منطق حقوق)
+        <!-- ۷. نقشه‌ی ذهنی جامع -->
+        <section>
+            <h2><span class="num">۷</span> نقشه‌ی ذهنی کامل جلسه‌ی اول</h2>
+            <div class="mind-block">
+<strong>📘 اصول فقه</strong> = منطقِ خصوصیِ حقوق (ابزارِ استنباط)
 │
-├── 🎯 موضوع: افعال مکلفین
+├── <strong>📌 موضوع:</strong> افعالِ مکلّفین (انسان بالغ و عاقل)
+│     ├── فقه: استخراج حکم شرعی از کتاب، سنّت، اجماع، عقل
+│     └── حقوق: استنباط حکم حقوقی از قانون، عرف، رویه، دکترین
 │
-├── 🪣 فرایند: استنباط (سطل و چاه)
-│       ├── منبع: کتاب و سنت / قانون
-│       └── ابزار: قواعد اصولی (کبرای قیاس)
+├── <strong>🪣 استنباط</strong> = بیرون کشیدن حکم از دل منابع (تمثیل: دَلو و چاه)
+│     └── قاعده‌ی اصولی = کبرای قیاس (مثال: «امر ظهور در وجوب دارد»)
 │
-├── ⚖️ تقسیم اول: تکلیفی / وضعی
-│       ├── تکلیفی: ۵ تا (واجب، حرام، مستحب، مکروه، مباح) | شرط بلوغ و عقل
-│       └── وضعی: بی‌نهایت (ملکیت، زوجیت...) | بدون شرط بلوغ
+├── <strong>⚖️ تقسیم اوّلِ حکم:</strong> تکلیفی / وضعی
+│     ├── تکلیفی: ۵ مورد (واجب، حرام، مستحب، مکروه، مباح) ← <strong>شرط: بلوغ و عقل</strong>
+│     └── وضعی: نامحدود (زوجیت، ملکیت، ضمان، طهارت...) ← <strong>بدون شرط بلوغ و عقل</strong>
 │
-└── 🌐 تقسیم دوم: واقعی / ظاهری
-        ├── واقعی اولی (عادی) و ثانوی (اضطراری) | دلیل: اجتهادی (ک س ا ع)
-        └── ظاهری (در زمان شک) | دلیل: فقاهتی (برائت، احتیاط، تخییر، استصحاب)
-            </pre>
-        </div>
+├── <strong>🌐 تقسیم دومِ حکم:</strong> واقعی / ظاهری
+│     ├── واقعی اولی (حالت عادی)  ← دلیل: ادله‌ی اجتهادی (ک س ا ع)
+│     ├── واقعی ثانوی (حالت اضطراری) ← دلیل: ادله‌ی اجتهادی
+│     └── ظاهری (مقام شک و تحیّر) ← دلیل: ادله‌ی فقاهتی (برائت، احتیاط، تخییر، استصحاب)
+│
+└── <strong>📖 منطوق و مفهوم:</strong>
+      ├── منطوق = معنای ظاهری و مستقیم
+      └── مفهوم = معنای پنهان و غیرمستقیم
+            </div>
+        </section>
 
-        <!-- آکاردئون سوالات متداول -->
-        <div class="card">
-            <h2>❓ سوالات متداول ذهنی</h2>
-            <button class="accordion-btn" onclick="toggleAccordion('acc1')">چرا کودک مالک می‌شود اما نماز بر او واجب نیست؟ <span>➕</span></button>
-            <div class="accordion-content" id="acc1">
-                <p>مالکیت یک <strong>حکم وضعی</strong> است که شرط بلوغ و عقل ندارد. نماز یک <strong>حکم تکلیفی</strong> است که مشروط به بلوغ و عقل می‌باشد.</p>
+        <!-- ۸. تله‌های تستی -->
+        <section>
+            <h2><span class="num">۸</span> پنج تله‌ی تستی که باید بشناسید</h2>
+            <div class="tip-row">
+                <span class="tip-tag">۱. منطق عمومی ≠ منطق خصوصی</span>
+                <span class="tip-tag">۲. بلوغ و عقل فقط در احکام تکلیفی شرط است</span>
+                <span class="tip-tag">۳. حکم اولی ≠ حکم ثانوی (ثانوی فقط در حالت اضطرار)</span>
+                <span class="tip-tag">۴. ادله‌ی اجتهادی ← واقعی / ادله‌ی فقاهتی ← ظاهری</span>
+                <span class="tip-tag">۵. استنباط = دلو و چاه (تمثیل را به خاطر بسپارید)</span>
             </div>
-            <button class="accordion-btn" onclick="toggleAccordion('acc2')">فرق حکم اولی و ثانوی را با یک مثال بگو. <span>➕</span></button>
-            <div class="accordion-content" id="acc2">
-                <p>روزه در ماه رمضان <strong>واجب</strong> است (حکم اولی). اما اگر روزه گرفتن برای کسی ضرر جانی داشته باشد، <strong>حرام</strong> می‌شود (حکم ثانوی).</p>
+            <div class="callout danger" style="margin-top:14px;">
+                <strong>پرتکرارترین تله:</strong>
+                سؤال می‌دهند: «کودکِ پنج ساله مالک می‌شود؟» پاسخ: <strong>بله</strong>، چون ملکیت
+                <strong>حکم وضعی</strong> است و شرط بلوغ ندارد.
+                بلافاصله سراغِ نماز و روزه می‌روند: «آیا کودک مکلّف به نماز است؟»
+                پاسخ: <strong>خیر</strong>، چون نماز <strong>حکم تکلیفی</strong> است و مشروط به بلوغ.
             </div>
-            <button class="accordion-btn" onclick="toggleAccordion('acc3')">ادله اجتهادی و فقاهتی را چطور قاطی نکنیم؟ <span>➕</span></button>
-            <div class="accordion-content" id="acc3">
-                <p><strong>اجتهادی</strong> = واقعی = منابع اصلی (کتاب، سنت، اجماع، عقل). <strong>فقاهتی</strong> = ظاهری = ابزار رفع شک (برائت و...). حرف اول «اجتهادی» با «الف» شروع می‌شود مثل «اصلی».</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="card" style="text-align:center;">
-            <p style="font-size:1.2rem; font-weight:800;">✨ با این نقشه ذهنی، جلسه اول برای همیشه در حافظه‌ات ماندگار می‌شود.</p>
-        </div>
+        <section style="text-align:center; background:var(--accent-bg); border-color:var(--accent-border);">
+            <p style="font-weight:800; font-size:1rem; color:var(--accent);">
+                با تسلّط بر همین یک نقشه، جلسه‌ی اول را برای همیشه بسته‌اید.
+            </p>
+        </section>
+
     </div>
 
     <script>
@@ -403,22 +647,13 @@
                 localStorage.setItem('theme', 'light');
             }
         }
-        (function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        (function () {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.body.classList.add('dark-mode');
                 document.getElementById('themeIcon').textContent = '☀️';
-            } else {
-                document.getElementById('themeIcon').textContent = '🌙';
             }
         })();
-
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const btn = content.previousElementSibling;
-            content.classList.toggle('show');
-            btn.querySelector('span').textContent = content.classList.contains('show') ? '➖' : '➕';
-        }
     </script>
 </body>
 </html>
