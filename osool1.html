@@ -4,1115 +4,564 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اصول فقه - جلسه اول | درسنامه استدلالی</title>
-
-    <!--
-    ==================================================================
-    📌 راهنمای افزودن جلسات بعدی
-    ==================================================================
-    این فایل فقط شامل جلسه‌ی اول است.
-    برای افزودن جلسه‌ی دوم (یا هر جلسه‌ی بعدی)، مراحل زیر را دنبال کنید:
-
-    ۱. بعد از بسته شدن تگ </section> مربوط به جلسه‌ی اول (خط ۵۰۰~)،
-       یک کپی از کل بلاک <section class="session" id="session-1">
-       قرار دهید.
-    ۲. در کپی جدید:
-       - id="session-1" را به id="session-2" تغییر دهید.
-       - عنوان داخل هدر را به «جلسه دوم» تغییر دهید.
-       - محتوای داخل <main class="session-content"> را با متن جلسه جدید جایگزین کنید.
-    ۳. در ناوبری بالای صفحه (<nav class="top-nav">)، لینک جلسه جدید را اضافه کنید.
-       مثلاً قبل از بسته شدن </nav> این خط را اضافه کنید:
-       <a href="#session-2" class="session-badge">جلسه ۲</a>
-
-    ساختار کلی هر جلسه:
-    <section class="session" id="session-N">
-      <header class="session-header"> ... </header>
-      <main class="session-content">
-        <!-- بلوک‌های محتوایی در اینجا -->
-      </main>
-      <footer class="session-footer"> ... </footer>
-    </section>
-    ==================================================================
-    -->
     <style>
-        /* ========== تم روشن (پیش‌فرض) ========== */
         :root {
             --bg-page: #fdfaf5;
             --bg-card: #ffffff;
             --text-primary: #1a1a1a;
             --text-secondary: #3d3d3d;
             --text-muted: #5c5c5c;
-
             --color-definition: #1a5c7a;
             --color-definition-bg: #e8f4fa;
             --color-definition-border: #2196b0;
-
             --color-example: #2e6b3e;
             --color-example-bg: #edf7ef;
             --color-example-border: #4caf50;
-
             --color-warning: #b8431e;
             --color-warning-bg: #fef3ee;
             --color-warning-border: #f57c3c;
-
             --color-keypoint: #6b2fa0;
             --color-keypoint-bg: #f6f0fb;
             --color-keypoint-border: #9c59d1;
-
             --color-summary: #8b6914;
             --color-summary-bg: #fdf8ed;
             --color-summary-border: #e0b840;
-
             --color-table-header: #2c3e50;
             --color-table-stripe: #f8f9fa;
             --color-table-border: #e0dcd5;
             --color-table-cell-border: #e8e4dc;
-
             --color-accent: #c0392b;
             --color-subtle: #e8e0d5;
             --color-quote-bg: #fdfaf3;
             --color-quote-border: #d4c8a8;
             --color-quote-text: #5c4a2e;
-
             --footer-bg: #f9f7f3;
             --footer-border: #e8e4dc;
             --footer-tag-bg: #e8e4dc;
             --nav-bg: #ffffff;
-
             --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
             --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.10);
-
             --font-primary: 'Vazirmatn', 'IRANSans', 'Tahoma', system-ui, sans-serif;
-            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
             --line-height: 2;
-            --line-height-compact: 1.7;
-
             --spacing-xs: 0.4rem;
             --spacing-sm: 0.75rem;
             --spacing-md: 1.25rem;
             --spacing-lg: 2rem;
             --spacing-xl: 2.75rem;
-
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
         }
-
-        /* ========== تم تاریک ========== */
         body.dark-mode {
             --bg-page: #121212;
             --bg-card: #1e1e1e;
             --text-primary: #e0e0e0;
             --text-secondary: #cccccc;
             --text-muted: #aaaaaa;
-
             --color-definition: #4a90c2;
             --color-definition-bg: #1a2a35;
             --color-definition-border: #4a90c2;
-
             --color-example: #5ba06a;
             --color-example-bg: #1a2e1f;
             --color-example-border: #5ba06a;
-
             --color-warning: #d97a5c;
             --color-warning-bg: #2e1f1a;
             --color-warning-border: #d97a5c;
-
             --color-keypoint: #9b6fc0;
             --color-keypoint-bg: #241f2e;
             --color-keypoint-border: #9b6fc0;
-
             --color-summary: #c0a44a;
             --color-summary-bg: #2a2416;
             --color-summary-border: #c0a44a;
-
             --color-table-header: #1e2a35;
             --color-table-stripe: #252525;
             --color-table-border: #333333;
             --color-table-cell-border: #2a2a2a;
-
             --color-accent: #e07060;
             --color-subtle: #3a3a3a;
             --color-quote-bg: #25201a;
             --color-quote-border: #5c4a2e;
             --color-quote-text: #c0b090;
-
             --footer-bg: #1a1a1a;
             --footer-border: #2a2a2a;
             --footer-tag-bg: #2a2a2a;
             --nav-bg: #1e1e1e;
-
             --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
             --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.5);
         }
 
-        /* ========== ریست و بیس ========== */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
             font-family: var(--font-primary);
             background-color: var(--bg-page);
             color: var(--text-primary);
             line-height: var(--line-height);
-            min-height: 100vh;
-            padding: 0;
             direction: rtl;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-align: right;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* ========== کانتینر اصلی صفحه ========== */
-        .page-wrapper {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: var(--spacing-md) var(--spacing-sm);
-        }
+        .page-wrapper { max-width: 780px; margin: 0 auto; padding: var(--spacing-md) var(--spacing-sm); }
 
-        /* ========== ناوبری بالا ========== */
         .top-nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            background: var(--nav-bg);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-card);
-            font-size: 0.85rem;
-            transition: background-color 0.3s ease;
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+            gap: var(--spacing-sm); padding: var(--spacing-sm) var(--spacing-md);
+            margin-bottom: var(--spacing-md); background: var(--nav-bg);
+            border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+            font-size: 0.85rem; transition: background-color 0.3s;
         }
-        .top-nav .course-title {
-            font-weight: 700;
-            color: var(--color-definition);
-            white-space: nowrap;
+        .course-title { font-weight: 700; color: var(--color-definition); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+        .session-link {
+            background: var(--color-definition); color: #fff; padding: 0.3rem 0.8rem;
+            border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-decoration: none;
+            transition: background 0.2s; white-space: nowrap; cursor: pointer;
         }
-        .top-nav .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        .top-nav .session-badge {
-            background: var(--color-definition);
-            color: #fff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-decoration: none;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-        .top-nav .session-badge:hover {
-            background: var(--color-accent);
-        }
-        .top-nav .active-session {
-            background: var(--color-accent);
-            pointer-events: none;
-        }
+        .session-link:hover { background: var(--color-accent); }
+        .session-link.active { background: var(--color-accent); pointer-events: none; }
 
-        /* دکمه تغییر تم */
-        .theme-toggle-wrapper {
-            display: flex;
-            align-items: center;
-        }
         .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.3rem;
-            border-radius: 50%;
-            transition: background 0.2s;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            position: relative;
+            background: var(--color-subtle); border: 2px solid transparent; color: var(--text-primary);
+            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; gap: 0.3rem;
+            transition: all 0.3s; white-space: nowrap;
         }
-        .theme-toggle:hover {
-            background: var(--color-subtle);
-        }
-        .theme-toggle::after {
-            content: attr(title);
-            position: absolute;
-            top: 110%;
-            right: 50%;
-            transform: translateX(50%);
-            background: var(--text-primary);
-            color: var(--bg-card);
-            font-size: 0.65rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-        .theme-toggle:hover::after {
-            opacity: 1;
-        }
+        .theme-toggle:hover { border-color: var(--color-accent); background: var(--bg-card); }
 
-        /* ========== سکشن هر جلسه ========== */
         .session {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
-            margin-bottom: var(--spacing-xl);
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            background: var(--bg-card); border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card); overflow: hidden;
+            margin-bottom: var(--spacing-xl); transition: box-shadow 0.3s, background 0.3s;
         }
-        .session:hover {
-            box-shadow: var(--shadow-card-hover);
-        }
+        .session:hover { box-shadow: var(--shadow-card-hover); }
 
-        /* ========== هدر جلسه ========== */
         .session-header {
             background: linear-gradient(135deg, #1a3650 0%, #1a4a5e 40%, #1a5c7a 100%);
-            color: #ffffff;
-            padding: var(--spacing-lg) var(--spacing-md);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            color: #ffffff; padding: var(--spacing-lg) var(--spacing-md); text-align: center;
+            position: relative; overflow: hidden;
         }
         .session-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
             background: linear-gradient(90deg, #f5c542, #e89c3a, #f5c542);
-            border-radius: 2px 2px 0 0;
         }
-        .session-header .session-number {
-            font-size: 0.9rem;
-            font-weight: 400;
-            opacity: 0.85;
-            letter-spacing: 1px;
-            margin-bottom: var(--spacing-xs);
-        }
-        .session-header h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin: 0 0 var(--spacing-xs) 0;
-            line-height: 1.4;
-        }
-        .session-header .source-info {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
+        .session-number { font-size: 0.9rem; opacity: 0.85; margin-bottom: var(--spacing-xs); }
+        .session-header h1 { font-size: 1.6rem; font-weight: 800; }
+        .source-info { font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem; }
 
-        /* ========== محتوای اصلی جلسه ========== */
-        .session-content {
-            padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
-        }
+        .session-content { padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg); }
         .session-content h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1a3650;
-            margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
-            padding-bottom: var(--spacing-xs);
-            border-bottom: 2px solid var(--color-subtle);
-            line-height: 1.5;
-            transition: color 0.3s;
+            font-size: 1.3rem; color: #1a3650; margin: var(--spacing-lg) 0 var(--spacing-sm);
+            border-bottom: 2px solid var(--color-subtle); padding-bottom: var(--spacing-xs);
         }
-        body.dark-mode .session-content h2 {
-            color: #b0c8d8;
-        }
-        .session-content h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin: var(--spacing-md) 0 var(--spacing-sm) 0;
-            line-height: 1.5;
-            transition: color 0.3s;
-        }
-        body.dark-mode .session-content h3 {
-            color: #c0ccd4;
-        }
-        .session-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #3d3d3d;
-            margin: var(--spacing-sm) 0 var(--spacing-xs) 0;
-            transition: color 0.3s;
-        }
-        body.dark-mode .session-content h4 {
-            color: #c0c0c0;
-        }
-        .session-content p {
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-secondary);
-            text-align: justify;
-        }
-        .session-content strong {
-            color: var(--text-primary);
-        }
+        body.dark-mode .session-content h2 { color: #b0c8d8; }
+        .session-content h3 { font-size: 1.1rem; color: #2c3e50; margin: var(--spacing-md) 0 var(--spacing-sm); }
+        body.dark-mode .session-content h3 { color: #c0ccd4; }
+        .session-content h4 { font-size: 1rem; color: #3d3d3d; margin: var(--spacing-sm) 0 var(--spacing-xs); }
+        body.dark-mode .session-content h4 { color: #c0c0c0; }
+        .session-content p { margin-bottom: var(--spacing-sm); color: var(--text-secondary); text-align: justify; }
+        .session-content strong { color: var(--text-primary); }
 
-        /* ========== بلوک‌های ویژه ========== */
-        .block-definition {
-            background: var(--color-definition-bg);
-            border-right: 5px solid var(--color-definition-border);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--spacing-md) var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            transition: background 0.3s;
+        .block-definition, .block-example, .block-trap, .block-keypoint, .block-summary {
+            padding: var(--spacing-md); margin: var(--spacing-md) 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0; border-right: 5px solid;
         }
-        .block-definition .block-label {
-            display: inline-block;
-            background: var(--color-definition);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.7rem;
-            border-radius: 15px;
-            margin-bottom: var(--spacing-sm);
+        .block-definition { background: var(--color-definition-bg); border-right-color: var(--color-definition-border); }
+        .block-example { background: var(--color-example-bg); border-right-color: var(--color-example-border); }
+        .block-trap { background: var(--color-warning-bg); border-right-color: var(--color-warning-border); }
+        .block-keypoint { background: var(--color-keypoint-bg); border-right-color: var(--color-keypoint-border); }
+        .block-summary { background: var(--color-summary-bg); border-right-color: var(--color-summary-border); }
+        .block-label {
+            display: inline-block; color: #fff; font-size: 0.75rem; font-weight: 700;
+            padding: 0.25rem 0.7rem; border-radius: 15px; margin-bottom: var(--spacing-sm);
         }
-        .block-definition p,
-        .block-definition li {
-            color: var(--text-secondary);
-        }
-
-        .block-example {
-            background: var(--color-example-bg);
-            border-right: 5px solid var(--color-example-border);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--spacing-md) var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            transition: background 0.3s;
-        }
-        .block-example .block-label {
-            display: inline-block;
-            background: var(--color-example);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.7rem;
-            border-radius: 15px;
-            margin-bottom: var(--spacing-sm);
-        }
-        .block-example p,
-        .block-example li {
-            color: var(--text-secondary);
-        }
-
-        .block-trap {
-            background: var(--color-warning-bg);
-            border-right: 5px solid var(--color-warning-border);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--spacing-md) var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            transition: background 0.3s;
-        }
-        .block-trap .block-label {
-            display: inline-block;
-            background: var(--color-warning);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.7rem;
-            border-radius: 15px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .block-keypoint {
-            background: var(--color-keypoint-bg);
-            border-right: 5px solid var(--color-keypoint-border);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--spacing-md) var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            transition: background 0.3s;
-        }
-        .block-keypoint .block-label {
-            display: inline-block;
-            background: var(--color-keypoint);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.7rem;
-            border-radius: 15px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .block-summary {
-            background: var(--color-summary-bg);
-            border-right: 5px solid var(--color-summary-border);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--spacing-md) var(--spacing-md);
-            margin: var(--spacing-lg) 0 var(--spacing-md) 0;
-            transition: background 0.3s;
-        }
-        .block-summary .block-label {
-            display: inline-block;
-            background: var(--color-summary);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.7rem;
-            border-radius: 15px;
-            margin-bottom: var(--spacing-sm);
-        }
+        .block-definition .block-label { background: var(--color-definition); }
+        .block-example .block-label { background: var(--color-example); }
+        .block-trap .block-label { background: var(--color-warning); }
+        .block-keypoint .block-label { background: var(--color-keypoint); }
+        .block-summary .block-label { background: var(--color-summary); }
 
         .block-quote {
-            background: var(--color-quote-bg);
-            border: 1px dashed var(--color-quote-border);
-            border-radius: var(--radius-sm);
-            padding: var(--spacing-md);
-            margin: var(--spacing-md) 0;
-            font-style: italic;
-            color: var(--color-quote-text);
-            text-align: center;
-            transition: background 0.3s;
+            background: var(--color-quote-bg); border: 1px dashed var(--color-quote-border);
+            padding: var(--spacing-md); margin: var(--spacing-md) 0; font-style: italic;
+            color: var(--color-quote-text); text-align: center;
         }
 
-        /* ========== جدول‌ها ========== */
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: var(--spacing-md) 0;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--color-table-border);
-            transition: border-color 0.3s;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            min-width: 500px;
-            color: var(--text-primary);
-        }
-        table thead th {
-            background: var(--color-table-header);
-            color: #fff;
-            padding: 0.7rem 0.8rem;
-            text-align: center;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        table tbody td {
-            padding: 0.65rem 0.8rem;
-            text-align: center;
-            border-bottom: 1px solid var(--color-table-cell-border);
-            vertical-align: middle;
-            transition: border-color 0.3s;
-        }
-        table tbody tr:nth-child(even) {
-            background: var(--color-table-stripe);
-        }
-        table tbody td:first-child {
-            text-align: right;
-            font-weight: 600;
-        }
+        .table-wrapper { overflow-x: auto; margin: var(--spacing-md) 0; border: 1px solid var(--color-table-border); border-radius: var(--radius-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 500px; color: var(--text-primary); }
+        thead th { background: var(--color-table-header); color: #fff; padding: 0.7rem; text-align: center; }
+        tbody td { padding: 0.65rem; border-bottom: 1px solid var(--color-table-cell-border); text-align: center; }
+        tbody tr:nth-child(even) { background: var(--color-table-stripe); }
+        tbody td:first-child { text-align: right; font-weight: 600; }
 
-        /* ========== لیست‌ها ========== */
-        .session-content ul,
-        .session-content ol {
-            margin: var(--spacing-sm) 0 var(--spacing-sm) 1.5rem;
-            padding: 0;
-        }
-        .session-content li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            padding-right: 0.3rem;
-        }
+        .session-content ul, .session-content ol { margin: var(--spacing-sm) 1.5rem; }
+        .session-content li { margin-bottom: 0.5rem; color: var(--text-secondary); }
 
-        /* ========== جداکننده‌ها ========== */
-        .divider {
-            border: none;
-            border-top: 2px dotted var(--color-subtle);
-            margin: var(--spacing-lg) 0;
-            opacity: 0.7;
-        }
-        .divider-light {
-            border: none;
-            border-top: 1px solid var(--color-subtle);
-            margin: var(--spacing-md) 0;
-        }
+        .divider { border-top: 2px dotted var(--color-subtle); margin: var(--spacing-lg) 0; opacity: 0.7; }
+        .divider-light { border-top: 1px solid var(--color-subtle); margin: var(--spacing-md) 0; }
 
-        /* ========== فوتر جلسه ========== */
         .session-footer {
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: var(--spacing-sm) var(--spacing-md);
-            text-align: center;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            flex-wrap: wrap;
-            transition: background 0.3s;
+            background: var(--footer-bg); border-top: 1px solid var(--footer-border);
+            padding: var(--spacing-sm) var(--spacing-md); text-align: center; font-size: 0.78rem;
+            color: var(--text-muted); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-sm);
         }
         .session-footer .tag {
-            background: var(--footer-tag-bg);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            color: var(--text-muted);
+            background: var(--footer-tag-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.7rem;
         }
 
-        /* ========== ریسپانسیو برای موبایل ========== */
         @media (max-width: 600px) {
             html { font-size: 15px; }
-            .page-wrapper { padding: var(--spacing-sm) var(--spacing-xs); max-width: 100%; }
+            .page-wrapper { padding: var(--spacing-sm) var(--spacing-xs); }
             .session-header h1 { font-size: 1.35rem; }
-            .session-header { padding: var(--spacing-md) var(--spacing-sm); }
-            .session-content { padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md); }
             .session-content h2 { font-size: 1.15rem; }
-            .session-content h3 { font-size: 1rem; }
             table { font-size: 0.75rem; min-width: 400px; }
-            .block-definition, .block-example, .block-trap, .block-keypoint, .block-summary {
-                padding: var(--spacing-sm); border-right-width: 4px;
-            }
-            .top-nav { font-size: 0.75rem; padding: var(--spacing-sm); }
-        }
-        @media (max-width: 380px) {
-            html { font-size: 14px; }
-            .session-header h1 { font-size: 1.2rem; }
-            table { font-size: 0.7rem; min-width: 340px; }
         }
 
-        /* ========== استایل پرینت ========== */
         @media print {
-            :root {
-                --bg-page: #ffffff;
-                --bg-card: #ffffff;
-                --shadow-card: none;
-                --shadow-card-hover: none;
-                --text-primary: #000;
-                --text-secondary: #000;
-            }
-            body { background: #fff; font-size: 13px; line-height: 1.8; color: #000; }
-            .page-wrapper { max-width: 100%; padding: 0; margin: 0; }
-            .top-nav { display: none; }
-            .theme-toggle { display: none; }
-            .session { box-shadow: none; border: 1px solid #ccc; border-radius: 0; margin-bottom: 10px; page-break-inside: auto; break-inside: auto; }
-            .session-header { background: #1a3650 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 12px 14px; }
-            .session-header::after { background: #f5c542 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .session-content { padding: 10px 14px; }
+            :root { --bg-page: #fff; --bg-card: #fff; --shadow-card: none; --text-primary: #000; }
+            .top-nav, .theme-toggle { display: none; }
+            .session { box-shadow: none; border: 1px solid #ccc; border-radius: 0; }
+            .session-header { background: #1a3650 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .block-definition, .block-example, .block-trap, .block-keypoint, .block-summary {
-                border-right-width: 4px; padding: 10px 12px; page-break-inside: avoid; break-inside: avoid;
                 -webkit-print-color-adjust: exact; print-color-adjust: exact;
             }
-            .block-definition { background: #e8f4fa !important; border-right-color: #2196b0 !important; }
-            .block-example { background: #edf7ef !important; border-right-color: #4caf50 !important; }
-            .block-trap { background: #fef3ee !important; border-right-color: #f57c3c !important; }
-            .block-keypoint { background: #f6f0fb !important; border-right-color: #9c59d1 !important; }
-            .block-summary { background: #fdf8ed !important; border-right-color: #e0b840 !important; }
-            .block-label { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            table thead th { background: #2c3e50 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .session-footer { background: #f9f7f3 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-            .table-wrapper { page-break-inside: avoid; break-inside: avoid; }
-            .divider, .divider-light { border-top-color: #ccc; }
             @page { margin: 1.5cm 1cm; size: A4; }
         }
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
+<div class="page-wrapper">
 
-        <!-- ========== ناوبری بالای صفحه ========== -->
-        <nav class="top-nav" aria-label="ناوبری جلسات">
-            <span class="course-title">📖 اصول فقه کاربردی</span>
-            <div class="nav-links">
-                <span class="session-badge active-session">جلسه ۱</span>
-                <!--
-                🟢 بعد از اضافه کردن سکشن جلسه‌ی دوم، کافی است این خط را از کامنت خارج کنید:
-                <a href="#session-2" class="session-badge">جلسه ۲</a>
-                -->
+    <!-- ناوبری بالا – لینک‌ها به‌طور خودکار ساخته می‌شوند -->
+    <nav class="top-nav" aria-label="ناوبری جلسات">
+        <span class="course-title">📖 اصول فقه کاربردی</span>
+        <div class="nav-links"></div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="تغییر تم">
+            <span>🌙</span> <span>حالت شب</span>
+        </button>
+    </nav>
+
+    <!-- ========== جلسه اول (کامل و بدون هیچ تغییری) ========== -->
+    <section class="session" id="session-1">
+        <header class="session-header">
+            <div class="session-number">جلسه اول</div>
+            <h1>📚 مقدمه: جایگاه و ضرورت علم اصول فقه</h1>
+            <div class="source-info">منبع: کتاب اصول فقه کاربردی (جلد اول: مباحث الفاظ) — دکتر حسین قافی و دکتر سعید شریعتی، انتشارات سمت</div>
+        </header>
+        <main class="session-content">
+
+            <h2>🔹 جایگاه و ضرورت علم اصول فقه</h2>
+            <p>اصول فقه را <strong>منطق اختصاصی حقوق</strong> نیز می‌نامند. همان‌گونه که در دوران دبیرستان با درس منطق آشنا شده‌اید، منطق به‌عنوان یک فن، ذهن انسان را از خطا و اشتباه در اندیشه بازمی‌دارد.</p>
+            <p>انسان به‌واسطه <strong>عقل</strong> از سایر موجودات متمایز می‌شود. عقل سرمایه‌ای ارزشمند است که خداوند به انسان اعطا کرده تا راه را از چاه تشخیص دهد. با این حال، ذهن انسان همواره راه درست را انتخاب نمی‌کند و ممکن است دچار اشتباه شود. منطق مجموعه قواعدی است که اگر رعایت شود، مانع از اشتباه در عملیات ذهنی می‌شود.</p>
+
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>منطق (در مفهوم عام):</strong> منطق در مفهوم عام خود، شیوه درست اندیشیدن و درست استدلال کردن را به ما می‌آموزد و کیفیت چینش معلومات برای رسیدن به مجهولات را نشان می‌دهد. این منطق در همه علوم کاربرد دارد و به آن <strong>منطق عمومی</strong> گفته می‌شود.</p></div>
+            <p>هر رشته علمی علاوه بر منطق عمومی، یک <strong>منطق خصوصی</strong> نیز دارد. منطق خصوصی علم حقوق، همان منطق فقه یعنی <strong>اصول فقه</strong> است.</p>
+
+            <hr class="divider">
+
+            <h2>⚖️ مقایسه علم فقه و علم حقوق</h2>
+            <p>هر علمی دارای یک <strong>موضوع</strong> است. برای درک شباهت فقه و حقوق، ابتدا باید موضوع هر یک را مشخص نمود.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>علم</th><th>موضوع</th><th>هدف</th></tr></thead>
+                    <tbody>
+                        <tr><td>پزشکی</td><td>بدن انسان</td><td>درمان بیماری</td></tr>
+                        <tr><td>تربیت بدنی</td><td>بدن انسان</td><td>جلوگیری از بروز بیماری</td></tr>
+                        <tr><td><strong>فقه</strong></td><td>افعال مکلفین</td><td>تعیین حکم شرعی (وجوب، حرمت، استحباب، کراهت، اباحه)</td></tr>
+                        <tr><td><strong>حقوق</strong></td><td>افعال مکلفین</td><td>تعیین حکم حقوقی</td></tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- دکمه تغییر تم به صورت جداگانه در سمت چپ (پایان ناوبری) -->
-            <div class="theme-toggle-wrapper">
-                <button class="theme-toggle" id="theme-toggle" aria-label="تغییر تم" title="تغییر حالت شب/روز">
-                    🌙
-                </button>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>موضوع علم فقه و حقوق:</strong> موضوع هر دو علم، <strong>افعال مکلفین</strong> است. مراد از <strong>مکلف</strong>، انسان بالغ و عاقلی است که تکلیف متوجه او می‌شود.</p><p style="font-size:0.9rem;color:#5c7a8a;">💡 توضیح: بر اساس متن، افعال کسی که تکلیف ندارد، مانند کودک دو ساله، موضوع این علوم نیست.</p></div>
+            <p>تفاوت اصلی این دو علم در <strong>منابع</strong> و <strong>غایت</strong> آن‌هاست. فقیه به دنبال استخراج <strong>حکم شرعی</strong> از منابع فقه (کتاب، سنت، اجماع، عقل) است و حقوقدان به دنبال استنباط <strong>حکم حقوقی</strong> از منابع حقوق (قانون، عرف و عادت، رویه قضایی، نظریه دکترین).</p>
+
+            <hr class="divider">
+
+            <h2>🧠 فرایند استنباط و نقش اصول فقه</h2>
+            <p>پس از دوران غیبت کبری و قطع ارتباط مستقیم با امام معصوم (ع)، فقها موظف شدند احکام افعال مکلفین را از منابع فقه استخراج کنند. یک فقیه نمی‌تواند از پیش خود حکمی صادر کند، بلکه باید با مراجعه به منابع، عملیات <strong>استنباط</strong> را انجام دهد.</p>
+
+            <div class="block-example">
+                <span class="block-label">💡 مثال کلیدی</span>
+                <p><strong>چگونگی استنباط وجوب نماز:</strong></p>
+                <p>فرض کنید از یک فقیه می‌پرسید: «حکم نماز چیست؟» او می‌گوید: «<strong>واجب</strong> است.» از او دلیل می‌خواهید. او استدلال می‌کند:</p>
+                <ol>
+                    <li>در قرآن کریم آیه <strong>«اَقِمِ الصَّلاهَ»</strong> آمده است.</li>
+                    <li><strong>اَقِم</strong> فعل امر است.</li>
+                    <li>در علم اصول فقه، در مبحث اوامر، این قاعده را می‌آموزیم که: <strong>«امر دلالت بر وجوب می‌کند.»</strong></li>
+                    <li>نتیجه: <strong>نماز واجب است.</strong></li>
+                </ol>
+                <p>این فرایند، <strong>استنباط حکم شرعی</strong> از منابع فقه نام دارد.</p>
             </div>
-        </nav>
 
-        <!--
-        ==================================================================
-        🔴 سکشن جلسه اول
-        ==================================================================
-        -->
-        <section class="session" id="session-1" aria-labelledby="session-1-title">
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>استنباط:</strong> واژه «استنباط» از ریشه «نبط» به معنای <strong>بیرون کشیدن آب زلال از اعماق چاه با دلو و بند</strong> است. فقیه نیز به وسیله ابزاری به نام اصول فقه، حکم شرعی را از اعماق منابع (قرآن و سنت) بیرون می‌کشد.</p></div>
+            <div class="block-quote">🪣 تمثیل: فقیه مانند کسی است که با دلو (اصول فقه) از چاه عمیق منابع (قرآن و سنت)، آب زلال احکام را بیرون می‌کشد.</div>
+            <p>بنابراین، <strong>اصول فقه</strong> علمی است مشتمل بر مجموعه‌ای از قواعد و مباحث که به ما در استنباط احکام شرعی (و به تبع آن، احکام حقوقی) از منابع مربوطه کمک می‌کند. این مباحث، <strong>فرمول‌های عملیات استنباط</strong> هستند. بدون فراگیری اصول، استنباط میسر نیست.</p>
+            <p>کار یک قاضی یا وکیل نیز دقیقاً از همین جنس است. یک وکیل با تسلط بر اصول فقه و قواعد فقه، در لوایح خود مقدمه‌چینی کرده و با استدلالی متقن، قاضی را به نفع موکل خود اقناع می‌کند.</p>
 
-            <header class="session-header">
-                <div class="session-number">جلسه اول</div>
-                <h1 id="session-1-title">📚 مقدمه: جایگاه و ضرورت علم اصول فقه</h1>
-                <div class="source-info">
-                    منبع: کتاب اصول فقه کاربردی (جلد اول: مباحث الفاظ) — دکتر حسین قافی و دکتر سعید شریعتی، انتشارات سمت
-                </div>
-            </header>
+            <hr class="divider">
 
-            <main class="session-content">
+            <h2>📝 الفاظ: مهم‌ترین بخش اصول فقه</h2>
+            <p>مهم‌ترین منبع فقه، <strong>کتاب (قرآن)</strong> و مهم‌ترین منبع حقوق، <strong>قانون</strong> است. هر دو این منابع، مجموعه‌ای از <strong>الفاظ</strong> هستند. از این رو، بخش عمده مباحث اصول فقه به <strong>مباحث الفاظ</strong> اختصاص دارد. در جلد اول این کتاب (اصول فقه ۱)، مباحث الفاظ را مطالعه خواهیم کرد.</p>
 
-                <!-- محتوای کامل جلسه اول بدون هیچ تغییری -->
-                <h2>🔹 جایگاه و ضرورت علم اصول فقه</h2>
-                <p>
-                    اصول فقه را <strong>منطق اختصاصی حقوق</strong> نیز می‌نامند. همان‌گونه که در دوران دبیرستان با درس منطق آشنا شده‌اید، منطق به‌عنوان یک فن، ذهن انسان را از خطا و اشتباه در اندیشه بازمی‌دارد.
-                </p>
-                <p>
-                    انسان به‌واسطه <strong>عقل</strong> از سایر موجودات متمایز می‌شود. عقل سرمایه‌ای ارزشمند است که خداوند به انسان اعطا کرده تا راه را از چاه تشخیص دهد. با این حال، ذهن انسان همواره راه درست را انتخاب نمی‌کند و ممکن است دچار اشتباه شود. منطق مجموعه قواعدی است که اگر رعایت شود، مانع از اشتباه در عملیات ذهنی می‌شود.
-                </p>
+            <hr class="divider-light">
 
-                <div class="block-definition">
-                    <span class="block-label">📌 اصطلاح</span>
-                    <p><strong>منطق (در مفهوم عام):</strong> منطق در مفهوم عام خود، شیوه درست اندیشیدن و درست استدلال کردن را به ما می‌آموزد و کیفیت چینش معلومات برای رسیدن به مجهولات را نشان می‌دهد. این منطق در همه علوم کاربرد دارد و به آن <strong>منطق عمومی</strong> گفته می‌شود.</p>
-                </div>
+            <h3>📖 مفهوم و منطوق <span style="font-weight:400;font-size:0.85rem;">(پیش‌نمایشی از مباحث آینده)</span></h3>
 
-                <p>
-                    هر رشته علمی علاوه بر منطق عمومی، یک <strong>منطق خصوصی</strong> نیز دارد. منطق خصوصی علم حقوق، همان منطق فقه یعنی <strong>اصول فقه</strong> است.
-                </p>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>منطوق:</strong> معنای <strong>ظاهری و مستقیم</strong> کلام است که از نطق و تلفظ آن به‌وضوح فهمیده می‌شود.</p></div>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>مفهوم:</strong> معنای <strong>پنهان و غیرمستقیم</strong> کلام است که با کمی تعقل از آن استخراج می‌شود.</p></div>
 
-                <!-- ... (ادامه محتوای جلسه اول دقیقاً مانند قبل) ... -->
-
-            </main>
-
-            <footer class="session-footer">
-                <span>📅 جلسه اول</span>
-                <span class="tag">اصول فقه ۱</span>
-                <span class="tag">مباحث الفاظ</span>
-                <span class="tag">حکم تکلیفی و وضعی</span>
-                <span class="tag">حکم واقعی و ظاهری</span>
-            </footer>
-
-        </section>
-        <!-- ========== پایان سکشن جلسه اول ========== -->
-        <!-- ==================================================================
-     سکشن جلسه دوم
-     - این بلاک را بعد از </section> جلسه اول قرار دهید.
-     - سپس در <nav class="top-nav"> لینک زیر را فعال کنید:
-       <a href="#session-2" class="session-badge">جلسه ۲</a>
-     ================================================================== -->
-<section class="session" id="session-2" aria-labelledby="session-2-title">
-
-    <header class="session-header">
-        <div class="session-number">جلسه دوم</div>
-        <h1 id="session-2-title">📚 درسنامه استدلالی اصول فقه</h1>
-        <div class="source-info">
-            منبع: کتاب اصول فقه کاربردی (جلد اول: مباحث الفاظ) — دکتر حسین قافی و دکتر سعید شریعتی، انتشارات سمت
-        </div>
-    </header>
-
-    <main class="session-content">
-
-        <h2>🔁 مروری بر جلسه پیشین و تثبیت مفاهیم پایه</h2>
-        <p>در جلسه قبل، تعریفی از علم اصول فقه ارائه گردید. به طور خلاصه بیان شد که تمامی افعال انسان‌ها در نزد خداوند دارای یک حکم شرعی است. با این حال، از آنجا که دسترسی مستقیم به شارع مقدس برای پرسش از حکم هر فعل میسر نیست، ناچاراً باید به فقها مراجعه نمود.</p>
-
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>کار فقیه و حقوقدان (بازتأکید):</strong></p>
-            <ul>
-                <li>کار فقیه عبارت است از <strong>استنباط و استخراج حکم افعال مکلفین</strong> از منابع فقه (کتاب، سنت، اجماع، عقل).</li>
-                <li>کار حقوقدان (اعم از قانون‌گذار یا قاضی) نیز عبارت است از <strong>استنباط حکم حقوقی یا قضایی یک فعل</strong> از منابع حقوق (قانون، عرف، رویه قضایی، دکترین).</li>
-            </ul>
-        </div>
-
-        <p>بنابراین، شباهت ساختاری عمیقی میان کار فقیه و حقوقدان وجود دارد. موضوع هر دو علم، افعال مکلفین است. در این فرایند استنباط، مباحث علم اصول فقه به‌عنوان <strong>کبرای قیاس منطقی</strong> به کار گرفته می‌شوند تا نتیجه (حکم شرعی یا حقوقی) به‌دست آید.</p>
-
-        <hr class="divider">
-
-        <h2>📝 اهمیت مبحث الفاظ</h2>
-        <p>با توجه به اینکه:</p>
-        <ul>
-            <li>اولین منبع فقه، <strong>کتاب (قرآن)</strong> است که مجموعه‌ای از الفاظ است.</li>
-            <li>اولین منبع حقوق، <strong>قانون</strong> است که آن نیز مجموعه‌ای از الفاظ است.</li>
-        </ul>
-        <p>نخستین و مهم‌ترین مبحث در کتب اصول فقه، <strong>مباحث الفاظ</strong> می‌باشد. احکام شرعی بیان‌شده توسط شارع، و احکام حقوقی وضع‌شده توسط قانون‌گذار، هر دو در قالب الفاظ تجلی یافته‌اند. بنابراین، برای فهم مراد شارع یا قانون‌گذار، صرف دانستن معنای لغوی کلمات کافی نیست، بلکه باید <strong>روش‌های منطقی برای تحلیل الفاظ</strong> را نیز فراگرفت.</p>
-
-        <div class="block-example">
-            <span class="block-label">💡 مثال کلیدی</span>
-            <p><strong>تحلیل آیه «أَوْفُوا بِالْعُقُودِ» (سوره مائده، آیه ۱)</strong></p>
-            <p>برای استنباط حکم از این آیه شریفه، سؤالات متعددی در ذهن ایجاد می‌شود:</p>
-            <ol>
-                <li>منظور از کلمه «عقود» چیست؟</li>
-                <li>معنای دقیق «وفای به عهد» کدام است؟</li>
-                <li>آیا کلمه «عقود» عمومیت دارد و همه انواع قراردادها را شامل می‌شود؟</li>
-                <li>آیا از این آیه می‌توان وجوب وفای به عقد را استنباط نمود؟</li>
-            </ol>
-            <p>بدون پاسخ به این سؤالات، استنباط حکم شرعی ممکن نیست. برای پاسخ، باید بر مباحثی از علم اصول فقه مسلط باشیم:</p>
-            <ul>
-                <li><strong>سؤال ۱ و ۲:</strong> نیازمند دانستن معنای لغوی و عرفی الفاظ.</li>
-                <li><strong>سؤال ۳:</strong> نیازمند مبحث <strong>عام و خاص</strong>. می‌دانیم که «عقود» جمع «عقد» است و در مبحث عام و خاص، قاعده بر این است که لفظ جمع، دلالت بر عموم می‌کند و همه افراد را شامل می‌شود.</li>
-                <li><strong>سؤال ۴:</strong> نیازمند مبحث <strong>اوامر</strong>. «أَوْفُوا» فعل امر است. در مبحث اوامر می‌آموزیم که امر ظهور در وجوب دارد. سپس در مبحثی دیگر (ظواهر) می‌آموزیم که ظواهر حجت هستند.</li>
-            </ul>
-            <p><strong>نتیجه نهایی (استنباط):</strong></p>
-            <ul>
-                <li>صغرای قیاس: «أَوْفُوا» فعل امر است.</li>
-                <li>کبرای قیاس: هر فعل امری ظهور در وجوب دارد و ظواهر حجت هستند.</li>
-                <li><strong>نتیجه: وفای به عهد واجب است.</strong></li>
-            </ul>
-        </div>
-
-        <p>این یک نمونه کامل از فرایند استنباط یک حکم از منبع (قرآن) با استفاده از مباحث الفاظ علم اصول بود. همین فرایند دقیقاً در تحلیل متون قانونی و قراردادها نیز جاری است.</p>
-
-        <hr class="divider">
-
-        <h2>🔖 مبحث اول: وضع (Wadh')</h2>
-        <h3>تعریف و ماهیت وضع</h3>
-        <p>انسان موجودی اجتماعی است و برای رفع نیازهای خود ناچار به برقراری ارتباط با همنوعان خویش است. فرایند ارتباط ممکن است با ابزارهای گوناگونی (اشاره، علائم تصویری، مانند چراغ راهنمایی) صورت پذیرد، اما کامل‌ترین و رایج‌ترین ابزار، <strong>الفاظ</strong> است. انسان‌ها برای سهولت در تفهیم و تفهّم، برای معانی مورد نظر خود، الفاظی را وضع کردند.</p>
-
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>وضع:</strong> عبارت است از <strong>قرار دادن یک لفظ برای یک معنا</strong> (تعیین لفظ برای دلالت بر یک معنا). در اثر وضع، یک ارتباط ذهنی میان لفظ و معنا برقرار می‌شود؛ به گونه‌ای که با شنیدن یا قرائت لفظ، معنا به صورت خودکار به ذهن خطور می‌کند.</p>
-        </div>
-
-        <h3>اقسام وضع</h3>
-        <p>وضع بر دو قسم اصلی است:</p>
-
-        <h4>۱. وضع تعیینی (تخصیصی)</h4>
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>وضع تعیینی:</strong> وضعی است که در آن، یک <strong>شخص یا مقام معین (واضع)</strong> با اراده خود، لفظی را برای معنایی مشخص تعیین می‌کند. این وضع از اراده یک فرد خاص حاصل می‌شود.</p>
-        </div>
-        <ul>
-            <li><strong>مثال:</strong> نام‌گذاری یک نوزاد به نام «پیمان» توسط پدر؛ نام‌گذاری یک خیابان به نام «علی دایی» توسط شورای شهر؛ نام‌گذاری یک ساختمان به «مجتمع مسکونی اشکان» توسط سازنده آن.</li>
-        </ul>
-
-        <h4>۲. وضع تعینی (تخصصی)</h4>
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>وضع تعینی:</strong> وضعی است که در آن، یک لفظ برای یک معنا، نه با اراده یک شخص خاص، بلکه <strong>به تدریج و در اثر کثرت استعمال</strong>، جا افتاده و در ذهن اهل زبان نقش می‌بندد. در این قسم، <strong>واضع مشخصی وجود ندارد</strong>.</p>
-        </div>
-        <div class="block-example">
-            <span class="block-label">💡 مثال کلیدی</span>
-            <ul>
-                <li><strong>شهر «مدینه» در عربستان:</strong> «مدینه» در زبان عربی به معنای «شهر» است. پس از هجرت پیامبر اسلام (ص) به شهر «یثرب»، این شهر به دلیل حضور ایشان «مدینة النبی» (شهر پیامبر) خوانده شد. به مرور زمان و در اثر کثرت استعمال، لفظ «مدینه» به تنهایی برای اشاره به آن شهر خاص، وضع تعینی یافت.</li>
-                <li><strong>لفظ «قانون»:</strong> این لفظ در لغت به معنای «خط‌کش» بوده است. اما به تدریج و با کثرت استعمال در معنای «مجموعه قواعد و مقررات»، وضع تعینی جدیدی برای آن حاصل شده است؛ به طوری که امروزه با شنیدن لفظ «قانون»، معنای خط‌کش به ذهن متبادر نمی‌شود.</li>
-            </ul>
-        </div>
-
-        <hr class="divider">
-
-        <h2>🗂️ مبحث دوم: تقسیمات الفاظ</h2>
-        <p>با نگاه به رابطه میان لفظ و معنا، سه حالت کلی متصور است:</p>
-
-        <div class="table-wrapper">
-            <table aria-label="تقسیمات الفاظ بر اساس رابطه لفظ و معنا">
-                <thead>
-                    <tr>
-                        <th>حالت</th>
-                        <th>رابطه لفظ و معنا</th>
-                        <th>اصطلاح اصولی</th>
-                        <th>مثال</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>۱</td>
-                        <td>یک لفظ برای یک معنا</td>
-                        <td>لفظ مختص (تک‌معنایی)</td>
-                        <td>(مثال صریح در متن ذکر نشد.)</td>
-                    </tr>
-                    <tr>
-                        <td>۲</td>
-                        <td>چند لفظ برای یک معنا</td>
-                        <td>مترادف (هم‌معنا)</td>
-                        <td>مزایده و حراج / انسان و بشر</td>
-                    </tr>
-                    <tr>
-                        <td>۳</td>
-                        <td>یک لفظ برای چند معنا</td>
-                        <td>چندمعنایی</td>
-                        <td>شیر (خوراکی، درنده، سرویس بهداشتی)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>۱. الفاظ مترادف (هم‌معنا)</h3>
-        <p>به الفاظی اطلاق می‌شود که الفاظ متعدد بر یک معنای واحد دلالت کنند.</p>
-        <ul>
-            <li><strong>مثال‌ها:</strong> بیع و خرید و فروش؛ صغیر و کودک؛ رجم و سنگسار؛ نفقه و خرجی (با احتیاط علمی: تشخیص دقیق مترادف‌ها نیازمند مطالعه عمیق‌تر در کتب حقوقی است و ممکن است تفاوت‌های ظریفی وجود داشته باشد).</li>
-        </ul>
-
-        <h3>۲. الفاظ چندمعنایی (یک لفظ با چند معنا)</h3>
-        <p>این قسم خود به سه زیرشاخه اصلی تقسیم می‌شود:</p>
-
-        <h4>الف) مشترک لفظی</h4>
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>مشترک لفظی:</strong> لفظی است که از ابتدا، توسط لغت‌شناسان برای چند معنای متفاوت و به صورت جداگانه <strong>وضع شده است</strong>. هر یک از این معانی، یک «معنای موضوعٌ‌له» مستقل است.</p>
-        </div>
-        <div class="block-example">
-            <span class="block-label">💡 مثال‌های کلیدی</span>
-            <ul>
-                <li>لفظ <strong>«عین»</strong> در عربی: به معنای چشم، طلا، چشمه.</li>
-                <li>لفظ <strong>«شیر»</strong> در فارسی: به معنای شیر خوراکی، شیر درنده، شیر سرویس بهداشتی.</li>
-                <li>لفظ <strong>«حقوق»</strong>: به معنای علم حقوق، مزد و پاداش، امتیازات.</li>
-                <li>لفظ <strong>«دولت»</strong> در حقوق اساسی: دارای چندین معنای وضع‌شده است.</li>
-            </ul>
-        </div>
-
-        <div class="block-keypoint">
-            <span class="block-label">🎯 نکته بسیار مهم و کنکوری</span>
-            <p><strong>لزوم «قرینه معینه» در مشترک لفظی:</strong> هرگاه گوینده قصد استعمال یک لفظ مشترک لفظی را داشته باشد، برای آن‌که مقصود خود را به مخاطب بفهماند، <strong>حتماً باید قرینه‌ای</strong> بیاورد که دلالت بر معنای مورد نظر کند. این قرینه، <strong>«قرینه معینه»</strong> نام دارد.</p>
-            <ul>
-                <li><strong>قرینه معینه لفظیه:</strong> مانند جمله «من شیر خوردم». کلمه «خوردم» قرینه لفظی برای معنای شیر خوراکی است.</li>
-                <li><strong>قرینه معینه لُبّیه (غیر لفظی):</strong> مانند اوضاع و احوال. اگر در حال نصب شیرآلات ساختمانی، به کارگر بگویید «شیر را بیاور»، اوضاع و احوال (قرینه لُبّیه) دلالت می‌کند که منظور شیر آب است، نه شیر خوراکی.</li>
-            </ul>
-        </div>
-
-        <h4>ب) منقول</h4>
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>لفظ منقول:</strong> لفظی است که در اصل برای یک معنا وضع شده، اما پس از آن به معنای جدیدی <strong>منتقل شده</strong> و برای آن وضع جدید صورت گرفته است؛ به گونه‌ای که <strong>معنای اولیه آن متروک شده</strong> است.</p>
-        </div>
-        <p><strong>انواع لفظ منقول:</strong></p>
-        <ul>
-            <li><strong>منقول شرعی:</strong> اگر ناقل معنا، شارع مقدس باشد.
-                <br>مثال: لفظ «صلات» (در لغت به معنای دعا، در شرع به معنای نماز)؛ لفظ «حج» (در لغت به معنای قصد و آهنگ، در شرع به معنای عبادت خاص حج).
-            </li>
-            <li><strong>منقول عرفی:</strong> اگر ناقل معنا، عرف عام باشد.
-                <br>مثال: لفظ «حیوان» (در لغت به معنای هر موجود زنده‌ای از جمله انسان، در عرف به معنای چهارپا).
-            </li>
-        </ul>
-
-        <h4>ج) حقیقت و مجاز</h4>
-        <p>این مبحث از اهمیت بسیار بالایی برخوردار است و یک فصل مستقل به آن اختصاص دارد.</p>
-
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>معنای حقیقی (موضوعٌ‌له):</strong> معنایی که لفظ برای دلالت بر آن <strong>وضع شده است</strong>. استعمال لفظ در این معنا را <strong>استعمال حقیقی</strong> می‌گویند.</p>
-            <p>مثال: استعمال لفظ «ماه» برای «جرم آسمانی».</p>
-        </div>
-
-        <div class="block-definition">
-            <span class="block-label">📌 اصطلاح</span>
-            <p><strong>معنای مجازی (غیر موضوعٌ‌له):</strong> استعمال لفظ در معنایی که برای آن <strong>وضع نشده است</strong>، ولی میان این معنا و معنای حقیقی (موضوعٌ‌له)، یک <strong>مناسبت و علاقه‌ای</strong> وجود داشته باشد. استعمال لفظ در این معنا را <strong>استعمال مجازی</strong> می‌گویند.</p>
-            <p>مثال: استعمال لفظ «ماه» برای یک انسان زیبارو. لفظ «ماه» برای انسان زیبا وضع نشده، اما به دلیل مناسبت «زیبایی»، استعمال آن مجاز و صحیح است.</p>
-        </div>
-
-        <hr class="divider-light">
-
-        <h3>⚖️ شرایط صحت استعمال مجازی</h3>
-        <p>برای آن‌که استعمال یک لفظ در معنای مجازی صحیح باشد، دو شرط اساسی لازم است:</p>
-
-        <div class="block-keypoint">
-            <span class="block-label">۱. وجود مناسبت (علاقه)</span>
-            <p>باید میان معنای حقیقی و معنای مجازی، یک ارتباط و مناسبتی وجود داشته باشد که مورد پسند طبع انسان‌ها و اهل زبان باشد. این مناسبت باید آن‌قدر قوی و قابل قبول باشد که ذهن بتواند از معنای حقیقی به معنای مجازی منتقل شود.</p>
-            <p><strong>انواع علاقه‌ها (مناسبت‌ها):</strong></p>
-            <ul>
-                <li><strong>علاقه مشابهت:</strong> مانند استعمال «شیر» برای انسان شجاع، یا «ماه» برای انسان زیبا.</li>
-                <li><strong>علاقه ظرف و مظروف:</strong> گفتن «کلاس ساکت است» و اراده «دانشجویان داخل کلاس».</li>
-                <li><strong>علاقه جز و کل:</strong> گفتن «خانهام خراب شد» برای اشاره به خرابی «دیوار خانه»؛ یا «کتابم پاره شد» برای اشاره به پاره شدن «برگ کتاب»؛ یا گفتن «دست سارق قطع شود» و اراده «چهار انگشت» دست راست.</li>
-                <li><strong>علاقه مشارفت (در شرف):</strong> استعمال لفظ «دکتر» برای دانشجوی دکترا که هنوز دفاع نکرده است.</li>
-                <li><strong>علاقه ما کان (آنچه بوده):</strong> استعمال لفظ «سرهنگ» برای یک نظامی بازنشسته که قبلاً این درجه را داشته است.</li>
-            </ul>
-            <p><strong>💡 مثال کلیدی از متن:</strong> اگر به یک سینی گرد بگوییم «ماه»، این استعمال پذیرفته نیست، زیرا صرف «گرد بودن» مناسبت کافی و مورد پسند طبع برای این استعمال نیست.</p>
-        </div>
-
-        <div class="block-keypoint">
-            <span class="block-label">۲. وجود قرینه (قرینه صارفه)</span>
-            <p>باید علامت و نشانه‌ای در کلام باشد که به مخاطب بفهماند منظور گوینده معنای حقیقی نیست، بلکه معنای مجازی است. این قرینه <strong>«قرینه صارفه»</strong> نام دارد. («صارفه» به معنای «بازگرداننده» است، زیرا ذهن را از معنای حقیقی به سمت معنای مجازی بازمی‌گرداند.)</p>
-        </div>
-
-        <hr class="divider-light">
-
-        <div class="block-keypoint">
-            <span class="block-label">🎯 نکته بسیار مهم و کنکوری</span>
-            <p><strong>تفاوت «قرینه معینه» و «قرینه صارفه»:</strong></p>
-            <ul>
-                <li><strong>قرینه معینه:</strong> در <strong>مشترک لفظی</strong> به کار می‌رود. کار آن <strong>«تعیین» یکی از چند معنای حقیقی (موضوعٌ‌له)</strong> است.</li>
-                <li><strong>قرینه صارفه:</strong> در <strong>حقیقت و مجاز</strong> به کار می‌رود. کار آن <strong>«بازگرداندن» ذهن از معنای حقیقی (موضوعٌ‌له) به سمت معنای مجازی</strong> است.</li>
-                <li>هر دوی این قرائن می‌توانند <strong>لفظی یا لُبّی</strong> (مقامی/حالی) باشند.</li>
-            </ul>
-        </div>
-
-        <hr class="divider">
-
-        <h3>🔎 علائم (راه‌های) تشخیص معنای حقیقی از معنای مجازی</h3>
-        <p>اصولیون برای تشخیص معنای حقیقی از مجازی، علائم و نشانه‌هایی را ذکر کرده‌اند:</p>
-
-        <ol>
-            <li><strong>تصریح لغت‌شناسان:</strong> رجوع به کتب لغت معتبر.</li>
-            <li><strong>تبادر:</strong>
-                <div class="block-definition" style="margin-top:0.5rem;">
-                    <span class="block-label">📌 اصطلاح</span>
-                    <p><strong>تبادر:</strong> یعنی «سبقت گرفتن معنا به ذهن». هرگاه لفظی بدون هیچ قرینه‌ای به کار رود، اولین معنایی که به ذهن شخص آشنا به زبان خطور می‌کند، همان <strong>معنای حقیقی</strong> لفظ است.</p>
-                </div>
-            </li>
-            <li><strong>صحت حمل و عدم صحت سلب:</strong>
-                <p>روش تشخیص بدین صورت است که لفظ مورد نظر را بر یک مصداق حمل می‌کنیم:</p>
+            <div class="block-example">
+                <span class="block-label">💡 مثال کلیدی</span>
+                <p>اگر کسی بگوید <strong>«من تشنه‌ام»</strong>، دو معنا از آن قابل برداشت است:</p>
                 <ul>
-                    <li>اگر این حمل صحیح باشد (بتوانیم بگوییم: «این، آن است»)، معنای حمل‌شده <strong>معنای حقیقی</strong> است.</li>
-                    <li>اگر این حمل صحیح نباشد و سلب آن صحیح باشد (بتوانیم بگوییم: «این، آن نیست»)، معنای حمل‌شده <strong>معنای مجازی</strong> است.</li>
+                    <li><strong>معنای منطوقی:</strong> «من احساس تشنگی می‌کنم.» (معنای ظاهری الفاظ)</li>
+                    <li><strong>معنای مفهومی:</strong> «برای من آب بیاور.» (معنای پنهان که نیاز به تعقل دارد)</li>
                 </ul>
-                <div class="block-example" style="margin-top:0.5rem;">
-                    <span class="block-label">💡 مثال کلیدی</span>
-                    <p>برای تشخیص معنای حقیقی «فرزند» میان «فرزند شرعی» و «فرزندخوانده»، حمل انجام می‌دهیم. گفتن «فرزندخوانده، فرزند است» حمل صحیحی نیست و می‌توان سلب کرد و گفت «فرزندخوانده، فرزند نیست». بنابراین معنای حقیقی فرزند، <strong>«فرزند شرعی»</strong> است.</p>
-                </div>
-            </li>
-            <li><strong>اطراد:</strong> (استاد صرفاً به ذکر نام این علامت اکتفا کرد و اشاره کرد که نیاز به توضیح بیشتری نیست.)</li>
-        </ol>
+            </div>
 
-        <hr class="divider">
+            <p>در کتاب، مباحث اصلی الفاظ مانند <strong>اوامر، نواهی، مفاهیم، عام و خاص، مطلق و مقید، و مجمل و مبین</strong> را مطالعه خواهیم کرد.</p>
 
-        <h2>⚖️ استعمال مجازی در قوانین و قراردادها</h2>
-        <p>اگرچه در ادبیات روزمره و اشعار، استعمال مجازی به وفور یافت می‌شود، اما در <strong>قانون به ندرت</strong> استعمال می‌شود. دلیل آن این است که عبارات قانونی باید صریح، روشن و غیرقابل تأویل باشند. با این حال، اگر استعمال مجازی صورت گیرد، حتماً باید همراه با <strong>قرینه</strong> باشد.</p>
+            <hr class="divider">
 
-        <div class="block-example">
-            <span class="block-label">💡 مثال‌های کلیدی از قانون مدنی (حتمی برای امتحان)</span>
+            <h2>⚖️ تعریف و اقسام «حکم»</h2>
+            <p>حکم در کاربردهای مختلف به معانی متفاوتی به کار می‌رود (حکم قضایی، حکم قانونی، حکم شرعی).</p>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم:</strong> دستوری است که از یک مقام صلاحیت‌دار صادر شده و موضوع آن، <strong>افعال انسان‌ها</strong> است.</p><p style="font-size:0.9rem;color:#5c7a8a;">مثلاً: حکم قاضی مبنی بر محکومیت حسن به پرداخت دویست میلیون تومان به حسین.</p></div>
+            <p>احکام دارای تقسیم‌بندی‌های مختلفی هستند که مهم‌ترین آن‌ها در ذیل آمده است.</p>
 
-            <p><strong>۱. ماده ۱۱۷۱ قانون مدنی:</strong></p>
-            <p>«در صورت فوت یکی از ابوین، حضانت طفل با آن که زنده است خواهد بود؛ هر چند متوفی پدر طفل بوده و برای او قیم معین کرده باشد.»</p>
-            <ul>
-                <li><strong>تحلیل:</strong> در این ماده، لفظ «قیم» در معنای مجازی به کار رفته است، زیرا شخصی که از طرف پدر یا جد پدری برای سرپرستی طفل تعیین می‌شود، در اصطلاح حقوقی <strong>«وصی»</strong> نام دارد. «قیم» توسط دادگاه تعیین می‌شود. بنابراین، استعمال لفظ قیم برای وصی، استعمال مجازی است.</li>
-                <li><strong>نوع علاقه:</strong> علاقه <strong>مشابهت</strong>.</li>
-            </ul>
+            <h3>۱. تقسیم حکم به «تکلیفی» و «وضعی»</h3>
+            <p>این یک تقسیم‌بندی <strong>بسیار مهم</strong> است.</p>
 
-            <p><strong>۲. ماده ۳۳۹ قانون مدنی:</strong></p>
-            <p>«پس از توافق بایع و مشتری در مبیع و قیمت آن، عقد بیع به ایجاب و قبول واقع می‌شود.»</p>
-            <ul>
-                <li><strong>تحلیل:</strong> در این ماده، کلمات «بایع» (فروشنده)، «مشتری» (خریدار) و «مبیع» (مورد فروش) <strong>پیش از وقوع عقد بیع</strong> به کار رفته‌اند. این استعمال مجازی است، زیرا تا زمانی که ایجاب و قبول واقع نشده و عقد منعقد نگردد، طرفین حقیقتاً «بایع» و «مشتری» نیستند و مال هم «مبیع» نشده است.</li>
-                <li><strong>نوع علاقه:</strong> علاقه <strong>مشارفت</strong> (در شرف بیع شدن و در شرف مشتری و بایع شدن).</li>
-            </ul>
+            <h4>الف) حکم تکلیفی</h4>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم تکلیفی:</strong> احکامی هستند که <strong>مستقیماً</strong> به افعال انسان‌های مکلف تعلق می‌گیرند و وظایف آن‌ها را در برابر خدا و سایر افراد جامعه مشخص می‌کنند. احکام تکلیفی همان <strong>«بایدها و نبایدها»</strong> هستند.</p></div>
+            <p>احکام تکلیفی منحصر در <strong>پنج مورد</strong> هستند که به آن‌ها <strong>«احکام خمسه تکلیفیه»</strong> می‌گویند:</p>
+            <ol>
+                <li><strong>وجوب</strong> (مانند: وجوب نماز، وجوب پرداخت نفقه زوجه)</li>
+                <li><strong>حرمت</strong> (مانند: حرمت ظلم، حرمت تصرف در مال غیر)</li>
+                <li><strong>استحباب</strong></li>
+                <li><strong>کراهت</strong></li>
+                <li><strong>اباحه</strong></li>
+            </ol>
 
-            <p><strong>۳. ماده ۱۲۴۵ قانون مدنی:</strong></p>
-            <p>«قیم باید حساب زمان تصدی خود را... بدهد.»</p>
-            <ul>
-                <li><strong>تحلیل:</strong> منظور از «قیم» در این ماده، کسی است که <strong>پیشتر</strong> سمت قیمومت داشته و اکنون پس از رفع حجر و انتفای سمت، باید حساب پس بدهد. استعمال لفظ قیم برای چنین شخصی (که دیگر قیم نیست) مجاز است.</li>
-                <li><strong>نوع علاقه:</strong> علاقه <strong>ما کان</strong> (آنچه بوده است).</li>
-            </ul>
+            <h4>ب) حکم وضعی</h4>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم وضعی:</strong> احکامی هستند که به صورت <strong>غیرمستقیم</strong> به افعال انسان‌ها مربوط می‌شوند. این احکام یک <strong>وضعیت یا رابطه حقوقی خاص</strong> ایجاد می‌کنند که خود، منشأ پیدایش احکام تکلیفی می‌شود.</p></div>
+            <p>احکام وضعی برخلاف احکام تکلیفی، <strong>محدود و منحصر نیستند</strong> و بیشمار هستند. از جمله:</p>
+            <p><strong>زوجیت، ملکیت، صحت، لزوم، بطلان، شرطیت، مانعیت، طهارت، نجاست، سببیت، حجیت، وکالت، ولایت، ضمانت.</strong></p>
 
-            <p><strong>۴. ماده ۱۰۲۵ قانون مدنی و مثال قانون مجازات:</strong></p>
-            <ul>
-                <li><strong>ماده ۱۰۲۵ ق.م.:</strong> «اطلاق بایع بر اشخاص مذکور قبل از صدور حکم موت فرضی غایب مفقودالاثر اطلاق حقیقی نیست.» این علاقه <strong>مشارکت</strong> است.</li>
-                <li><strong>مثال قانون مجازات:</strong> «اگر کسی با پسری عمل شنیع کند، نمی‌تواند مادر یا خواهر یا دختر او را ترویج کند.» در اینجا علاقه <strong>جز و کل</strong> برقرار است.</li>
-            </ul>
-            <p style="font-size:0.85rem;color:#5c7a8a;">⚠️ توضیح: استاد برخی جزئیات این مثال‌ها را به مطالعه کتاب ارجاع دادند.</p>
-        </div>
+            <div class="block-example">
+                <span class="block-label">💡 مثال کلیدی: زوجیت (حکم وضعی)</span>
+                <p>رابطه <strong>زوجیت</strong> بین آقای الف و خانم ب، یک <strong>حکم وضعی</strong> است. این حکم به خودی خود یک «باید» نیست، اما وضعیتی ایجاد می‌کند که به طور غیرمستقیم موجب ایجاد احکام تکلیفی می‌شود:</p>
+                <ul>
+                    <li>زوج <strong>باید (وجوب)</strong> نفقه زوجه را بپردازد.</li>
+                    <li>زوجه <strong>باید (وجوب)</strong> تمکین کند.</li>
+                </ul>
+            </div>
 
-        <hr class="divider">
+            <div class="block-example">
+                <span class="block-label">💡 مثال کلیدی: ملکیت (حکم وضعی)</span>
+                <p>رابطه <strong>مالکیت</strong> من با خودرویم، یک <strong>حکم وضعی</strong> است. این وضعیت حقوقی، احکام تکلیفی زیر را نتیجه می‌دهد:</p>
+                <ul>
+                    <li>من <strong>مجاز (اباحه)</strong> به تصرف در آن هستم.</li>
+                    <li>تصرف شما در آن <strong>ممنوع (حرمت)</strong> است.</li>
+                </ul>
+            </div>
 
-        <h2>🎯 تله‌های تستی و نکات ظریف</h2>
+            <hr class="divider-light">
 
-        <div class="block-trap">
-            <span class="block-label">⚠️ تله تستی — نکته ۱</span>
-            <p>تمایز <strong>«وضع تعیینی»</strong> و <strong>«وضع تعینی»</strong>: در وضع تعیینی یک شخص یا نهاد خاص (واضع معین) وجود دارد (مانند پدر برای نام فرزند)، اما در وضع تعینی <strong>واضع خاصی وجود ندارد</strong> و وضع در اثر کثرت استعمال حاصل می‌شود (مانند وضع لفظ «قانون»).</p>
-        </div>
+            <h3>⚡ ثمره تفکیک حکم تکلیفی و وضعی</h3>
+            <div class="block-keypoint">
+                <span class="block-label">🔑 نکته کلیدی</span>
+                <p>مهم‌ترین ثمره این تقسیم‌بندی، <strong>تفاوت در شرط مکلف بودن</strong> است:</p>
+                <ul>
+                    <li><strong>در احکام تکلیفی:</strong> بلوغ و عقل <strong>شرط</strong> است. این احکام فقط متوجه افراد بالغ و عاقل می‌شود.</li>
+                    <li><strong>در احکام وضعی:</strong> بلوغ و عقل <strong>شرط نیست</strong>. این احکام بین اشخاص مکلف و غیرمکلف (مانند صغیر و مجنون) یکسان جاری می‌شود.</li>
+                </ul>
+                <p><strong>نتیجه عملی:</strong> اگر کودک صغیری مالک مالی باشد، شما نمی‌توانید در مال او تصرف کنید. همچنین در بحث <strong>ارث</strong> که حکمی وضعی است، عقل و بلوغ تأثیری در تحقق آن ندارد.</p>
+            </div>
 
-        <div class="block-trap">
-            <span class="block-label">⚠️ تله تستی — نکته ۲</span>
-            <p>کاربرد و انواع <strong>«قرینه»</strong> شکارگاه سؤالات امتحانی است:</p>
-            <ul>
-                <li>در <strong>مشترک لفظی</strong>، برای تعیین یکی از معانی حقیقی، نیاز به <strong>«قرینه معینه»</strong> داریم.</li>
-                <li>در <strong>حقیقت و مجاز</strong>، برای بازگرداندن ذهن از معنای حقیقی به مجازی، نیاز به <strong>«قرینه صارفه»</strong> داریم.</li>
-                <li>جابه‌جا به کار بردن این دو قرینه، یک <strong>خطای رایج</strong> است.</li>
-            </ul>
-        </div>
+            <hr class="divider">
 
-        <div class="block-trap">
-            <span class="block-label">⚠️ تله تستی — نکته ۳</span>
-            <p>تمایز <strong>«مشترک لفظی»</strong> و <strong>«مشترک معنوی»</strong>:</p>
-            <ul>
-                <li><strong>مشترک لفظی:</strong> یک لفظ با چند معنای متباین و جداگانه (مانند لفظ «شیر»).</li>
-                <li><strong>مشترک معنوی:</strong> یک لفظ با یک معنای کلی که مصادیق متعدد دارد (مانند لفظ «انسان» که بر حسن و حسین حمل می‌شود). لفظ مشترک معنوی از اقسام <strong>لفظ مختص</strong> است، نه چندمعنایی.</li>
-            </ul>
-        </div>
+            <h3>۲. تقسیم حکم به «واقعی» و «ظاهری»</h3>
+            <p>قبل از ورود به این تقسیم، توجه به این مقدمه ضروری است که تمامی افعال انسان‌ها در نزد خداوند دارای یک <strong>حکم معین</strong> است. به این حکم، <strong>«حکم واقعی»</strong> می‌گویند.</p>
 
-        <div class="block-trap">
-            <span class="block-label">⚠️ تله تستی — نکته ۴</span>
-            <p>علائم تشخیص حقیقت: <strong>«تبادر»</strong> به معنای سبقت گرفتن معنا بدون قرینه است. <strong>«صحت حمل»</strong> یعنی «این، آن است» و <strong>«عدم صحت سلب»</strong> یعنی «نمی‌توان گفت این، آن نیست». این علائم را با مثال‌هایشان بیاموزید.</p>
-        </div>
+            <h4>الف) حکم واقعی</h4>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم واقعی:</strong> حکمی است که از جانب خداوند برای افعال انسان‌ها <strong>از ابتدا</strong> مقرر شده است. <strong>علم و جهل مکلف</strong> هیچ دخالتی در این حکم ندارد.</p></div>
 
-        <div class="block-trap">
-            <span class="block-label">⚠️ تله تستی — نکته ۵</span>
-            <p>استعمال مجازی در قانون: مثال‌های مواد <strong>۱۱۷۱، ۳۳۹ و ۱۲۴۵</strong> قانون مدنی را با <strong>نوع علاقه‌شان</strong> به‌دقت حفظ کنید. به احتمال قوی از این مواد، سؤال طرح خواهد شد.</p>
-        </div>
+            <p><strong>اقسام حکم واقعی:</strong></p>
 
-        <hr class="divider">
+            <p><strong>۱. حکم واقعی اولی:</strong></p>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم واقعی اولی:</strong> احکامی که شارع و قانون‌گذار با توجه به مصالح و مفاسد واقعی، در <strong>حالت عادی</strong> و بدون در نظر گرفتن حالات استثنایی برای مکلفین مقرر کرده است.</p></div>
+            <div class="block-example">
+                <span class="block-label">💡 مثال‌های کلیدی</span>
+                <ul>
+                    <li><strong>روزه گرفتن:</strong> در حالت عادی <strong>واجب</strong> است. (حکم اولی)</li>
+                    <li><strong>شکستن شیشه ماشین دیگری:</strong> در حالت عادی <strong>حرام و جرم</strong> است. (حکم اولی)</li>
+                    <li><strong>پرداخت نفقه و مهریه:</strong> در حالت عادی <strong>واجب</strong> است. (حکم اولی)</li>
+                </ul>
+            </div>
 
-        <div class="block-summary">
-            <span class="block-label">🧠 چکیده استراتژیک جلسه</span>
-            <p>در این جلسه، پس از تأکید دوباره بر اهمیت الفاظ به‌عنوان ماده اولیه استنباط، وارد اولین مبحث تخصصی الفاظ یعنی <strong>«وضع» و «تقسیمات الفاظ»</strong> شدیم. آموختیم که وضع (قرار دادن لفظ برای معنا) یا <strong>تعیینی</strong> (با اراده واضع خاص) است یا <strong>تعینی</strong> (با کثرت استعمال). در تقسیم‌بندی الفاظ، به الفاظ مختص، مترادف و چندمعنایی پرداختیم و زیرمجموعه‌های مهم الفاظ چندمعنایی یعنی <strong>مشترک لفظی، منقول و حقیقت و مجاز</strong> را از هم تفکیک کردیم. دستاورد کلیدی این جلسه، فهم دقیق <strong>شرایط استعمال مجازی</strong> (وجود مناسبت و قرینه صارفه) و شناخت <strong>علائم تشخیص حقیقت از مجاز</strong> (تبادر، صحت حمل) به همراه تسلط بر مثال‌های قانونی استعمال مجازی (به‌ویژه در مواد ۱۱۷۱ و ۳۳۹ ق.م.) است که مستقیماً در آزمون‌ها مورد سؤال قرار می‌گیرند.</p>
-        </div>
+            <p><strong>۲. حکم واقعی ثانوی:</strong></p>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم واقعی ثانوی:</strong> حکمی است که به دلیل <strong>عروض یک حالت استثنایی و اضطراری</strong> برای مکلف مقرر می‌شود. این حکم، حکم اولی را <strong>تغییر می‌دهد</strong>.</p></div>
+            <div class="block-example">
+                <span class="block-label">💡 مثال‌های کلیدی</span>
+                <ul>
+                    <li><strong>روزه گرفتن در بیماری:</strong> اگر روزه برای شخص ضرر داشته باشد، دیگر واجب نیست؛ حتی ممکن است <strong>حرام</strong> شود. (حکم ثانوی)</li>
+                    <li><strong>شکستن شیشه ماشین برای نجات جان:</strong> اگر برای نجات جان یک کودک از خفگی در هوای گرم باشد، نه تنها حرام نیست، بلکه <strong>واجب</strong> می‌شود. (حکم ثانوی در حالت اضطرار)</li>
+                    <li><strong>پرداخت نفقه در حالت اعسار:</strong> اگر زوج <strong>معسر (ندار)</strong> باشد، پرداخت نفقه بر او <strong>واجب نیست</strong>. (حکم ثانوی)</li>
+                </ul>
+                <p style="font-size:0.85rem;color:#5c7a8a;">⚠️ یادداشت: جمله ناقص در مثال استاد: «پرداخت دین در حالت ادلی* واجب اگر معسر بودی نداربودی واجب نیست.» — نیاز به بازبینی فایل صوتی/تصویری.</p>
+            </div>
 
-    </main>
+            <h4>ب) حکم ظاهری</h4>
+            <p>گاهی فقیه یا قاضی به حکم واقعی دسترسی ندارد، اما نمی‌تواند مکلف را بلاتکلیف نگه دارد. در این شرایط، برای رفع تحیّر، حکمی صادر می‌کند که به آن <strong>«حکم ظاهری»</strong> می‌گویند.</p>
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span><p><strong>حکم ظاهری:</strong> حکمی است که در موارد <strong>دست‌نیافتن به حکم واقعی</strong>، برای خروج مکلف از بلاتکلیفی از سوی فقیه یا قاضی صادر می‌شود. این حکم ممکن است با حکم واقعی مطابقت نداشته باشد که اشکالی ندارد، زیرا تمام تلاش برای رسیدن به حکم واقعی صورت گرفته است.</p></div>
 
-    <footer class="session-footer">
-        <span>📅 جلسه دوم</span>
-        <span class="tag">وضع</span>
-        <span class="tag">تقسیمات الفاظ</span>
-        <span class="tag">مشترک لفظی</span>
-        <span class="tag">حقیقت و مجاز</span>
-        <span class="tag">قرینه معینه و صارفه</span>
-    </footer>
+            <div class="block-example">
+                <span class="block-label">💡 مثال کلیدی: دعوای مالکیت</span>
+                <p>فرض کنید ملکی سابقاً در مالکیت من بوده است. شخصی ادعا می‌کند که این ملک را از من خریده است و من منکر فروش هستم. قاضی در حالت <strong>شک</strong> به سر می‌برد. او نمی‌تواند پرونده را معطل نگه دارد و باید <strong>حکم ظاهری</strong> صادر کند. او با استناد به <strong>اصل استصحاب (ابقاء ما کان)</strong> حکم به بقای مالکیت سابق من می‌دهد، مگر اینکه خواهان دلیلی برای انتقال مالکیت ارائه دهد.</p>
+            </div>
 
-</section>
-<!-- ========== پایان سکشن جلسه دوم ========== -->
+            <hr class="divider">
 
-        <!--
-        ==================================================================
-        🔴 محل افزودن جلسه دوم (و جلسات بعدی)
-        ==================================================================
-        کافی است یک کپی از کل بلاک <section class="session" id="session-1">
-        (از خط بالایی که تگ <section> باز می‌شود تا بسته شدن </section>)
-        در اینجا قرار دهید و سپس:
+            <h2>🔍 ادله احکام: ارتباط حکم با دلیل آن</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>نوع حکم</th><th>نام دلیل</th><th>مصادیق</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>حکم واقعی</strong></td><td><strong>ادله اجتهادی</strong></td><td>۱. کتاب (قرآن) &nbsp; ۲. سنت (احادیث و روایات) &nbsp; ۳. اجماع (اتفاق نظر فقها) &nbsp; ۴. عقل</td></tr>
+                        <tr><td><strong>حکم ظاهری</strong></td><td><strong>ادله فقاهتی</strong> یا <strong>اصول عملیه</strong></td><td>۱. اصل برائت &nbsp; ۲. اصل احتیاط &nbsp; ۳. اصل تخییر &nbsp; ۴. اصل استصحاب</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.85rem;color:#8b6914;text-align:center;">⚠️ استاد تأکید کرد که این بخش <strong>بسیار مهم</strong> است و همیشه در امتحان می‌آید.</p>
 
-        ۱. id آن را به "session-2" تغییر دهید.
-        ۲. عنوان و محتوای آن را با متن جلسه جدید جایگزین کنید.
-        ۳. در ناوبری بالا (nav.top-nav) لینک مربوطه را فعال کنید.
+            <hr class="divider">
 
-        مثال ساختار:
-        <section class="session" id="session-2" aria-labelledby="session-2-title">
-          <header class="session-header"> ... </header>
-          <main class="session-content"> ... </main>
-          <footer class="session-footer"> ... </footer>
-        </section>
-        ==================================================================
-        -->
+            <h2>🎯 تله‌های تستی و نکات ظریف</h2>
 
-    </div>
-    <!-- /page-wrapper -->
+            <div class="block-trap"><span class="block-label">⚠️ تله تستی — نکته ۱</span><p>بین <strong>منطق عمومی</strong> (درست فکر کردن در همه علوم) و <strong>منطق خصوصی</strong> (اصول فقه برای علم حقوق) تمایز قائل شوید. در سوالات، ممکن است تعریف یکی برای دیگری به کار رود.</p></div>
+            <div class="block-trap"><span class="block-label">⚠️ تله تستی — نکته ۲</span><p>به <strong>ثمره تفکیک حکم تکلیفی و وضعی</strong> دقت کنید: <strong>«شرط بلوغ و عقل»</strong> فقط در احکام تکلیفی معتبر است. احکام وضعی مانند <strong>ارث، ملکیت، و ضمان</strong> درباره صغیر و مجنون نیز جاری است. این نقطه، <strong>شکارگاه طراحان تست</strong> است.</p></div>
+            <div class="block-trap"><span class="block-label">⚠️ تله تستی — نکته ۳</span><p><strong>حکم واقعی اولی</strong> را با <strong>حکم ثانوی</strong> اشتباه نگیرید. قاعده اولیه همان <strong>حکم اولی</strong> است (مثلاً وجوب روزه) و حکم ثانوی فقط در <strong>شرایط اضطراری و استثنایی</strong> (مثلاً ضرر داشتن روزه) می‌آید.</p></div>
+            <div class="block-trap"><span class="block-label">⚠️ تله تستی — نکته ۴</span><p>به <strong>ادله احکام</strong> مسلط باشید. حفظ کنید که: <strong>ادله اجتهادی</strong> (کتاب، سنت، اجماع، عقل) → دلیل <strong>حکم واقعی</strong> | <strong>ادله فقاهتی / اصول عملیه</strong> (برائت، احتیاط، تخییر، استصحاب) → دلیل <strong>حکم ظاهری</strong>. جابه‌جایی این دو خطای رایج است.</p></div>
+            <div class="block-trap"><span class="block-label">⚠️ تله تستی — نکته ۵</span><p>تعریف دقیق <strong>استنباط</strong> (بیرون کشیدن حکم از منابع) و تمثیل معروف آن به <strong>بیرون کشیدن آب از چاه</strong> را به خاطر بسپارید.</p></div>
 
-    <!-- ========== اسکریپت تغییر تم ========== -->
-    <script>
-        (function() {
-            const body = document.body;
-            const toggleBtn = document.getElementById('theme-toggle');
+            <hr class="divider">
 
+            <div class="block-summary">
+                <span class="block-label">🧠 چکیده استراتژیک جلسه</span>
+                <p>در این جلسه، با <strong>هویت و فلسفه علم اصول فقه</strong> به‌عنوان منطق اختصاصی حقوق آشنا شدیم. فهمیدیم که موضوع مشترک فقه و حقوق، <strong>افعال مکلفین</strong> است و کار یک فقیه و حقوقدان، <strong>استنباط حکم از منابع (الفاظ)</strong> می‌باشد. مهم‌ترین دستاورد این جلسه، فراگیری تقسیم‌بندی‌های کلیدی <strong>«حکم»</strong> بود:</p>
+                <ul>
+                    <li>🔸 تفکیک <strong>حکم تکلیفی</strong> (مستقیم، مشروط به بلوغ و عقل، منحصر در ۵ حکم) از <strong>حکم وضعی</strong> (غیرمستقیم، غیرمشروط به بلوغ و عقل، نامحدود)</li>
+                    <li>🔸 تفکیک <strong>حکم واقعی</strong> (اولی و ثانوی) از <strong>حکم ظاهری</strong> (با دلیل فقاهتی)</li>
+                </ul>
+                <p>تسلط بر این مفاهیم و مثال‌هایشان، <strong>سنگ بنای فهم کل کتاب</strong> و پاسخگویی به سوالات استدلالی آزمون‌ها است.</p>
+            </div>
+
+        </main>
+        <footer class="session-footer">
+            <span>📅 جلسه اول</span>
+            <span class="tag">اصول فقه ۱</span>
+            <span class="tag">مباحث الفاظ</span>
+            <span class="tag">حکم تکلیفی و وضعی</span>
+            <span class="tag">حکم واقعی و ظاهری</span>
+        </footer>
+    </section>
+    <!-- ========== پایان جلسه اول ========== -->
+    
+
+    <!--
+    🟢 برای افزودن جلسه‌ی دوم، کافی است یک کپی از کل بلاک <section class="session" id="session-1"> ...
+    را در اینجا (دقیقاً بعد از این کامنت) بچسبانید.
+    سپس فقط id آن را به "session-2" و محتوایش را به جلسه دوم تغییر دهید.
+    ناوبری به‌طور خودکار به‌روز می‌شود.
+    -->
+
+</div>
+<!-- /page-wrapper -->
+
+<script>
+    (function() {
+        // ----- ساخت خودکار لینک‌های ناوبری -----
+        function buildNavLinks() {
+            const navLinksContainer = document.querySelector('.nav-links');
+            if (!navLinksContainer) return;
+            const sessions = document.querySelectorAll('.session');
+            navLinksContainer.innerHTML = '';
+            sessions.forEach(session => {
+                const id = session.id;
+                if (!id) return;
+                const header = session.querySelector('.session-header h1');
+                const titleText = header ? header.textContent.trim() : 'جلسه';
+                // استخراج شماره جلسه از عنوان
+                let shortTitle = titleText;
+                const match = titleText.match(/جلسه\s*(\d+)/);
+                if (match) {
+                    shortTitle = 'جلسه ' + match[1];
+                } else {
+                    // اگر عنوان شامل "جلسه" نبود، از id استفاده کن
+                    shortTitle = id.replace('session-', 'جلسه ');
+                }
+                const link = document.createElement('a');
+                link.href = '#' + id;
+                link.className = 'session-link';
+                link.textContent = shortTitle;
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector('#' + id).scrollIntoView({ behavior: 'smooth' });
+                    setActiveLink(id);
+                });
+                navLinksContainer.appendChild(link);
+            });
+            // فعال‌سازی لینک اول یا بر اساس hash
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                setActiveLink(hash);
+            } else if (sessions.length > 0) {
+                setActiveLink(sessions[0].id);
+            }
+        }
+
+        function setActiveLink(activeId) {
+            document.querySelectorAll('.session-link').forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === activeId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // ----- مدیریت تم شب/روز -----
+        const body = document.body;
+        const toggleBtn = document.getElementById('theme-toggle');
+        if (toggleBtn) {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 body.classList.add('dark-mode');
-                toggleBtn.textContent = '☀️';
+                toggleBtn.innerHTML = '<span>☀️</span> <span>حالت روز</span>';
             } else {
-                toggleBtn.textContent = '🌙';
+                toggleBtn.innerHTML = '<span>🌙</span> <span>حالت شب</span>';
             }
-
             toggleBtn.addEventListener('click', function() {
                 const isDark = body.classList.toggle('dark-mode');
                 if (isDark) {
-                    toggleBtn.textContent = '☀️';
+                    toggleBtn.innerHTML = '<span>☀️</span> <span>حالت روز</span>';
                     localStorage.setItem('theme', 'dark');
                 } else {
-                    toggleBtn.textContent = '🌙';
+                    toggleBtn.innerHTML = '<span>🌙</span> <span>حالت شب</span>';
                     localStorage.setItem('theme', 'light');
                 }
             });
-        })();
-    </script>
+        }
+
+        // اجرا پس از بارگذاری کامل
+        buildNavLinks();
+
+        // در صورت تغییر hash توسط کاربر
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) setActiveLink(hash);
+        });
+    })();
+</script>
 </body>
 </html>
