@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>درسنامه اصول فقه | روح منطق حقوق</title>
+  <!-- فونت وزیر -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    :root {
+      --bg: #f8f5f0;
+      --card-bg: #ffffff;
+      --card-border: #e8dfd3;
+      --text: #2e241f;
+      --heading: #1e2b3c;
+      --accent: #b8864e;
+      --accent-light: #e7dacb;
+      --highlight-bg: #fdf6e8;
+      --highlight-border: #dbbc7c;
+      --hero-bg-start: #1e2b3c;
+      --hero-bg-end: #2c3e50;
+      --hero-text: #faf7f2;
+      --hero-goal-bg: rgba(255,255,240,0.12);
+      --hero-goal-border: rgba(255,255,200,0.25);
+      --hero-strong: #ffd78b;
+      --step-bg: #faf8f5;
+      --step-accent: #b8864e;
+      --step-number: #8b5e34;
+      --session-header-bg: #fffbf5;
+      --session-header-border: #eee4d5;
+      --session-text: #2c2416;
+      --session-content-bg: #ffffff;
+      --arrow-color: #b5956b;
+      --golden-bg: #fff7e6;
+      --golden-border: #cf9f4a;
+      --glossary-bg: #2d2a24;
+      --glossary-text: #f7f3e9;
+      --glossary-item-bg: #3e3830;
+      --glossary-item-strong: #e9c67a;
+      --final-bg: #eaf0f2;
+      --final-text: #1c2c38;
+      --final-border: #b8ccda;
+      --session-num-bg: #e7dacb;
+      --session-num-text: #4e3e2b;
+      --shadow: 0 8px 18px rgba(0,0,0,0.04);
+      --hero-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      --toggle-bg: #ffffff;
+      --toggle-icon: #1e2b3c;
+    }
+
+    body.dark {
+      --bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --card-border: #3d3d3d;
+      --text: #e0d7cc;
+      --heading: #cbbfa0;
+      --accent: #b8864e;
+      --accent-light: #4d3e2b;
+      --highlight-bg: #2e2b22;
+      --highlight-border: #b8864e;
+      --hero-bg-start: #111820;
+      --hero-bg-end: #1c2530;
+      --hero-text: #e6e0d4;
+      --hero-goal-bg: rgba(255,255,240,0.08);
+      --hero-goal-border: rgba(255,255,200,0.15);
+      --hero-strong: #f5c96a;
+      --step-bg: #252525;
+      --step-accent: #b8864e;
+      --step-number: #c49b5c;
+      --session-header-bg: #2c2c2c;
+      --session-header-border: #444;
+      --session-text: #ddd;
+      --session-content-bg: #2a2a2a;
+      --arrow-color: #b8864e;
+      --golden-bg: #332e22;
+      --golden-border: #b8864e;
+      --glossary-bg: #1e1e1e;
+      --glossary-text: #ddd;
+      --glossary-item-bg: #2c2c2c;
+      --glossary-item-strong: #f5c96a;
+      --final-bg: #1e2b2e;
+      --final-text: #cbd8e0;
+      --final-border: #3a505a;
+      --session-num-bg: #3b3326;
+      --session-num-text: #d4b87a;
+      --shadow: 0 8px 18px rgba(0,0,0,0.3);
+      --hero-shadow: 0 15px 30px rgba(0,0,0,0.4);
+      --toggle-bg: #333;
+      --toggle-icon: #f5c96a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 16px 12px 32px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      background: var(--toggle-bg);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--toggle-icon);
+      transition: background 0.3s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle:active {
+      transform: scale(0.92);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--hero-bg-start) 0%, var(--hero-bg-end) 100%);
+      border-radius: 28px;
+      padding: 28px 20px 22px;
+      margin-bottom: 22px;
+      color: var(--hero-text);
+      box-shadow: var(--hero-shadow);
+      text-align: center;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .hero .icon-large {
+      font-size: 3.2rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+    .hero .goal {
+      background: var(--hero-goal-bg);
+      backdrop-filter: blur(4px);
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--hero-goal-border);
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .goal strong {
+      color: var(--hero-strong);
+      font-weight: 700;
+    }
+
+    .roadmap-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--card-border);
+      transition: background 0.3s, border 0.3s;
+    }
+    .roadmap-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      background: var(--step-bg);
+      border-radius: 16px;
+      padding: 12px 14px;
+      border-right: 5px solid var(--step-accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      color: var(--text);
+      transition: background 0.3s, border 0.3s;
+    }
+    .step-item span {
+      font-weight: 800;
+      color: var(--step-number);
+      margin-left: 6px;
+    }
+
+    .session-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .session {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--card-border);
+      transition: all 0.25s ease;
+    }
+    .session-header {
+      background: var(--session-header-bg);
+      padding: 16px 18px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid var(--session-header-border);
+      color: var(--session-text);
+      transition: background 0.3s, border 0.3s;
+    }
+    .session-header .session-num {
+      background: var(--session-num-bg);
+      color: var(--session-num-text);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .arrow {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      color: var(--arrow-color);
+    }
+    .session.open .arrow {
+      transform: rotate(180deg);
+    }
+    .session-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+      background: var(--session-content-bg);
+      padding: 0 18px;
+    }
+    .session.open .session-content {
+      max-height: 2000px;
+      padding: 16px 18px 20px;
+    }
+    .session-content p {
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+    .session-content ul {
+      list-style: none;
+      padding-right: 12px;
+      margin-bottom: 12px;
+    }
+    .session-content li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-right: 20px;
+      font-size: 0.9rem;
+    }
+    .session-content li::before {
+      content: "•";
+      position: absolute;
+      right: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+    .highlight-box {
+      background: var(--highlight-bg);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 14px 0;
+      border: 1px dashed var(--highlight-border);
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: background 0.3s, border 0.3s;
+    }
+    .golden-note {
+      background: var(--golden-bg);
+      border-right: 4px solid var(--golden-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.3s, border 0.3s;
+    }
+
+    .glossary {
+      background: var(--glossary-bg);
+      border-radius: 24px;
+      padding: 20px 18px;
+      color: var(--glossary-text);
+      margin: 20px 0 18px;
+      box-shadow: var(--shadow);
+      transition: background 0.3s, color 0.3s;
+    }
+    .glossary h3 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .glossary-item {
+      background: var(--glossary-item-bg);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .glossary-item strong {
+      color: var(--glossary-item-strong);
+    }
+
+    .final-tip {
+      background: var(--final-bg);
+      border-radius: 20px;
+      padding: 18px 16px;
+      font-weight: 500;
+      color: var(--final-text);
+      border: 1px solid var(--final-border);
+      margin-top: 8px;
+      font-size: 0.93rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .final-tip span {
+      font-size: 1.4rem;
+      margin-left: 4px;
+    }
+
+    button, .session-header {
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="تغییر حالت شب و روز">🌙</button>
+
+  <div class="container">
+    <!-- هدف اصلی -->
+    <div class="hero">
+      <span class="icon-large">⚖️</span>
+      <h1>اصول فقه</h1>
+      <div class="goal">
+        <strong>🎯 روح اصول فقه</strong><br>
+        وکالت یا قضاوت رو تصور کن. «اصول فقه» بهت یاد میده چطور از دل کلمات یه ماده قانونی، حکم درست رو بیرون بکشی و یه استدلال محکم بسازی. بهش می‌گن «منطق حقوق».
+      </div>
+    </div>
+
+    <!-- نقشه راه -->
+    <div class="roadmap-card">
+      <div class="roadmap-title">🗺️ نقشه راه ۷ جلسه اول</div>
+      <div class="steps">
+        <div class="step-item"><span>جلسه ۱:</span> الفبای حکم (تکلیفی، وضعی، واقعی، ظاهری)</div>
+        <div class="step-item"><span>جلسه ۲ و ۳:</span> بازی با کلمات (وضع، مشترک لفظی، حقیقت و مجاز)</div>
+        <div class="step-item"><span>جلسه ۴ و ۵:</span> امر و نهی، اقسام واجب، فرق طلایی</div>
+        <div class="step-item"><span>جلسه ۵ تا ۷:</span> مفاهیم (منطوق، مفهوم شرط، وصف، غایت، حصر، استثنا)</div>
+      </div>
+    </div>
+
+    <!-- جلسات آکاردئونی -->
+    <div class="session-accordion">
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۱</span> الفبای «حکم»</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>حکم:</strong> دستور از طرف مقام بالاتر (قانون‌گذار) برای کارهای ما.</p>
+          <ul>
+            <li><strong>حکم تکلیفی:</strong> «باید» و «نباید»ها (واجب، حرام...). فقط برای بالغ و عاقل.</li>
+            <li><strong>حکم وضعی:</strong> «رابطه» یا «وضعیت» حقوقی (زوجیت، مالکیت). شامل بچه و دیوانه هم می‌شود.</li>
+            <li><strong>حکم واقعی و ظاهری:</strong> واقعی پیش خداست. ظاهری را قاضی وقتی به واقعی دسترسی ندارد صادر می‌کند (مثلاً با اصل برائت).</li>
+          </ul>
+          <div class="highlight-box">📌 بچه ۲ ساله می‌تونه وارث بشه و مالک (حکم وضعی) ولی نماز براش واجب نیست (حکم تکلیفی).</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۲ و ۳</span> بازی با کلمات</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>وضع:</strong> گذاشتن لفظ برای معنا (مثل اسم‌گذاری). تعیینی (با اراده) یا تعیّنی (کثرت استعمال).</p>
+          <ul>
+            <li><strong>مشترک لفظی:</strong> یک کلمه، چند معنا (شیر: خوراکی، درنده). نیاز به «قرینه معیّنه» دارد.</li>
+            <li><strong>حقیقت:</strong> کلمه در معنی اصلی خود (ماه = جرم آسمانی).</li>
+            <li><strong>مجاز:</strong> کلمه در غیر معنی اصلی با شباهت (به آدم زیبا می‌گیم ماه). نیاز به «قرینه صارفه» دارد.</li>
+          </ul>
+          <div class="golden-note">⚠️ «شیر رو خوردم» → «خوردم» قرینه معیّنه است که منظورت شیر خوراکی بوده.</div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۴ و ۵</span> امر و نهی</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>امر (دستور):</strong> مقام عالی به دانی بگوید کاری انجام دهد. اصل اولی: امر یعنی «واجب».</p>
+          <ul>
+            <li><strong>عینی:</strong> همه باید انجام دهند (نماز).</li>
+            <li><strong>کفایی:</strong> اگر یکی انجام داد از بقیه ساقط می‌شود (نجات غریق).</li>
+            <li><strong>تخییری:</strong> بین چند کار مخیّر هستی (کفاره روزه: ۶۰ روز روزه یا اطعام ۶۰ فقیر).</li>
+          </ul>
+          <p><strong>نهی (منع):</strong> دستور به ترک کار. اصل اولی: نهی یعنی «حرام».</p>
+          <div class="highlight-box">
+            🧠 <strong>فرق طلایی:</strong> در امر، با یک بار انجام کار تکلیف انجام می‌شود. در نهی، باید تا ابد آن کار را ترک کنی.
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۵ تا ۷</span> مفاهیم (حرف‌های پنهان)</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>منطوق:</strong> معنای مستقیم و رو (می‌گی: «من تشنمه»).</p>
+          <p><strong>مفهوم:</strong> معنای پنهان و غیرمستقیم (می‌فهمی طرف می‌گه «یه لیوان آب بیار»).</p>
+          <ul>
+            <li><strong>مفهوم شرط:</strong> «اگه درس بخونی، قبول می‌شی.» ← «اگه نخونی، قبول نمی‌شی.»</li>
+            <li><strong>مفهوم وصف:</strong> «به زوج‌های دانشجو وام می‌دیم.» ← «به غیردانشجو وام نمی‌دیم.»</li>
+            <li><strong>مفهوم غایت:</strong> «تا ساعت ۴ بازه.» ← «بعد از ۴ باز نیست.»</li>
+            <li><strong>مفهوم حصر:</strong> «فقط دانشجویان بیایند.» ← «غیردانشجوها نیایند.»</li>
+            <li><strong>مفهوم استثنا:</strong> «همه اومدن به جز حسن.» ← «حسن نیومده.»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- واژه‌نامه -->
+    <div class="glossary">
+      <h3>📖 واژه‌نامه جلسه ۸ (عام و خاص)</h3>
+      <div class="glossary-item"><strong>عام:</strong> همه اعضای یک گروه (همه دانشجوها).</div>
+      <div class="glossary-item"><strong>خاص:</strong> بخش کوچکی از عام (دانشجویان حقوق).</div>
+      <div class="glossary-item"><strong>تخصیص:</strong> محدود کردن دایرهٔ عام.</div>
+      <div class="glossary-item"><strong>مخصِّص متصل:</strong> چسبیده به جمله عام (به جز حسن).</div>
+      <div class="glossary-item"><strong>مخصِّص منفصل:</strong> در جمله یا مادهٔ قانونی دیگر.</div>
+      <div class="glossary-item"><strong>مخصِّص لُبّی:</strong> دلیل عقلی یا عرفی (همسایه‌ای که دعوا داری از شمول «همه همسایه‌ها» خارج است).</div>
+    </div>
+
+    <!-- توصیه نهایی -->
+    <div class="final-tip">
+      <span>💡</span> <strong>توصیه قبل از تایپ:</strong> جلسه هشتم درباره اینه که چطور یه گوینده اول یه حرف کلی می‌زنه (عام) و بعد با قید یا استثنا (مخصِّص) دایرهٔ اون رو کوچیک می‌کنه. منتظر مثال‌های ملموس باش. تو الان از خیلی از بچه‌هایی که سر کلاس بودن آماده‌تری. برو که بهترین تایپ رو انجام بدی! 🌟
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    function getInitialTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.add('dark');
+        themeToggle.innerHTML = '☀️';
+      } else {
+        body.classList.remove('dark');
+        themeToggle.innerHTML = '🌙';
+      }
+    }
+
+    applyTheme(getInitialTheme());
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    function toggleSession(header) {
+      header.parentElement.classList.toggle('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const first = document.querySelector('.session');
+      if (first) first.classList.add('open');
+    });
+  </script>
+</body>
+</html>
