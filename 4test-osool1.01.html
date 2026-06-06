@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تست‌های جلسه اول اصول فقه کاربردی | با پاسخ تشریحی و راهنمای حفظ</title>
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #212529;
+            --text-secondary: #495057;
+            --border: #dee2e6;
+            --primary: #0d6efd;
+            --primary-light: #e7f1ff;
+            --danger: #dc3545;
+            --success: #198754;
+            --warning: #ffc107;
+            --warning-bg: #fff3cd;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --toggle-bg: #e9ecef;
+            --answer-bg: #f1f8ff;
+            --code-bg: #f4f4f4;
+        }
+
+        .dark-mode {
+            --bg: #1a1d21;
+            --card-bg: #212529;
+            --text: #e9ecef;
+            --text-secondary: #adb5bd;
+            --border: #495057;
+            --primary: #3d8bfd;
+            --primary-light: #0a2540;
+            --danger: #e35d6a;
+            --success: #75b798;
+            --warning: #ffca2c;
+            --warning-bg: #332701;
+            --shadow: 0 4px 12px rgba(0,0,0,0.4);
+            --toggle-bg: #343a40;
+            --answer-bg: #0f2b47;
+            --code-bg: #2b3035;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+            padding: 20px 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* هدر */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: var(--card-bg);
+            padding: 16px 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dark-mode .header h1 {
+            background: linear-gradient(135deg, #3d8bfd, #b37cfc);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .toggle-btn {
+            background: var(--toggle-bg);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 10px 18px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .toggle-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        /* نوار پیشرفت */
+        .progress-bar {
+            background: var(--card-bg);
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .progress-fill {
+            flex-grow: 1;
+            height: 8px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill span {
+            display: block;
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+            transition: width 0.3s;
+            border-radius: 10px;
+        }
+
+        /* کارت سوال */
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .question-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question-num .badge {
+            background: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .option span.letter {
+            font-weight: 800;
+            width: 28px;
+            height: 28px;
+            background: var(--border);
+            color: var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .answer-section {
+            margin-top: 12px;
+        }
+
+        .show-answer-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .answer-content {
+            display: none;
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--answer-bg);
+            border-radius: 12px;
+            border-right: 4px solid var(--primary);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .answer-content.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .correct-answer {
+            font-weight: 800;
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .explanation {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 2;
+        }
+
+        .memory-tip {
+            background: var(--warning-bg);
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            border: 1px solid var(--warning);
+        }
+
+        .memory-tip strong {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #b45309;
+        }
+
+        .dark-mode .memory-tip strong {
+            color: #ffc107;
+        }
+
+        /* جدول‌ها */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.85rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            text-align: center;
+        }
+
+        th {
+            background: var(--primary-light);
+            font-weight: 800;
+        }
+
+        /* مایندمپ ساده */
+        .mindmap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .mind-node {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: var(--shadow);
+        }
+
+        .mind-node.root {
+            background: var(--primary);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .dark-mode .mind-node.root {
+            background: #0d6efd;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            padding: 16px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            .question-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- هدر -->
+        <div class="header">
+            <h1>📚 تست‌های جلسه اول اصول فقه</h1>
+            <button class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span> حالت شب
+            </button>
+        </div>
+
+        <!-- نوار پیشرفت -->
+        <div class="progress-bar">
+            <span>✅ پیشرفت پاسخ‌ها:</span>
+            <div class="progress-fill"><span id="progressSpan" style="width:0%"></span></div>
+            <span id="progressText">0/30</span>
+        </div>
+
+        <!-- خلاصه مایندمپ ابتدایی -->
+        <div style="background: var(--card-bg); border-radius: 16px; padding: 16px; margin-bottom: 20px; box-shadow: var(--shadow);">
+            <h3 style="margin-bottom:12px;">🧠 نقشه ذهنی جلسه اول</h3>
+            <div class="mindmap">
+                <div class="mind-node root">اصول فقه<br>(منطق حقوق)</div>
+                <div class="mind-node">📌 موضوع:<br>افعال مکلفین</div>
+                <div class="mind-node">⚖️ حکم<br>تکلیفی / وضعی</div>
+                <div class="mind-node">🌐 حکم<br>واقعی / ظاهری</div>
+                <div class="mind-node">📖 ادله<br>اجتهادی / فقاهتی</div>
+                <div class="mind-node">💧 استنباط<br>(دلو و چاه)</div>
+            </div>
+        </div>
+
+        <!-- سوالات به صورت داینامیک با جاوااسکریپت تزریق می‌شوند -->
+        <div id="questionsContainer"></div>
+
+        <div class="footer">
+            🎯 با تسلط بر این ۳۰ تست، جلسه اول را برای همیشه به خاطر بسپارید.
+        </div>
+    </div>
+
+    <script>
+        // داده‌های سوالات
+        const questions = [
+            {
+                id: 1,
+                topic: "جایگاه علم اصول",
+                text: "علم اصول فقه به عنوان «منطق اختصاصی» کدام علم شناخته می‌شود؟",
+                options: ["منطق عمومی", "فلسفه", "حقوق", "کلام"],
+                correct: 2, // صفر بیس
+                explanation: "اصول فقه، منطق خصوصی و اختصاصی علم حقوق (و فقه) است که شیوه درست استدلال کردن حقوقی را می‌آموزد. منطق عمومی در همه علوم کاربرد دارد.",
+                memory: "کلیدواژه: «منطق خصوصی = اصول فقه»، «منطق عمومی = منطق دبیرستانی». مثل تفاوت آموزش رانندگی عمومی با رانندگی تخصصی در پیست."
+            },
+            {
+                id: 2,
+                topic: "موضوع فقه و حقوق",
+                text: "موضوع مشترک علم فقه و علم حقوق کدام است؟",
+                options: ["اموال و دارایی‌ها", "افعال مکلفین", "احکام قضایی", "قوانین موضوعه"],
+                correct: 1,
+                explanation: "هر دو علم به «افعال مکلفین» (انسان بالغ و عاقل) می‌پردازند. تفاوت در منابع (کتاب و سنت در برابر قانون) و غایت (حکم شرعی در برابر حکم حقوقی) است.",
+                memory: "تکنیک: «فقه و حقوق = هر دو به افعال آدم‌بزرگ‌ها (مکلفین) کار دارند». کودک دو ساله موضوع این علوم نیست."
+            },
+            {
+                id: 3,
+                topic: "حکم تکلیفی",
+                text: "مهم‌ترین ویژگی حکم تکلیفی کدام است؟",
+                options: ["نامحدود بودن", "مستقیماً تعیین‌کننده باید و نباید بودن", "ایجاد وضعیت حقوقی مانند ملکیت", "عدم اشتراط به بلوغ"],
+                correct: 1,
+                explanation: "حکم تکلیفی «بایدها و نبایدها»ی مستقیم است (وجوب، حرمت، استحباب، کراهت، اباحه). مثال: نماز واجب است. نامحدود بودن و ایجاد وضعیت حقوقی از ویژگی‌های حکم وضعی است.",
+                memory: "فرمول: تکلیفی = 5 انگشت (احکام خمسه). وضعی = بی‌نهایت (زوجیت، ملکیت...)."
+            },
+            {
+                id: 4,
+                topic: "حکم وضعی",
+                text: "کدام گزینه از مصادیق «حکم وضعی» محسوب می‌شود؟",
+                options: ["وجوب روزه", "حرمت غیبت", "زوجیت", "کراهت خواب بین‌الطلوعین"],
+                correct: 2,
+                explanation: "زوجیت یک وضعیت حقوقی (رابطه) ایجاد می‌کند که خود منشأ احکام تکلیفی (مثل وجوب نفقه) می‌شود. سه گزینه دیگر از احکام تکلیفی خمسه هستند.",
+                memory: "کد ذهنی: «تکلیفی = خودِ فرمان (بکن/نکن)، وضعی = زمینه فرمان (رابطه/وضعیت)». زوجیت زمینه وجوب نفقه است."
+            },
+            {
+                id: 5,
+                topic: "ثمره تکلیفی و وضعی",
+                text: "مهم‌ترین ثمره تفکیک حکم تکلیفی از حکم وضعی چیست؟",
+                options: [
+                    "احکام تکلیفی فقط در فقه و احکام وضعی فقط در حقوق کاربرد دارند",
+                    "بلوغ و عقل فقط در احکام تکلیفی شرط است، نه در احکام وضعی",
+                    "احکام تکلیفی نامحدود و احکام وضعی محدودند",
+                    "تفاوت در منبع وضع آن‌هاست"
+                ],
+                correct: 1,
+                explanation: "در احکام وضعی مانند ارث، ملکیت و ضمان، بلوغ و عقل شرط نیست. کودک صغیر هم می‌تواند مالک شود و تصرف در مال او حرام است.",
+                memory: "شکار تست: «کودک مالک می‌شود!» (وضعی = بدون شرط بلوغ). این جمله را با صدای بلند تکرار کنید."
+            },
+            {
+                id: 6,
+                topic: "حکم واقعی",
+                text: "کدام گزاره درباره «حکم واقعی» صحیح است؟",
+                options: [
+                    "حکمی است که برای رفع تحیّر مکلف صادر می‌شود",
+                    "حکمی است که علم و جهل مکلف در آن تأثیری ندارد",
+                    "همان حکم ظاهری در صورت انطباق است",
+                    "تنها با اصل عملی اثبات می‌شود"
+                ],
+                correct: 1,
+                explanation: "حکم واقعی از ابتدا نزد خداوند مقرر شده و جهل یا علم ما به آن، در واقعیت آن تغییری ایجاد نمی‌کند. حکم ظاهری برای خروج از بن‌بست در مقام شک است.",
+                memory: "جمله طلایی: «حکم واقعی، جهل و علم نمی‌شناسد». مثل قانون جاذبه که چه بدانی چه ندانی، هست."
+            },
+            {
+                id: 7,
+                topic: "حکم ظاهری",
+                text: "در چه شرایطی به «حکم ظاهری» متوسل می‌شویم؟",
+                options: [
+                    "وقتی حکم واقعی کاملاً روشن باشد",
+                    "وقتی مکلف عمداً جهل داشته باشد",
+                    "وقتی دسترسی به حکم واقعی ممکن نباشد و مکلف بلاتکلیف بماند",
+                    "فقط در دعاوی مالی"
+                ],
+                correct: 2,
+                explanation: "حکم ظاهری برای رفع تحیّر در جایی است که فقیه/قاضی به حکم واقعی دسترسی ندارد. مستند آن اصول عملیه (برائت، احتیاط، تخییر، استصحاب) است.",
+                memory: "حکم ظاهری = چراغ قوه در تاریکی. حکم واقعی = خورشید. وقتی خورشید نیست، چراغ قوه روشن می‌کنیم."
+            },
+            {
+                id: 8,
+                topic: "حکم واقعی اولی و ثانوی",
+                text: "کدام گزینه مصداق «حکم واقعی ثانوی» است؟",
+                options: [
+                    "وجوب نماز در حالت عادی",
+                    "حرمت تصرف در مال غیر",
+                    "حرمت روزه در صورت ضرر جانی",
+                    "وجوب پرداخت نفقه زوجه"
+                ],
+                correct: 2,
+                explanation: "حکم اولی روزه، وجوب است. اما اگر روزه ضرر جانی داشته باشد، به حکم ثانوی «حرام» می‌شود. حالت اضطرار و استثنا، احکام را تغییر می‌دهد.",
+                memory: "اولی = هوای آفتابی (طبیعت). ثانوی = طوفان (وضعیت اضطراری). در طوفان، قوانین فرق می‌کند."
+            },
+            {
+                id: 9,
+                topic: "ادله احکام",
+                text: "ادله «فقاهتی» یا «اصول عملیه» مستند کدام نوع حکم هستند؟",
+                options: ["حکم واقعی اولی", "حکم واقعی ثانوی", "حکم ظاهری", "حکم تکلیفی"],
+                correct: 2,
+                explanation: "ادله اجتهادی (کتاب، سنت، اجماع، عقل) برای کشف حکم واقعی هستند. اما ادله فقاهتی (برائت، احتیاط، تخییر، استصحاب) برای رسیدن به حکم ظاهری در زمان شک به کار می‌روند.",
+                memory: "جدول ذهنی: «اجتهادی = واقعی (چهارگانه)» | «فقاهتی = ظاهری (چهارگانه)». 4 در برابر 4."
+            },
+            {
+                id: 10,
+                topic: "مفهوم استنباط",
+                text: "واژه «استنباط» در اصول فقه به چه معناست و تمثیل مشهور آن چیست؟",
+                options: [
+                    "تنظیم قوانین جدید، مانند معماری یک بنا",
+                    "بیرون کشیدن حکم از منابع، مانند بیرون کشیدن آب زلال از چاه",
+                    "حفظ و تکرار احادیث، مانند ضبط صوت",
+                    "مقایسه دو حکم مشابه، مانند ترازو"
+                ],
+                correct: 1,
+                explanation: "استنباط از ریشه «نبط» به معنای بیرون کشیدن آب از اعماق چاه است. فقیه با دلوِ «اصول فقه» از چاه «قرآن و سنت» آب زلال «احکام» را بیرون می‌کشد.",
+                memory: "تصویرسازی ذهنی: یک چاه عمیق (منابع)، یک سطل (اصول فقه)، و آب گوارا (حکم شرعی). هر وقت اسم استنباط آمد، این تصویر را بیاد آورید."
+            },
+            {
+                id: 11,
+                topic: "ارکان استنباط",
+                text: "در مثال استنباط وجوب نماز از آیه «اَقِمِ الصَّلاهَ»، قاعده «امر دلالت بر وجوب می‌کند» چه نقشی دارد؟",
+                options: ["صغرای قیاس", "کبرای قیاس", "نتیجه قیاس", "مستثنای قیاس"],
+                correct: 1,
+                explanation: "صغریٰ: «اَقِم فعل امر است». کبریٰ: «هر امری ظهور در وجوب دارد». نتیجه: «نماز واجب است». قواعد اصولی کبرای استدلال را تشکیل می‌دهند.",
+                memory: "فرمول استدلال: «این چیه؟» (صغری) + «این چیزها چه حکمی دارن؟» (کبری) = «پس حکمش اینه» (نتیجه)."
+            },
+            {
+                id: 12,
+                topic: "احکام وضعی",
+                text: "کدام جمله در مورد احکام وضعی نادرست است؟",
+                options: [
+                    "احکام وضعی نامحدودند",
+                    "ملکیت و زوجیت از احکام وضعی هستند",
+                    "احکام وضعی شرط بلوغ و عقل ندارند",
+                    "احکام وضعی منحصر در ۵ موردند"
+                ],
+                correct: 3,
+                explanation: "احکام تکلیفی منحصر در ۵ مورد (احکام خمسه) هستند. احکام وضعی مانند زوجیت، طهارت، ملکیت و... نامحدود و بیشمارند.",
+                memory: "تکلیفی = 5 (مثل 5 انگشت دست). وضعی = ∞ (بی‌نهایت)."
+            },
+            {
+                id: 13,
+                topic: "حکم ثانوی",
+                text: "شکستن شیشه ماشین دیگری برای نجات جان یک کودک از خفگی، چه نوع حکمی دارد؟",
+                options: ["حکم تکلیفی اولی", "حکم وضعی", "حکم تکلیفی ثانوی", "حکم ظاهری"],
+                correct: 2,
+                explanation: "در حالت اولی، شکستن شیشه حرام است. اما به دلیل اضطرار (نجات جان)، حکم ثانوی آن وجوب پیدا می‌کند. این تغییر حکم به خاطر عروض حالت استثنایی است.",
+                memory: "کد: «جان > مال». هرجا پای جان در میان باشد، حکم اولی تغییر می‌کند."
+            },
+            {
+                id: 14,
+                topic: "ادله اجتهادی",
+                text: "کدام مجموعه، «ادله اجتهادی» را به درستی نشان می‌دهد؟",
+                options: [
+                    "کتاب، سنت، اجماع، عقل",
+                    "برائت، احتیاط، تخییر، استصحاب",
+                    "قانون، عرف، رویه، دکترین",
+                    "وجوب، حرمت، استحباب، کراهت، اباحه"
+                ],
+                correct: 0,
+                explanation: "ادله اجتهادی (منابع اصلی استنباط حکم واقعی) عبارتند از: قرآن (کتاب)، روایات معصومین (سنت)، اجماع فقها، و عقل.",
+                memory: "حفظ با حروف اول: «ک س ا ع» (کتاب، سنت، اجماع، عقل). این ۴ تا رو مثل اسم یه گروه موسیقی حفظ کن."
+            },
+            {
+                id: 15,
+                topic: "اصول عملیه",
+                text: "قاضی در دعوای مالکیت که خواهان دلیلی بر انتقال مالکیت ندارد، با استناد به «ابقاء ما کان» حکم به بقای مالکیت سابق می‌دهد. این کدام اصل عملی است؟",
+                options: ["اصل برائت", "اصل احتیاط", "اصل تخییر", "اصل استصحاب"],
+                correct: 3,
+                explanation: "استصحاب یعنی «حکم به بقای آنچه بوده است». وقتی در انتقال مالکیت شک داریم، اصل بر بقای وضعیت سابق (مالکیت خوانده) است.",
+                memory: "«استصحاب = استصحابِ گذشته». هرچه بود، هست، تا خلافش ثابت شود."
+            },
+            {
+                id: 16,
+                topic: "تعریف حکم",
+                text: "در تعریف اصطلاحی «حکم» کدام ویژگی ضروری است؟",
+                options: [
+                    "صدور از قاضی دادگستری",
+                    "صدور از یک مقام صلاحیت‌دار و تعلق به افعال انسان‌ها",
+                    "انحصار در احکام کیفری",
+                    "قابلیت تجدیدنظرخواهی"
+                ],
+                correct: 1,
+                explanation: "حکم دستوری است که از یک مقام صلاحیت‌دار (قانون‌گذار، شارع، قاضی) صادر شده و موضوع آن «افعال انسان‌ها» است. این تعریف هم حکم شرعی را شامل می‌شود هم قانونی را.",
+                memory: "دو عنصر ضروری: ۱- مقام دارای صلاحیت ۲- رفتار آدمیزاد."
+            },
+            {
+                id: 17,
+                topic: "حکم تکلیفی (اباحه)",
+                text: "نوشیدن آب در حالت عادی چه حکم تکلیفی‌ای دارد؟",
+                options: ["وجوب", "حرمت", "اباحه", "کراهت"],
+                correct: 2,
+                explanation: "اباحه یعنی انجام یا ترک آن مساوی است؛ نه واجب است، نه حرام، نه مستحب و نه مکروه.",
+                memory: "اباحه = آزادی کامل. چراغ سبزِ احکام."
+            },
+            {
+                id: 18,
+                topic: "ارتباط حکم وضعی و تکلیفی",
+                text: "رابطه «ملکیت» (حکم وضعی) با «حرمت تصرف غیر» (حکم تکلیفی) چگونه است؟",
+                options: [
+                    "ملکیت، نتیجه حرمت تصرف است",
+                    "حرمت تصرف، یکی از آثار و احکام تکلیفی ناشی از ملکیت است",
+                    "این دو هیچ ارتباطی با هم ندارند",
+                    "ملکیت و حرمت تصرف هر دو حکم تکلیفی هستند"
+                ],
+                correct: 1,
+                explanation: "ملکیت (وضعی) یک وضعیت ایجاد می‌کند. از این وضعیت، احکام تکلیفی مختلفی زاده می‌شود: اباحه تصرف برای مالک، و حرمت تصرف برای دیگران.",
+                memory: "وضعی = درخت (ریشه). تکلیفی = میوه‌ها (بایدها و نبایدها)."
+            },
+            {
+                id: 19,
+                topic: "منابع حقوق",
+                text: "مهم‌ترین منبع حقوق که آن را مجموعه‌ای از الفاظ می‌دانیم چیست؟",
+                options: ["عرف و عادت", "رویه قضایی", "قانون", "نظریه دکترین"],
+                correct: 2,
+                explanation: "همان‌طور که قرآن منبع لفظی فقه است، «قانون» نیز منبع لفظی حقوق به شمار می‌رود. به همین دلیل مبحث الفاظ در اصول فقه برای هر دو حیاتی است.",
+                memory: "فقه ← قرآن (الفاظ) / حقوق ← قانون (الفاظ). پس مباحث الفاظ برای هر دو علم ضروری است."
+            },
+            {
+                id: 20,
+                topic: "مقدمه مفاهیم",
+                text: "در جمله «من گرسنه هستم»، کدام عبارت «منطوق» و کدام «مفهوم» است؟",
+                options: [
+                    "منطوق: احساس گرسنگی / مفهوم: درخواست غذا",
+                    "منطوق: درخواست غذا / مفهوم: احساس گرسنگی",
+                    "هر دو منطوق هستند",
+                    "جمله فاقد منطوق است"
+                ],
+                correct: 0,
+                explanation: "منطوق معنای مستقیم کلام (احساس گرسنگی) است. مفهوم معنای پنهان و غیرمستقیم آن (لطفاً غذا بیاور) می‌باشد.",
+                memory: "منطوق = روکش ظاهری حرف. مفهوم = منظور اصلی پشت حرف."
+            },
+            {
+                id: 21,
+                topic: "تبعیت احکام",
+                text: "کدام عبارت در مورد تبعیت احکام از مصالح و مفاسد صحیح است؟",
+                options: [
+                    "احکام شرعی تابع مصالح و مفاسد واقعی نیستند",
+                    "احکام واقعی اولی بر اساس مصالح و مفاسد در حالت عادی وضع شده‌اند",
+                    "احکام ظاهری تابع مصالح و مفاسدند",
+                    "مصالح و مفاسد فقط در احکام وضعی مؤثرند"
+                ],
+                correct: 1,
+                explanation: "شارع مقدس احکام واقعی اولی را با توجه به مصالح و مفاسد واقعی افعال، برای حالت عادی مکلفین مقرر فرموده است.",
+                memory: "اولی = مصلحت سنجی در وضعیت سفید (عادی)."
+            },
+            {
+                id: 22,
+                topic: "منطوق و مفهوم",
+                text: "در آیه «فَلَا تَقُلْ لَهُمَا أُفٍّ...»، مفهوم موافق «حرمت کتک زدن والدین» چگونه استنباط می‌شود؟",
+                options: [
+                    "از طریق دلیل خطاب",
+                    "از راه قیاس اولویت (فحوای خطاب)",
+                    "از طریق استصحاب",
+                    "از طریق برائت"
+                ],
+                correct: 1,
+                explanation: "مفهوم موافق (فحوای خطاب) یعنی وقتی «اف» گفتن حرام باشد، کتک زدن که بدتر است «به طریق اولی» حرام است. این نیاز به قیاس اولویت دارد.",
+                memory: "موافق = هم‌جهت با منطوق اما قوی‌تر (اف < کتک). مخالف = ضد جهت منطوق."
+            },
+            {
+                id: 23,
+                topic: "بلوغ و عقل",
+                text: "اگر فردی دچار جنون شود، کدام دسته از احکام دیگر بر او جاری نمی‌شود؟",
+                options: ["احکام وضعی", "احکام تکلیفی", "همه احکام", "فقط احکام مالی"],
+                correct: 1,
+                explanation: "جنون باعث رفع تکلیف می‌شود. چون شرط تنجز احکام تکلیفی، بلوغ و عقل است. اما احکام وضعی (مثل ارث بردن یا مالک شدن) همچنان برای مجنون جاری است.",
+                memory: "مجنون = تکلیف (باید/نباید) ندارد، اما حقوق (مالکیت، ارث) دارد."
+            },
+            {
+                id: 24,
+                topic: "کبرای قیاس",
+                text: "نقش «اصول فقه» در استدلال‌های حقوقی چیست؟",
+                options: [
+                    "تعیین مصداق خارجی",
+                    "تشکیل صغرای قیاس",
+                    "تشکیل کبرای قیاس (قاعده کلی)",
+                    "بیان نتیجه نهایی"
+                ],
+                correct: 2,
+                explanation: "قواعد علم اصول (مثلاً: امر ظهور در وجوب دارد) کبرای کلی قیاس را تشکیل می‌دهند. صغریٰ از منابع (مثلاً این لفظ امر است) به دست می‌آید.",
+                memory: "اصول فقه = کتاب قانونِ استدلال (کبریات). منابع = پرونده (صغریات)."
+            },
+            {
+                id: 25,
+                topic: "تقسیمات حکم",
+                text: "کدام گزینه ترتیب صحیح تقسیمات حکم را نشان می‌دهد؟",
+                options: [
+                    "حکم → تکلیفی (محدود) و وضعی (نامحدود) / حکم → واقعی (اولی و ثانوی) و ظاهری",
+                    "حکم → واقعی و ظاهری / حکم → اولی و ثانوی",
+                    "حکم → وضعی و تکلیفی / حکم → ظاهری و فقاهتی",
+                    "حکم → ظاهری و باطنی / حکم → اجتهادی و فقاهتی"
+                ],
+                correct: 0,
+                explanation: "دو تقسیم‌بندی اصلی: ۱- بر اساس تعلق (تکلیفی/وضعی) ۲- بر اساس دسترسی (واقعی/ظاهری). واقعی خود به اولی و ثانوی تقسیم می‌شود.",
+                memory: "مایندمپ: «حکم» دو شاخه اصلی: «تکلیفی-وضعی» و «واقعی-ظاهری»."
+            },
+            {
+                id: 26,
+                topic: "استنباط",
+                text: "فرایند استنباط حکم از منابع، شبیه به چه عملی دانسته شده است؟",
+                options: [
+                    "ساختن یک بنا با آجر",
+                    "بیرون کشیدن آب از چاه با دلو",
+                    "پختن غذا با دستور پخت",
+                    "کاشتن بذر در زمین"
+                ],
+                correct: 1,
+                explanation: "استنباط از «نبط» به معنای بیرون کشیدن آب زلال از اعماق چاه است. فقیه با دلو «اصول فقه» از چاه «منابع» آب «احکام» را بیرون می‌کشد.",
+                memory: "تصویر: چاه = قرآن و سنت. دلو = اصول فقه. آب = حکم شرعی. این تصویر ذهنی بهترین راه حفظ است."
+            },
+            {
+                id: 27,
+                topic: "احکام خمسه",
+                text: "کدام گزینه شامل «احکام خمسه تکلیفیه» نیست؟",
+                options: ["وجوب", "حرمت", "ملکیت", "اباحه"],
+                correct: 2,
+                explanation: "احکام خمسه عبارتند از: وجوب، حرمت، استحباب، کراهت، اباحه. «ملکیت» یک حکم وضعی است، نه تکلیفی.",
+                memory: "پنج‌تای طلایی: واجب، حرام، مستحب، مکروه، مباح. ملکیت اضافی است!"
+            },
+            {
+                id: 28,
+                topic: "اعسار و حکم ثانوی",
+                text: "اگر زوج معسر (ندار) باشد، پرداخت نفقه زوجه چه حکمی پیدا می‌کند؟",
+                options: ["واجب است", "حرام است", "واجب نیست (حکم ثانوی)", "مستحب است"],
+                correct: 2,
+                explanation: "در حالت اولی، پرداخت نفقه واجب است. اما در صورت اعسار (حالت استثنایی)، تکلیف به پرداخت ساقط می‌شود. این یک حکم ثانوی است.",
+                memory: "اعسار = چراغ قرمز موقت برای وجوب. وقتی پول نداری، لازم نیست بدهی (فعلاً)."
+            },
+            {
+                id: 29,
+                topic: "ادله ظاهری",
+                text: "هدف اصلی از «اصول عملیه» (ادله فقاهتی) چیست؟",
+                options: [
+                    "کشف حکم واقعی",
+                    "رفع تحیّر و خروج از بلاتکلیفی در مقام عمل",
+                    "وضع قوانین جدید",
+                    "نسخ احکام قبلی"
+                ],
+                correct: 1,
+                explanation: "اصول عملیه (برائت، احتیاط، تخییر، استصحاب) برای زمانی هستند که دست ما از حکم واقعی کوتاه است. آن‌ها وظیفه عملی مکلف را مشخص می‌کنند.",
+                memory: "اصول عملیه = GPS در جاده‌های ناشناخته. شما را از سردرگمی نجات می‌دهد."
+            },
+            {
+                id: 30,
+                topic: "جمع‌بندی",
+                text: "کدام یک از ادله زیر برای اثبات «حکم ظاهری» به کار می‌رود؟",
+                options: ["قرآن (کتاب)", "اجماع", "اصل برائت", "عقل"],
+                correct: 2,
+                explanation: "قرآن، سنت، اجماع و عقل «ادله اجتهادی» برای حکم واقعی هستند. «اصل برائت» یکی از اصول عملیه (فقاهتی) و دلیل حکم ظاهری است.",
+                memory: "تست نهایی: کتاب/سنت/اجماع/عقل = واقعی. اصول 4گانه عملی = ظاهری."
+            }
+        ];
+
+        let answeredCount = 0;
+        const totalQuestions = questions.length;
+
+        function updateProgress() {
+            document.getElementById('progressSpan').style.width = (answeredCount / totalQuestions * 100) + '%';
+            document.getElementById('progressText').textContent = answeredCount + '/' + totalQuestions;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            let html = '';
+            questions.forEach((q, index) => {
+                const letters = ['الف', 'ب', 'ج', 'د'];
+                html += `
+                <div class="question-card" id="q-${q.id}">
+                    <div class="question-num">
+                        <span class="badge">${q.topic}</span> سوال ${q.id}
+                    </div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <div class="option" onclick="document.getElementById('btn-${q.id}').click()">
+                                <span class="letter">${letters[i]}</span> ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="answer-section">
+                        <button class="show-answer-btn" id="btn-${q.id}" onclick="toggleAnswer(${q.id}, ${q.correct}, '${q.explanation.replace(/'/g, "\\'")}', \`${q.memory.replace(/`/g, "\\`").replace(/'/g, "\\'")}\`)">
+                            👁️ مشاهده پاسخ تشریحی
+                        </button>
+                        <div class="answer-content" id="answer-${q.id}"></div>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function toggleAnswer(id, correctIndex, explanation, memory) {
+            const answerDiv = document.getElementById('answer-' + id);
+            const btn = document.getElementById('btn-' + id);
+            const letters = ['الف', 'ب', 'ج', 'د'];
+            const questionCard = document.getElementById('q-' + id);
+
+            if (answerDiv.classList.contains('show')) {
+                answerDiv.classList.remove('show');
+                btn.innerHTML = '👁️ مشاهده پاسخ تشریحی';
+                // کاهش شمارنده فقط اگر قبلاً پاسخ داده شده بود
+                if(questionCard.dataset.answered === 'true'){
+                    answeredCount--;
+                    questionCard.dataset.answered = 'false';
+                    updateProgress();
+                }
+            } else {
+                answerDiv.innerHTML = `
+                    <div class="correct-answer">✅ گزینه صحیح: ${letters[correctIndex]}</div>
+                    <div class="explanation">${explanation}</div>
+                    <div class="memory-tip">
+                        <strong>🧠 راهنمای حفظ:</strong> ${memory}
+                    </div>
+                `;
+                answerDiv.classList.add('show');
+                btn.innerHTML = '🙈 پنهان کردن پاسخ';
+                if(questionCard.dataset.answered !== 'true'){
+                    answeredCount++;
+                    questionCard.dataset.answered = 'true';
+                    updateProgress();
+                }
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeIcon');
+            const btn = document.getElementById('themeToggle');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.textContent = '☀️';
+                btn.innerHTML = '<span>☀️</span> حالت روز';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.textContent = '🌙';
+                btn.innerHTML = '<span>🌙</span> حالت شب';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // تنظیم تم اولیه
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeToggle').innerHTML = '<span>☀️</span> حالت روز';
+            } else {
+                document.getElementById('themeIcon').textContent = '🌙';
+                document.getElementById('themeToggle').innerHTML = '<span>🌙</span> حالت شب';
+            }
+        })();
+
+        renderQuestions();
+        updateProgress();
+
+        // نمایش جداول کمکی در کنسول یا ابزار یادگیری
+        console.log("✅ 30 تست از جلسه اول با پاسخ تشریحی و راهنمای حفظ بارگذاری شد.");
+    </script>
+</body>
+</html>
