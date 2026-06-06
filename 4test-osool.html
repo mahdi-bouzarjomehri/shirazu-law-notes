@@ -1,1 +1,398 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>درسنامه اصول فقه | منطق حقوق</title>
+  <!-- فونت وزیر از CDN -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+      background: #f8f5f0;
+      color: #2e241f;
+      line-height: 1.8;
+      padding: 16px 12px 32px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* هدر اصلی */
+    .hero {
+      background: linear-gradient(135deg, #1e2b3c 0%, #2c3e50 100%);
+      border-radius: 28px;
+      padding: 28px 20px 22px;
+      margin-bottom: 22px;
+      color: #faf7f2;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .hero .icon-large {
+      font-size: 3.2rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+    .hero .goal {
+      background: rgba(255,255,240,0.12);
+      backdrop-filter: blur(4px);
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,200,0.25);
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .goal strong {
+      color: #ffd78b;
+      font-weight: 700;
+    }
+
+    /* کارت نقشه راه */
+    .roadmap-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      border: 1px solid #e8dfd3;
+    }
+    .roadmap-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e2b3c;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      background: #faf8f5;
+      border-radius: 16px;
+      padding: 12px 14px;
+      border-right: 5px solid #c49b5c;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .step-item span {
+      font-weight: 800;
+      color: #9b6f3c;
+      margin-left: 6px;
+    }
+
+    /* آکاردئون جلسات */
+    .session-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .session {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+      border: 1px solid #e6dbcb;
+      transition: all 0.25s ease;
+    }
+    .session-header {
+      background: #fffbf5;
+      padding: 16px 18px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid #eee4d5;
+      color: #2c2416;
+    }
+    .session-header .session-num {
+      background: #e7dacb;
+      color: #4e3e2b;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .arrow {
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+      color: #b5956b;
+    }
+    .session.open .arrow {
+      transform: rotate(180deg);
+    }
+    .session-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+      background: #ffffff;
+      padding: 0 18px;
+    }
+    .session.open .session-content {
+      max-height: 2000px; /* مقدار کافی برای محتوای بلند */
+      padding: 16px 18px 20px;
+    }
+    .session-content p {
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+    .session-content ul {
+      list-style: none;
+      padding-right: 12px;
+      margin-bottom: 12px;
+    }
+    .session-content li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-right: 20px;
+      font-size: 0.9rem;
+    }
+    .session-content li::before {
+      content: "•";
+      position: absolute;
+      right: 0;
+      color: #b39364;
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+    .highlight-box {
+      background: #fdf6e8;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 14px 0;
+      border: 1px dashed #dbbc7c;
+      font-weight: 500;
+      color: #4b3a22;
+      font-size: 0.9rem;
+    }
+    .golden-note {
+      background: #fff7e6;
+      border-right: 4px solid #cf9f4a;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    /* واژه‌نامه */
+    .glossary {
+      background: #2d2a24;
+      border-radius: 24px;
+      padding: 20px 18px;
+      color: #f7f3e9;
+      margin: 20px 0 18px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .glossary h3 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .glossary-item {
+      background: #3e3830;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .glossary-item strong {
+      color: #e9c67a;
+    }
+
+    /* توصیه نهایی */
+    .final-tip {
+      background: #eaf0f2;
+      border-radius: 20px;
+      padding: 18px 16px;
+      font-weight: 500;
+      color: #1c2c38;
+      border: 1px solid #b8ccda;
+      margin-top: 8px;
+      font-size: 0.93rem;
+    }
+    .final-tip span {
+      font-size: 1.4rem;
+      margin-left: 4px;
+    }
+
+    button, .session-header {
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- هیرو / هدف اصلی -->
+    <div class="hero">
+      <span class="icon-large">⚖️</span>
+      <h1>اصول فقه</h1>
+      <div class="goal">
+        <strong>🎯 منطق حقوق</strong><br>
+        فرمول‌ها و قواعدی که یاد می‌گیری چطور یک قاضی یا وکیل، از دل یک ماده قانونی (الفاظ)، حکم درست رو استخراج کنه (استنباط).
+      </div>
+    </div>
+
+    <!-- نقشه راه جلسات -->
+    <div class="roadmap-card">
+      <div class="roadmap-title">🗺️ نقشه راه ۷ جلسه اول</div>
+      <div class="steps">
+        <div class="step-item"><span>جلسه ۱:</span> مقدمات، حکم تکلیفی و وضعی، واقعی و ظاهری</div>
+        <div class="step-item"><span>جلسه ۲ و ۳:</span> وضع الفاظ، مشترک لفظی، مترادف، حقیقت و مجاز</div>
+        <div class="step-item"><span>جلسه ۴ و ۵:</span> اوامر و نواهی، انواع واجب، فرق امر و نهی</div>
+        <div class="step-item"><span>جلسه ۵ تا ۷:</span> مفاهیم (منطوق، مفهوم شرط، وصف، غایت، حصر، استثنا)</div>
+      </div>
+    </div>
+
+    <!-- آکاردئون جزئیات جلسات -->
+    <div class="session-accordion">
+      <!-- جلسه 1 -->
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۱</span> الفبای استنباط</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>حکم:</strong> فرمانی از سوی مقام بالاتر (شارع/قانون‌گذار) برای افعال ما.</p>
+          <ul>
+            <li><strong>حکم تکلیفی:</strong> باید و نبایدها (واجب، حرام، مستحب، مکروه، مباح).</li>
+            <li><strong>حکم وضعی:</strong> وضعیت حقوقی می‌سازد (زوجیت، مالکیت). شامل کودک و دیوانه هم می‌شود.</li>
+            <li><strong>حکم واقعی:</strong> حکم خداوند در واقع.</li>
+            <li><strong>حکم ظاهری:</strong> وقتی قاضی به حکم واقعی دسترسی ندارد، با اصل برائت/استصحاب صادر می‌کند.</li>
+          </ul>
+          <div class="highlight-box">📌 کودک صغیر هم می‌تواند مالک شود (حکم وضعی) اما تکلیف نماز ندارد (حکم تکلیفی).</div>
+        </div>
+      </div>
+
+      <!-- جلسه 2 و 3 -->
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۲ و ۳</span> وضع و تقسیمات الفاظ</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>وضع:</strong> گذاشتن لفظ برای معنا (مانند اسم‌گذاری). تعیینی (با اراده) یا تعیّنی (کثرت استعمال).</p>
+          <ul>
+            <li><strong>مشترک لفظی:</strong> یک لفظ، چند معنا (شیر: خوراکی/درنده). نیاز به قرینه معیّنه.</li>
+            <li><strong>مترادف:</strong> چند لفظ، یک معنا (بیع، خرید و فروش).</li>
+            <li><strong>حقیقت و مجاز:</strong> 
+              <br>• حقیقت: لفظ در معنای اصلی (ماه = جرم آسمانی).
+              <br>• مجاز: لفظ در غیر معنی اصلی با قرینه صارفه ("فلانی ماه شده" یعنی زیباست). 
+            </li>
+          </ul>
+          <div class="golden-note">⚠️ "من شیر رو بستم" → "بستم" قرینه صارفه است که منظور شیر آب است.</div>
+        </div>
+      </div>
+
+      <!-- جلسه 4 و 5 اوامر و نواهی -->
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۴ و ۵</span> اوامر و نواهی</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>امر (دستور):</strong> طلب مقام عالی از دانی برای انجام کار. اصل اولی: دلالت بر وجوب.</p>
+          <ul>
+            <li><strong>واجب عینی:</strong> همه باید انجام دهند (نماز).</li>
+            <li><strong>واجب کفایی:</strong> اگر یکی انجام داد از دیگران ساقط می‌شود (نجات غریق).</li>
+            <li><strong>واجب تعیینی:</strong> کار مشخص (روزه).</li>
+            <li><strong>واجب تخییری:</strong> مخیّر بین چند کار (کفاره روزه: ۶۰ روز روزه یا اطعام ۶۰ فقیر) - باید در عرض هم باشند.</li>
+          </ul>
+          <p><strong>نهی (منع):</strong> طلب ترک فعل. اصل اولی: دلالت بر حرمت.</p>
+          <div class="highlight-box">
+            🧠 <strong>فرق طلایی امر و نهی:</strong> در امر با یک بار انجام، تکلیف ساقط می‌شود. در نهی، باید برای همیشه ترک کنی (با یک روز ترک دزدی، تکلیف انجام نشده).
+          </div>
+        </div>
+      </div>
+
+      <!-- جلسه 5 تا 7 مفاهیم -->
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(this)">
+          <div><span class="session-num">جلسه ۵ تا ۷</span> مفاهیم (حرف‌های پنهان)</div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="session-content">
+          <p><strong>منطوق:</strong> معنای مستقیم جمله ("من تشنمه").</p>
+          <p><strong>مفهوم:</strong> معنای غیرمستقیم ("یه لیوان آب بده").</p>
+          <ul>
+            <li><strong>مفهوم شرط:</strong> "اگر درس بخوانی قبول می‌شوی" ← اگر نخوانی قبول نمی‌شوی (به شرط علت منحصره).</li>
+            <li><strong>مفهوم وصف:</strong> "به زوج‌های دانشجو وام تعلق می‌گیرد" ← غیردانشجو وام نمی‌گیرد.</li>
+            <li><strong>مفهوم غایت:</strong> "کلاس تا ۴ تعطیل است" ← بعد از ۴ تعطیل نیست.</li>
+            <li><strong>مفهوم حصر:</strong> "فقط دانشجویان" ← غیردانشجویان نه.</li>
+            <li><strong>مفهوم استثنا:</strong> "همه هستند به جز حسن" ← حسن نیست.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- واژه‌نامه جیبی -->
+    <div class="glossary">
+      <h3>📖 واژه‌نامه جیبی (عام و خاص)</h3>
+      <div class="glossary-item"><strong>عام:</strong> چیزی که همه را شامل شود (همه دانشجوها).</div>
+      <div class="glossary-item"><strong>خاص:</strong> بخش کوچکی از عام (دانشجوهای حقوق).</div>
+      <div class="glossary-item"><strong>تخصیص:</strong> محدود کردن عام.</div>
+      <div class="glossary-item"><strong>مخصّص متصل:</strong> چسبیده به عام (کلمه "به جز").</div>
+      <div class="glossary-item"><strong>مخصّص منفصل:</strong> جدا از عام (در ماده دیگر).</div>
+      <div class="glossary-item"><strong>مخصّص لُبّی:</strong> دلیل عقلی (نمی‌توان به کسی که قهر است فروخت).</div>
+    </div>
+
+    <!-- توصیه نهایی -->
+    <div class="final-tip">
+      <span>💡</span> <strong>توصیه برای جلسه ۸:</strong> استاد درباره عام و خاص صحبت می‌کند. چطور قانون‌گذار حرف کلی می‌زند و با قید یا استثنا دایره آن را کوچک می‌کند. حواست به مثال‌های ملموس (مثل مغازه و پاساژ) باشد. تو از خیلی از دانشجوها آماده‌تری!
+    </div>
+  </div>
+
+  <script>
+    function toggleSession(header) {
+      const session = header.parentElement;
+      session.classList.toggle('open');
+    }
+    // باز گذاشتن اولین جلسه به صورت پیش‌فرض (اختیاری)
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstSession = document.querySelector('.session');
+      if (firstSession) {
+        firstSession.classList.add('open');
+      }
+    });
+  </script>
+</body>
+</html>
