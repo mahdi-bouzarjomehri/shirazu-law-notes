@@ -1,1 +1,488 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حقوق اساسی ۲ - جلسه اول | جایگاه قانون اساسی</title>
+    <style>
+        :root {
+            --bg-page: #fdfaf5;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #3d3d3d;
+            --text-muted: #5c5c5c;
+            --color-definition: #1a5c7a;
+            --color-definition-bg: #e8f4fa;
+            --color-definition-border: #2196b0;
+            --color-example: #2e6b3e;
+            --color-example-bg: #edf7ef;
+            --color-example-border: #4caf50;
+            --color-warning: #b8431e;
+            --color-warning-bg: #fef3ee;
+            --color-warning-border: #f57c3c;
+            --color-keypoint: #6b2fa0;
+            --color-keypoint-bg: #f6f0fb;
+            --color-keypoint-border: #9c59d1;
+            --color-summary: #8b6914;
+            --color-summary-bg: #fdf8ed;
+            --color-summary-border: #e0b840;
+            --color-table-header: #2c3e50;
+            --color-table-stripe: #f8f9fa;
+            --color-table-border: #e0dcd5;
+            --color-accent: #c0392b;
+            --color-subtle: #e8e0d5;
+            --color-quote-bg: #fdfaf3;
+            --color-quote-border: #d4c8a8;
+            --color-quote-text: #5c4a2e;
+            --footer-bg: #f9f7f3;
+            --footer-border: #e8e4dc;
+            --footer-tag-bg: #e8e4dc;
+            --nav-bg: #ffffff;
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.10);
+            --font-primary: 'Vazirmatn', 'IRANSans', 'Tahoma', system-ui, sans-serif;
+            --line-height: 2;
+            --spacing-xs: 0.4rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1.25rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 2.75rem;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+        body.dark-mode {
+            --bg-page: #121212;
+            --bg-card: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #cccccc;
+            --text-muted: #aaaaaa;
+            --color-definition: #4a90c2;
+            --color-definition-bg: #1a2a35;
+            --color-definition-border: #4a90c2;
+            --color-example: #5ba06a;
+            --color-example-bg: #1a2e1f;
+            --color-example-border: #5ba06a;
+            --color-warning: #d97a5c;
+            --color-warning-bg: #2e1f1a;
+            --color-warning-border: #d97a5c;
+            --color-keypoint: #9b6fc0;
+            --color-keypoint-bg: #241f2e;
+            --color-keypoint-border: #9b6fc0;
+            --color-summary: #c0a44a;
+            --color-summary-bg: #2a2416;
+            --color-summary-border: #c0a44a;
+            --color-table-header: #1e2a35;
+            --color-table-stripe: #252525;
+            --color-table-border: #333333;
+            --color-accent: #e07060;
+            --color-subtle: #3a3a3a;
+            --color-quote-bg: #25201a;
+            --color-quote-border: #5c4a2e;
+            --color-quote-text: #c0b090;
+            --footer-bg: #1a1a1a;
+            --footer-border: #2a2a2a;
+            --footer-tag-bg: #2a2a2a;
+            --nav-bg: #1e1e1e;
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+            --shadow-card-hover: 0 6px 24px rgba(0, 0, 0, 0.5);
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: var(--line-height);
+            direction: rtl;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .page-wrapper { max-width: 780px; margin: 0 auto; padding: var(--spacing-md) var(--spacing-sm); }
+
+        .top-nav {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+            gap: var(--spacing-sm); padding: var(--spacing-sm) var(--spacing-md);
+            margin-bottom: var(--spacing-md); background: var(--nav-bg);
+            border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+            font-size: 0.85rem; transition: background-color 0.3s;
+        }
+        .course-title { font-weight: 700; color: var(--color-definition); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+        .session-link {
+            background: var(--color-definition); color: #fff; padding: 0.3rem 0.8rem;
+            border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-decoration: none;
+            transition: background 0.2s; white-space: nowrap; cursor: pointer;
+        }
+        .session-link:hover { background: var(--color-accent); }
+        .session-link.active { background: var(--color-accent); pointer-events: none; }
+
+        .theme-toggle {
+            background: var(--color-subtle); border: 2px solid transparent; color: var(--text-primary);
+            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; gap: 0.3rem;
+            transition: all 0.3s; white-space: nowrap;
+        }
+        .theme-toggle:hover { border-color: var(--color-accent); background: var(--bg-card); }
+
+        .session {
+            background: var(--bg-card); border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card); overflow: hidden;
+            margin-bottom: var(--spacing-xl); transition: box-shadow 0.3s, background 0.3s;
+        }
+        .session:hover { box-shadow: var(--shadow-card-hover); }
+
+        .session-header {
+            background: linear-gradient(135deg, #1a3650 0%, #1a4a5e 40%, #1a5c7a 100%);
+            color: #ffffff; padding: var(--spacing-lg) var(--spacing-md); text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .session-header::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #f5c542, #e89c3a, #f5c542);
+        }
+        .session-number { font-size: 0.9rem; opacity: 0.85; margin-bottom: var(--spacing-xs); }
+        .session-header h1 { font-size: 1.6rem; font-weight: 800; }
+
+        .session-content { padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg); }
+        .session-content h2 {
+            font-size: 1.3rem; color: #1a3650; margin: var(--spacing-lg) 0 var(--spacing-sm);
+            border-bottom: 2px solid var(--color-subtle); padding-bottom: var(--spacing-xs);
+        }
+        body.dark-mode .session-content h2 { color: #b0c8d8; }
+        .session-content h3 { font-size: 1.1rem; color: #2c3e50; margin: var(--spacing-md) 0 var(--spacing-sm); }
+        body.dark-mode .session-content h3 { color: #c0ccd4; }
+        .session-content h4 { font-size: 1rem; color: #3d3d3d; margin: var(--spacing-sm) 0 var(--spacing-xs); }
+        body.dark-mode .session-content h4 { color: #c0c0c0; }
+        .session-content p { margin-bottom: var(--spacing-sm); color: var(--text-secondary); text-align: justify; }
+        .session-content strong { color: var(--text-primary); }
+
+        .block-definition, .block-example, .block-trap, .block-keypoint, .block-summary {
+            padding: var(--spacing-md); margin: var(--spacing-md) 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0; border-right: 5px solid;
+        }
+        .block-definition { background: var(--color-definition-bg); border-right-color: var(--color-definition-border); }
+        .block-example { background: var(--color-example-bg); border-right-color: var(--color-example-border); }
+        .block-trap { background: var(--color-warning-bg); border-right-color: var(--color-warning-border); }
+        .block-keypoint { background: var(--color-keypoint-bg); border-right-color: var(--color-keypoint-border); }
+        .block-summary { background: var(--color-summary-bg); border-right-color: var(--color-summary-border); }
+        .block-label {
+            display: inline-block; color: #fff; font-size: 0.75rem; font-weight: 700;
+            padding: 0.25rem 0.7rem; border-radius: 15px; margin-bottom: var(--spacing-sm);
+        }
+        .block-definition .block-label { background: var(--color-definition); }
+        .block-example .block-label { background: var(--color-example); }
+        .block-trap .block-label { background: var(--color-warning); }
+        .block-keypoint .block-label { background: var(--color-keypoint); }
+        .block-summary .block-label { background: var(--color-summary); }
+
+        .block-quote {
+            background: var(--color-quote-bg); border: 1px dashed var(--color-quote-border);
+            padding: var(--spacing-md); margin: var(--spacing-md) 0; font-style: italic;
+            color: var(--color-quote-text); text-align: center;
+        }
+
+        .session-content ul, .session-content ol { margin: var(--spacing-sm) 1.5rem; }
+        .session-content li { margin-bottom: 0.5rem; color: var(--text-secondary); }
+
+        .divider { border-top: 2px dotted var(--color-subtle); margin: var(--spacing-lg) 0; opacity: 0.7; }
+        .divider-light { border-top: 1px solid var(--color-subtle); margin: var(--spacing-md) 0; }
+
+        .session-footer {
+            background: var(--footer-bg); border-top: 1px solid var(--footer-border);
+            padding: var(--spacing-sm) var(--spacing-md); text-align: center; font-size: 0.78rem;
+            color: var(--text-muted); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-sm);
+        }
+        .session-footer .tag {
+            background: var(--footer-tag-bg); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.7rem;
+        }
+
+        @media (max-width: 600px) {
+            html { font-size: 15px; }
+            .page-wrapper { padding: var(--spacing-sm) var(--spacing-xs); }
+            .session-header h1 { font-size: 1.35rem; }
+            .session-content h2 { font-size: 1.15rem; }
+        }
+
+        @media print {
+            :root { --bg-page: #fff; --bg-card: #fff; --shadow-card: none; --text-primary: #000; }
+            .top-nav, .theme-toggle { display: none; }
+            .session { box-shadow: none; border: 1px solid #ccc; border-radius: 0; }
+            .session-header { background: #1a3650 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .block-definition, .block-example, .block-trap, .block-keypoint, .block-summary {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+            @page { margin: 1.5cm 1cm; size: A4; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- ===================== ناوبری خودکار ===================== -->
+    <nav class="top-nav" aria-label="ناوبری جلسات">
+        <span class="course-title">⚖️ حقوق اساسی ۲</span>
+        <div class="nav-links"></div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="تغییر تم">
+            <span>🌙</span> <span>حالت شب</span>
+        </button>
+    </nav>
+
+    <!-- ===================== جلسه اول (کامل) ===================== -->
+    <section class="session" id="session-1">
+        <header class="session-header">
+            <div class="session-number">جلسه اول</div>
+            <h1>📜 جایگاه قانون اساسی، منابع درس و پیش‌درآمدی بر تحولات تاریخی</h1>
+        </header>
+        <main class="session-content">
+
+            <h2>۱. تبیین جایگاه و اهمیت قانون اساسی</h2>
+            <p>در ابتدای جلسه، استاد به تشریح بنیادینِ چیستی و چراییِ اهمیت قانون اساسی پرداختند که محورهای آن به شرح زیر قابل دسته‌بندی است:</p>
+
+            <h3>۱.۱. قانون اساسی به‌مثابه اساس و فراقانون</h3>
+            <p>قانون اساسی، هم‌تراز قوانین دیگر نیست، بلکه اساس و شالودهٔ تمام قوانین کشور است. قوانین جزایی، مدنی، ثبت، تجارت و هر قانون موضوعهٔ دیگر، در چارچوبی که قانون اساسی تعیین می‌کند، وضع می‌شوند و باید مبتنی بر اصول آن باشند.</p>
+
+            <div class="block-definition"><span class="block-label">📌 اصطلاح</span>
+                <p><strong>قانون اساسی، چارچوب بنیادین و مادر همه قوانین است؛</strong> تمام قوانین عادی باید در درون این چارچوب حرکت کنند و مغایرتی با آن نداشته باشند. از این رو، به قانون اساسی <strong>«اساس»</strong> یا <strong>«قانون بنیادین»</strong> گفته می‌شود.</p>
+            </div>
+
+            <p>به دلیل همین جایگاه فرادست، در هر کشوری نهاد نگهبان قانون اساسی تأسیس می‌شود:</p>
+            <ul>
+                <li><strong>فرانسه:</strong> شورای نگهبان قانون اساسی</li>
+                <li><strong>ایران:</strong> شورای نگهبان</li>
+                <li><strong>ایالات متحده:</strong> دیوان عالی کشور</li>
+            </ul>
+            <p>فلسفه وجودی این نهادها تضمین آن است که هیچ قانون عادی از مدار قانون اساسی خارج نشود. <em>«نبض اساسی کشور»</em> را به قانون اساسی می‌دهند و هر قانونی با سنجهٔ قانون بنیادین سنجیده می‌شود.</p>
+
+            <h3>۱.۲. مرجعیت دائمی قانون اساسی در استنادات حقوقی</h3>
+            <p>نکتهٔ دوم در اهمیت قانون اساسی، قابلیت استناد به آن برای تمام کنش‌گران حقوقی است.</p>
+
+            <div class="block-example"><span class="block-label">💡 مثال کلیدی</span>
+                <ul>
+                    <li><strong>قضات</strong> می‌توانند به استناد قانون اساسی، حکم صادر کنند.</li>
+                    <li><strong>دادگاه‌ها</strong> می‌توانند به استناد قانون اساسی، قوانین موضوعه را متوقف یا رد کنند. <em>(نیازمند بازبینی فایل صوتی)</em></li>
+                    <li><strong>وکیل یا حقوقدان</strong> می‌تواند به استناد قانون اساسی، نمایه خاصی تنظیم کند. <em>(واژهٔ «نمایه» نامفهوم - نیاز به بازبینی)</em></li>
+                </ul>
+                <p>این قدرت استناد، قانون اساسی را به متنی همیشه مورد رجوع تبدیل می‌کند.</p>
+            </div>
+
+            <h3>۱.۳. قانون اساسی به‌مثابه «ناموس کشور» و «قرارداد اجتماعی»</h3>
+            <p>سومین بعد از اهمیت قانون اساسی با دو استعارهٔ قدرتمند تبیین شد:</p>
+            <ul>
+                <li><strong>ناموس کشور:</strong> همان‌گونه که ناموس بالاترین جایگاه را در فرهنگ داراست، قانون اساسی نیز چنین شأنی در حیات ملی دارد. از این رو تغییر دائمی و پی‌در‌پی آن ممکن نیست، اصل ثبات در آن ذاتی است، برای چند نسل نوشته می‌شود و وفاداری به آن وظیفهٔ همگانی است.</li>
+            </ul>
+
+            <div class="block-definition"><span class="block-label">📌 اصطلاح: قرارداد اجتماعی</span>
+                <p>به‌طور خاص، <strong>هیچ قانون عادی‌ای «قرارداد اجتماعی» نامیده نمی‌شود؛ فقط قانون اساسی</strong> است که عنوان <strong>«قرارداد اجتماعی»</strong> یا <strong>«میراث مشترک»</strong> یک ملت را به خود اختصاص می‌دهد. قانون اساسی محصول ارادهٔ عمومی است که معمولاً از مسیر رفراندوم و رأی مردم مشروعیت می‌یابد.</p>
+            </div>
+            <p>بنابراین، قانون اساسی <strong>«میراث مشترک»</strong> و <strong>«قرارداد جمعی»</strong> یک کشور است و همه برنامه‌ریزی‌های اقتصادی، سیاسی، اجتماعی و فرهنگی باید در چهارچوب آن صورت پذیرد.</p>
+
+            <hr class="divider">
+
+            <h2>۲. نقش حقوقدانان در پاسداری از قانون اساسی</h2>
+            <p>استاد در فرازی ویژه، دانشجویان را مخاطب قرار دادند و آنان را مهمترین حافظان قانون اساسی خواندند:</p>
+            <ul>
+                <li>مهمترین کسانی که حاکمان و مردم را نسبت به رعایت اصول قانون اساسی <em>انزال</em> می‌دهند، شما حقوقدانان هستید. <em>(احتمالاً «آگاه» یا «متذکر» مورد نظر بوده)</em></li>
+                <li>شما با آموزش و تفسیر قانون اساسی، شخصیت مدنی و جامعه‌پذیری سیاسی را در جامعه ایجاد می‌کنید.</li>
+                <li>حقوقدانان هم <strong>حافظ</strong> قانون اساسی هستند، هم <strong>مفسر</strong> آن و هم کسانی که همه را به بازگشت به قانون اساسی فرامی‌خوانند.</li>
+                <li>از همین منظر است که درس <strong>«حقوق اساسی»</strong> برای شما، فقط یک واحد درسی نیست؛ بلکه ابزاری برای صیانت از ناموس کشور است.</li>
+            </ul>
+
+            <hr class="divider">
+
+            <h2>۳. هدف کلی درس و نسبت آن با مباحث گذشته</h2>
+            <p>هدف این ترم، پیاده‌سازی مفاهیم نظری آموخته‌شده در ترم‌های قبل بر روی قانون اساسی جمهوری اسلامی ایران است.</p>
+            <ul>
+                <li>در گذشته، کلیات حقوق اساسی، کانسپت‌ها (مفاهیم بنیادین) و تفاوت آن با سایر گرایش‌ها را آموخته‌اید.</li>
+                <li>این ترم قرار است همین مفاهیم را در بستر قانون اساسی ایران جستجو کرده و تحول، تغییر و تعریف آن را در متنِ میهن خود دریابید.</li>
+                <li>به‌عبارتی، مباحث نظری پیشین، مقدمه و آنچه اکنون آغاز می‌شود، کاربرد عملیاتی و اجرایی آن کلیات است.</li>
+                <li>برنامهٔ کلاس، بحث، گفتگو و مرور دیباچه، اصول مختلف قانون اساسی، شأن هر اصل، جایگاه آن، مشکلات، و تفاسیر شورای نگهبان خواهد بود.</li>
+            </ul>
+
+            <hr class="divider">
+
+            <h2>۴. منابع اصلی درس</h2>
+            <p>استاد دو منبع پایه را معرفی کردند:</p>
+            <ol>
+                <li><strong>دفترچه قانون اساسی جمهوری اسلامی ایران</strong></li>
+                <li><strong>کتاب پژوهشکده شورای نگهبان</strong> با عنوان «قانون اساسی جمهوری اسلامی و تفاسیر مختلف آن»</li>
+            </ol>
+            <p>این کتاب شامل سه بخش اصلی است: متن قانون اساسی فعلی (مصوب ۱۳۶۸)، اصول قانون اساسی ۱۳۵۸ که مورد تجدیدنظر قرار گرفته‌اند، و نظریات تفسیری شورای نگهبان ذیل هر اصل.</p>
+            <p>اهمیت این کتاب از آن روست که مفسر رسمی قانون اساسی، شورای نگهبان است و رؤسای سه قوه می‌توانند از آن تقاضای تفسیر کنند. با گذر زمان، تفسیرهای شورا روزآمدی قانون اساسی را تضمین می‌کند. <em>(در عصر مشروطه، تفسیر با مجلس بود؛ اکنون تفسیر قوانین عادی با مجلس و تفسیر قانون اساسی با شورای نگهبان است.)</em></p>
+
+            <hr class="divider">
+
+            <h2>۵. ضرورت مطالعهٔ تحولات تاریخی برای فهم قانون اساسی کنونی</h2>
+            <p>برای فهم جایگاه و محتوای اصول قانون اساسی ۱۳۶۸، نمی‌توان تاریخ را نادیده گرفت. استاد زنجیرهٔ معرفتی زیر را ضروری دانستند:</p>
+            <ol>
+                <li><strong>قانون اساسی ۱۳۶۸</strong> ← برای فهم آن باید قانون اساسی ۱۳۵۸ را شناخت.</li>
+                <li><strong>قانون اساسی ۱۳۵۸</strong> ← مستلزم فهم فرایند شکل‌گیری آن و قانون اساسی مشروطه است.</li>
+                <li><strong>قانون اساسی مشروطه</strong> ← بدون بررسی تحولات پیشامشروطه، به‌ویژه دورهٔ ناصری، قابل درک نیست.</li>
+            </ol>
+
+            <h3>۵.۱. چرا قانون اساسی مشروطه «مادر» قانون اساسی امروز است؟</h3>
+            <ul>
+                <li><strong>۸۰ تا ۹۰ درصد</strong> فصول و ساختار قانون اساسی جمهوری اسلامی با قانون اساسی مشروطه یکی است.</li>
+                <li>تنها حدود <strong>۲۰ درصد</strong> تغییرات، ناشی از تحول در رژیم سیاسی و متناسب‌سازی با زمانه بوده است.</li>
+                <li>اگر قانون اساسی مشروطه نبود، تدوین قانون اساسی امروزی با این سهولت ممکن نبود.</li>
+                <li>بسیاری از دعواهای مفهومی (نظیر برابری، حریت و آزادی) که امروزه حل‌شده می‌نمایند، <strong>۱۲۰ سال پیش</strong> توسط متفکران و نمایندگان مجلس در قانون اساسی مشروطه تسویه شدند.</li>
+            </ul>
+
+            <h3>۵.۲. حلقهٔ مفقوده: تحولات پیش از مشروطه (دورهٔ ناصری)</h3>
+            <p>نمی‌توان قانون اساسی مشروطه را فهمید، مگر آنکه زمینه‌های فکری، اجتماعی و قانونی دورهٔ ناصری را تحلیل کرد:</p>
+            <ul>
+                <li><strong>جملهٔ تاریخی امیرکبیر:</strong> «من خیال قنسطتیسیون (Constitution) داشتم». این جمله در ۱۵۰-۱۶۰ سال پیش نشان‌دهندهٔ درک ضرورت قانون اساسی در ایران است.</li>
+                <li><strong>اقدامات نهادی ناصرالدین شاه:</strong> تشکیل هیئت دولت، تأسیس ۶ وزارتخانه (که تا پایان دوره ناصری به ۱۳ وزارتخانه رسید) و شکل‌گیری قوه مجریه.</li>
+                <li><strong>تأسیس عدلیه (وزارت دادگستری):</strong> نخستین‌بار وزیر عدلیه شکل گرفت و نخستین جزوات حقوق مدنی و جزایی تدوین شدند.</li>
+                <li><strong>قانون بلدیه (شهرداری):</strong> با حضور «کنت» اتریشی، قانون معروف به <em>قانون کنت</em> نوشته شد.</li>
+                <li><strong>نقش متفکران و ترجمهٔ آثار بنیادین:</strong> میرزا یوسف خان مستشارالدوله (رسالهٔ «یک کلمه»)، میرزا ملکم‌خان، ترجمهٔ <em>روح القوانین</em> و <em>قرارداد اجتماعی</em> پیش از مشروطه به فارسی برگردانده شدند و ذهنیت «حکومت قانون» را پروراندند.</li>
+            </ul>
+
+            <div class="block-keypoint"><span class="block-label">⚡ نکتهٔ شایان توجه</span>
+                <p>برخی معتقدند که ایران پیش از مشروطه، <strong>دو قانون اساسی دیگر</strong> نیز داشته است و مشروطه ۱۲۸۵، <strong>سومین قانون اساسی</strong> محسوب می‌شود. تحولاتی که امیرکبیر و سپهسالار رقم زدند، به‌منزلهٔ بخشی از پیکرهٔ اولیهٔ یک قانون اساسی قلمداد می‌شود.</p>
+            </div>
+
+            <hr class="divider">
+
+            <h2>۶. ترسیم افق مباحث آینده (از مشروطه تا امروز)</h2>
+            <p>برای تفسیر اصول و زنده نگه‌داشتن قانون اساسی، باید مسیر تاریخی زیر را گام‌به‌گام طی کنیم:</p>
+
+            <h3>۶.۱. مهندسی قانون اساسی مشروطه و اجزای آن</h3>
+            <p>قانون اساسی مشروطه یک <strong>«بسته»</strong> است، نه فقط یک متن. این بسته شامل: فرمان اول و دوم مظفرالدین شاه، نظام‌نامهٔ انتخابات، قانون اساسی مشروطه (۵۱ اصل)، متمم قانون اساسی (۱۱۰ اصل) و فرمان‌های بعدی شاه است.</p>
+            <p><strong>پرسش‌های کلیدی:</strong> چه کسانی این قوانین را نوشتند؟ رساله‌های شیخ فضل‌الله نوری چه تأثیری داشتند؟ اصل برابری و حریت چگونه وارد قانون اساسی شد؟</p>
+
+            <h3>۶.۲. تحولات قانون اساسی مشروطه در دوران پهلوی</h3>
+            <ul>
+                <li>در دوره رضاشاه، برخی اصول تغییر کرد (از جمله اصل مربوط به سلطنت دودمان قاجار).</li>
+                <li>در دههٔ ۲۰ (۱۳۲۰-۱۳۳۲)، دوباره به قانون اساسی مشروطه رجوع شد و مجالس آزاد شدند.</li>
+                <li><strong>سال ۱۳۲۸:</strong> مجلس سنا (که ۴۰ سال تشکیل نشده بود) تأسیس شد.</li>
+            </ul>
+            <p><strong>پرسش‌های محوری:</strong> آیا رفراندوم مصدق در ۱۳۳۲ مستند به قانون اساسی بود؟ آیا رفراندوم انقلاب سفید شاه در ۱۳۴۱ قانونی بود؟ نزاع نخست‌وزیر و شاه بر سر تفسیر قانون اساسی چه بود؟</p>
+
+            <h3>۶.۳. عبور از مشروطه و زمینه‌های انقلاب اسلامی</h3>
+            <p>چرا در دههٔ ۴۰ «عبور از قانون اساسی مشروطه» و حرکت‌های مسلحانه شکل گرفت؟ دههٔ ۵۰ و بحران‌های متعاقب آن.</p>
+
+            <h3>۶.۴. قانون اساسی جمهوری اسلامی (۱۳۵۸ و ۱۳۶۸)</h3>
+            <ul>
+                <li><strong>پیش‌نویس قانون اساسی:</strong> چه کسانی آن را نوشتند؟ در مجلس خبرگان چه جایگاهی یافت؟</li>
+                <li><strong>مجلس خبرگان قانون اساسی:</strong> مذاکرات آن برای رسیدن به «مراد مقنن» حیاتی است؛ منازعات فکری میان بنی‌صدر، آیت‌الله خامنه‌ای، آیت‌الله مکارم شیرازی، جبههٔ ملی، نهضت آزادی و گروه‌های چپ. بدون فهم این منازعات، نمی‌توان اصل ۴۴ را تفسیر کرد.</li>
+                <li><strong>قانون اساسی ۱۳۵۸:</strong> ۱۲ فصل، مصوب در دوران حیات امام خمینی (ره).</li>
+                <li><strong>بازنگری ۱۳۶۸:</strong> چرا نخست‌وزیری حذف و قوه مجریه به دو‌رکنی تغییر یافت؟ چرا مجمع تشخیص مصلحت نظام و بازنگری اضافه شدند؟</li>
+                <li><strong>از ۱۳۶۸ تا امروز</strong> (حدود ۳۵ سال) هیچ تغییری رخ نداده است. مکانیزم تغییر قانون اساسی چگونه است و چرا برخی سخن از ضرورت تغییر می‌گویند؟</li>
+            </ul>
+
+            <hr class="divider">
+
+            <div class="block-trap"><span class="block-label">🎯 تله‌های تستی و نکات ظریف</span>
+                <ul>
+                    <li><strong>ایران نخستین کشور شرق</strong> است که صاحب قانون اساسی مدرن شد (۱۲۸۵ شمسی).</li>
+                    <li>قانون اساسی، <strong>تنها متنی</strong> است که به آن «قرارداد اجتماعی» گفته می‌شود.</li>
+                    <li><strong>مفسر قانون اساسی</strong> در نظام کنونی، شورای نگهبان است؛ در مشروطه، مجلس بود.</li>
+                    <li>قانون اساسی مشروطه یک <strong>«بسته»</strong> شامل فرمان‌ها، نظام‌نامه، ۵۱ اصل و متمم ۱۱۰ اصلی است.</li>
+                    <li>حدود <strong>۸۰-۹۰ درصد</strong> ساختار قانون اساسی جمهوری اسلامی با مشروطه مشترک است.</li>
+                    <li>قانون اساسی «دیرتغییر» است و برای چند نسل طراحی می‌شود.</li>
+                    <li><strong>مکانیزم بازنگری</strong> خود یکی از اصول قانون اساسی است.</li>
+                    <li>تاریخ‌های کلیدی: <strong>۱۲۸۵</strong> (مشروطه)، <strong>۱۳۵۸</strong> (تصویب اولین قانون اساسی جمهوری اسلامی)، <strong>۱۳۶۸</strong> (بازنگری)، <strong>۱۳۲۸</strong> (تأسیس مجلس سنا).</li>
+                    <li>جملهٔ امیرکبیر <em>«من خیال قنسطتیسیون داشتم»</em> نشان‌دهندهٔ زمینه‌های فکری قانون‌گرایی پیش از مشروطه است.</li>
+                </ul>
+            </div>
+
+            <div class="block-summary"><span class="block-label">🧠 چکیدهٔ استراتژیک جلسه</span>
+                <p>در این جلسه آموختیم که <strong>قانون اساسی</strong> نه‌تنها یک متن حقوقی، بلکه <strong>«ناموس کشور»</strong> و <strong>«قرارداد اجتماعی»</strong> ملت است که ثبات، مرجعیت و فرادستی آن بر تمام قوانین، توسط یک نهاد نگهبان تضمین می‌شود. برای آزمون وکالت و فهم حقوق اساسی ایران، صرفاً حفظ اصول کافی نیست؛ بلکه باید <strong>زنجیرهٔ تحول تاریخی</strong> از دورهٔ ناصری و امیرکبیر تا مشروطه و سپس تا بازنگری ۱۳۶۸ را درک کنیم، زیرا نزدیک به <strong>۹۰ درصد</strong> فصول قانون اساسی کنونی وامدار سنت حقوقی مشروطه است و منازعات فکری در مجلس خبرگان، کلید تفسیر <strong>«مراد مقنن»</strong> است. حقوقدان، به‌عنوان حافظ اصلی این قانون، باید با این تاریخ و تفاسیر مسلح باشد.</p>
+            </div>
+
+        </main>
+        <footer class="session-footer">
+            <span class="tag">📅 جلسه اول</span>
+            <span class="tag">📚 منبع: دفترچه قانون اساسی + کتاب پژوهشکده شورای نگهبان</span>
+            <span class="tag">🎓 مناسب آزمون وکالت</span>
+        </footer>
+    </section>
+    <!-- ===================== پایان جلسه اول ===================== -->
+
+    <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║  برای افزودن جلسه دوم، کافیست یک سکشن جدید دقیقاً  ║
+    ║  در همین جا (بعد از کامنت) بچسبانید.               ║
+    ║  مثال:                                             ║
+    ║  <section class="session" id="session-2">           ║
+    ║      <header class="session-header">                ║
+    ║          <div class="session-number">جلسه دوم</div> ║
+    ║          <h1>عنوان جلسه دوم</h1>                    ║
+    ║      </header>                                     ║
+    ║      ... محتوای جلسه دوم ...                       ║
+    ║  </section>                                        ║
+    ║  ناوبری بالا به‌طور خودکار لینک آن را می‌سازد.      ║
+    ╚══════════════════════════════════════════════════════╝
+    -->
+
+</div>
+
+<script>
+    (function() {
+        // ========== ساخت خودکار لینک‌های ناوبری ==========
+        const navContainer = document.querySelector('.nav-links');
+        const sessions = document.querySelectorAll('.session');
+        sessions.forEach(session => {
+            const id = session.getAttribute('id');
+            const numberEl = session.querySelector('.session-number');
+            const linkText = numberEl ? numberEl.textContent.trim() : id;
+            const link = document.createElement('a');
+            link.className = 'session-link';
+            link.href = `#${id}`;
+            link.textContent = linkText;
+            link.setAttribute('data-session', id);
+            navContainer.appendChild(link);
+        });
+
+        // ========== مدیریت فعال بودن لینک بر اساس اسکرول ==========
+        const allLinks = document.querySelectorAll('.session-link');
+        function updateActiveLink() {
+            let activeId = null;
+            sessions.forEach(session => {
+                const rect = session.getBoundingClientRect();
+                // وقتی بخش در بالای viewport باشد
+                if (rect.top <= 160 && rect.bottom >= 160) {
+                    activeId = session.getAttribute('id');
+                }
+            });
+            allLinks.forEach(link => {
+                const isActive = link.getAttribute('data-session') === activeId;
+                link.classList.toggle('active', isActive);
+            });
+        }
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        window.addEventListener('load', updateActiveLink);
+        updateActiveLink();
+
+        // ========== اسکرول نرم با کلیک روی لینک ==========
+        navContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // ========== تم تاریک / روشن ==========
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            toggleBtn.innerHTML = '<span>☀️</span> <span>حالت روز</span>';
+        }
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            toggleBtn.innerHTML = isDark
+                ? '<span>☀️</span> <span>حالت روز</span>'
+                : '<span>🌙</span> <span>حالت شب</span>';
+        });
+    })();
+</script>
+</body>
+</html>
