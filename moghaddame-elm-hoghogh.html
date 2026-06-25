@@ -1,224 +1,1246 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جزوه درس مقدمه‌ی علم حقوق</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #f9f9f9;
-            --text: #333;
-            --accent: #a94442;
-            --link: #337ab7;
-            --card: #fff;
-            --border: #ddd;
-            --shadow: rgba(0,0,0,.05);
-        }
-        body.dark {
-            --bg: #1e1e1e;
-            --text: #e0e0e0;
-            --accent: #ff6b6b;
-            --link: #4dabf7;
-            --card: #2d2d2d;
-            --border: #444;
-            --shadow: rgba(0,0,0,.25);
-        }
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            line-height: 1.8;
-            font-size: 16px;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-        header {
-            background: var(--accent);
-            color: #fff;
-            padding: 25px 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 2px 6px var(--shadow);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 26px;
-        }
-        .tools {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .tools button {
-            background: rgba(255,255,255,.2);
-            border: 1px solid rgba(255,255,255,.35);
-            color: #fff;
-            padding: 6px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            font: inherit;
-        }
-        .tools button:hover {
-            background: rgba(255,255,255,.3);
-        }
-        main {
-            max-width: 850px;
-            margin: 30px auto;
-            padding: 0 20px 60px;
-        }
-        section.session {
-            background: var(--card);
-            border: 1px solid var(--border);
-            box-shadow: 0 0 10px var(--shadow);
-            padding: 30px;
-            margin-bottom: 40px;
-            border-radius: 6px;
-            counter-increment: session;
-        }
-        section.session::before {
-            content: "جلسه " counter(session);
-            display: block;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        h2 {
-            font-size: 22px;
-            color: var(--accent);
-            margin-top: 30px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 8px;
-        }
-        h3 {
-            font-size: 18px;
-            color: var(--link);
-            margin-top: 25px;
-        }
-        ul {
-            list-style: none;
-            padding-right: 20px;
-        }
-        ul li::before {
-            content: "• ";
-            color: var(--accent);
-            font-weight: bold;
-            margin-left: 6px;
-        }
-        .note {
-            background: var(--bg);
-            border-right: 4px solid var(--link);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        @media print {
-            header, .tools {
-                display: none;
-            }
-            body {
-                background: #fff;
-                color: #000;
-            }
-            section.session {
-                box-shadow: none;
-                border: none;
-                page-break-inside: avoid;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مقدمه علم حقوق - جزوه کلاسی</title>
+  <style>
+    /* ============================================================
+       === DESIGN TOKENS ===
+       ============================================================ */
+    :root {
+      /* Light Mode Colors */
+      --bg-main:        #F8F7F4;
+      --bg-card:        #FFFFFF;
+      --text-main:      #1A1A2E;
+      --text-muted:     #4B5563;
+      --accent-blue:    #2563EB;
+      --accent-green:   #059669;
+      --accent-red:     #DC2626;
+      --accent-orange:  #D97706;
+      --accent-yellow:  #F59E0B;
+
+      --bg-blue-tint:   rgba(37, 99, 235, 0.07);
+      --bg-green-tint:  rgba(5, 150, 105, 0.07);
+      --bg-red-tint:    rgba(220, 38, 38, 0.08);
+      --bg-orange-tint: rgba(217, 119, 6, 0.07);
+      --bg-yellow-tint: rgba(245, 158, 11, 0.08);
+      --bg-notes:       rgba(0, 0, 0, 0.04);
+
+      --border-radius:  12px;
+      --shadow-card:    0 2px 12px rgba(0,0,0,0.07);
+      --nav-height:     60px;
+    }
+
+    [data-theme="dark"] {
+      --bg-main:        #0F172A;
+      --bg-card:        #1E293B;
+      --text-main:      #E2E8F0;
+      --text-muted:     #94A3B8;
+      --accent-blue:    #60A5FA;
+      --accent-green:   #34D399;
+      --accent-red:     #F87171;
+      --accent-orange:  #FBBF24;
+      --accent-yellow:  #FCD34D;
+
+      --bg-blue-tint:   rgba(96, 165, 250, 0.08);
+      --bg-green-tint:  rgba(52, 211, 153, 0.08);
+      --bg-red-tint:    rgba(248, 113, 113, 0.09);
+      --bg-orange-tint: rgba(251, 191, 36, 0.08);
+      --bg-yellow-tint: rgba(252, 211, 77, 0.08);
+      --bg-notes:       rgba(255, 255, 255, 0.04);
+
+      --shadow-card:    0 2px 16px rgba(0,0,0,0.35);
+    }
+
+    /* ============================================================
+       === BASE STYLES ===
+       ============================================================ */
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-top: var(--nav-height);
+      padding-bottom: 3rem;
+    }
+
+    main {
+      max-width: 768px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================================
+       === SESSION NAVIGATOR ===
+       ============================================================ */
+    #session-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: var(--bg-card);
+      border-bottom: 2px solid var(--accent-blue);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 0.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    #session-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      padding-left: 0.5rem;
+      border-left: 2px solid var(--accent-blue);
+    }
+
+    .nav-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--accent-blue);
+      background: transparent;
+      color: var(--accent-blue);
+      font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .nav-chip:hover {
+      background: var(--bg-blue-tint);
+      transform: translateY(-1px);
+    }
+
+    .nav-chip.active {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    /* ============================================================
+       === THEME TOGGLE ===
+       ============================================================ */
+    #theme-toggle {
+      position: fixed;
+      top: 0.7rem;
+      left: 1rem;
+      z-index: 1100;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-blue);
+      background: var(--bg-card);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+      box-shadow: var(--shadow-card);
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* ============================================================
+       === SESSION HEADER ===
+       ============================================================ */
+    .session-section {
+      margin-bottom: 3rem;
+    }
+
+    .session-header {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #1d4ed8 100%);
+      color: #fff;
+      border-radius: var(--border-radius);
+      padding: 1.8rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .session-header::before {
+      content: '⚖️';
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 4rem;
+      opacity: 0.15;
+    }
+
+    .session-number {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 0.15rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .session-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .session-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .session-date {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .session-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 0.15rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       === SECTION TITLE (H2) ===
+       ============================================================ */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--bg-blue-tint);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title .icon {
+      font-size: 1.1rem;
+    }
+
+    /* ============================================================
+       === PROSE (Normal Paragraph Content) ===
+       ============================================================ */
+    .prose {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow-card);
+      font-size: 0.97rem;
+      color: var(--text-main);
+    }
+
+    /* ============================================================
+       === DEFINITION CARD ===
+       ============================================================ */
+    .definition-card {
+      background: var(--bg-green-tint);
+      border: 1px solid rgba(5, 150, 105, 0.25);
+      border-right: 5px solid var(--accent-green);
+      border-radius: var(--border-radius);
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .definition-card .def-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .definition-card .def-icon {
+      font-size: 1rem;
+    }
+
+    .definition-card .def-term {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-green);
+    }
+
+    .definition-card .def-body {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      padding-right: 1.5rem;
+    }
+
+    /* ============================================================
+       === LAW ARTICLE BLOCK ===
+       ============================================================ */
+    .law-block {
+      background: var(--bg-blue-tint);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-right: 5px solid var(--accent-blue);
+      border-radius: var(--border-radius);
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .law-block .law-badge {
+      display: inline-block;
+      background: var(--accent-blue);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.1rem 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+    }
+
+    .law-block .law-content {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       === EXAMPLE CARD ===
+       ============================================================ */
+    .example-card {
+      background: var(--bg-yellow-tint);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      border-radius: 16px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .example-card .example-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--accent-orange);
+      margin-bottom: 0.55rem;
+    }
+
+    .example-card .example-body {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .example-incomplete {
+      display: inline-block;
+      background: var(--bg-red-tint);
+      color: var(--accent-red);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.1rem 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ============================================================
+       === CONTROVERSY CARD ===
+       ============================================================ */
+    .controversy-card {
+      background: var(--bg-orange-tint);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      border-right: 5px solid var(--accent-orange);
+      border-radius: var(--border-radius);
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .controversy-card .controversy-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--accent-orange);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ============================================================
+       === KEY NOTES BLOCK ===
+       ============================================================ */
+    .key-notes-block {
+      background: var(--bg-notes);
+      border: 2px dashed var(--accent-blue);
+      border-radius: var(--border-radius);
+      padding: 1.2rem 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .key-notes-block .key-notes-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 0.9rem;
+    }
+
+    .key-notes-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .key-notes-block ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.93rem;
+      color: var(--text-main);
+      margin-bottom: 0.65rem;
+      line-height: 1.7;
+    }
+
+    .key-notes-block ul li::before {
+      content: '◾';
+      font-size: 0.7rem;
+      color: var(--accent-blue);
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       === AMBIGUITY TAG ===
+       ============================================================ */
+    .ambiguity-tag {
+      display: inline-block;
+      background: var(--bg-red-tint);
+      color: var(--accent-red);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.1rem 0.5rem;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+    }
+
+    /* ============================================================
+       === AI NOTE ===
+       ============================================================ */
+    .ai-note {
+      border: 2px dashed #9CA3AF;
+      border-radius: var(--border-radius);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.1rem;
+      background: transparent;
+    }
+
+    .ai-note .ai-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #9CA3AF;
+      margin-bottom: 0.4rem;
+    }
+
+    .ai-note .ai-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       === COMPARISON TABLE ===
+       ============================================================ */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.1rem;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      font-size: 0.9rem;
+    }
+
+    .comparison-table th {
+      background: var(--accent-blue);
+      color: #fff;
+      padding: 0.65rem 1rem;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .comparison-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--bg-notes);
+      color: var(--text-main);
+      vertical-align: top;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:nth-child(even) td {
+      background: var(--bg-notes);
+    }
+
+    /* ============================================================
+       === NUMBERED LIST ===
+       ============================================================ */
+    .numbered-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .numbered-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .numbered-list li .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      background: var(--accent-blue);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 0.2rem;
+    }
+
+    /* ============================================================
+       === DIVIDER ===
+       ============================================================ */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to left, transparent, var(--accent-blue), transparent);
+      margin: 2rem 0;
+      opacity: 0.3;
+    }
+
+    /* ============================================================
+       === RESPONSIVE ===
+       ============================================================ */
+    @media (min-width: 640px) {
+      body {
+        font-size: 17px;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+
+      .session-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      main {
+        padding: 2.5rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>جزوه درس مقدمه‌ی علم حقوق</h1>
-    <div class="tools">
-        <button onclick="window.print()">چاپ</button>
-        <button onclick="document.body.classList.toggle('dark')">شب/روز</button>
-    </div>
-</header>
+  <!-- THEME TOGGLE BUTTON -->
+  <button id="theme-toggle" title="تغییر تم" aria-label="تغییر حالت روشنایی">☀️</button>
 
-<main>
-    <!-- جلسه اول -->
-    <section class="session">
-        <h2>بخش اول: معنا و مفهوم کلمه «حقوق»</h2>
-        <p>کلمه «حقوق» در ادبیات حقوقی در چهار معنی متفاوت به کار می‌رود که همگی مورد استفاده قرار می‌گیرند ولی معانی آنها باهم متفاوت است.</p>
+  <!-- ============================================
+       📚 SESSION NAVIGATOR - فقط اینجا chip اضافه کن
+       برای جلسه جدید: یک <button> با data-target
+       به همین بخش اضافه کن
+       ============================================ -->
+  <nav id="session-nav" role="navigation" aria-label="ناوبری جلسات">
+    <span class="nav-label">📚 جلسات</span>
+    <button data-target="session-1" class="nav-chip active">
+      جلسه ۱ · مقدمه
+    </button>
+    <!-- جلسات بعدی اینجا اضافه کن -->
+    <!-- مثال: <button data-target="session-2" class="nav-chip">جلسه ۲ · عنوان</button> -->
+  </nav>
 
-        <h3>۱. معنی اول: مجموعه قواعد و مقررات (Law)</h3>
-        <ul>
-            <li><strong>تعریف:</strong> مجموعه قواعد و مقرراتی که بر زندگی اجتماعی بشر حاکم است.</li>
-            <li><strong>ماهیت:</strong> جنس این قواعد از جنس «باید و نباید» است؛ یعنی الزام‌آور هستند.</li>
-            <li><strong>نکته:</strong> در این معنا، کلمه «حقوق» مفرد است و جمع کلمه «حق» نیست.</li>
-            <li><strong>مثال‌ها:</strong>
-                <ul>
-                    <li>حقوق جزا: مجموعه قواعد حاکم بر تعیین جرم و مجازات.</li>
-                    <li>حقوق خصوصی: مجموعه قواعد حاکم بر روابط اشخاص.</li>
-                    <li>حقوق مدنی: مجموعه قواعد حاکم بر روابط انسان‌ها در زندگی شهرنشینی.</li>
-                    <li>حقوق عمومی: مجموعه قواعد حاکم بر روابط دولت و مردم.</li>
-                </ul>
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- ============================================
+         📖 جلسه اول - مقدمه علم حقوق
+         برای جلسه بعدی: یک section جدید با همین
+         ساختار زیر این کامنت paste کن
+         ============================================ -->
+    <section id="session-1" class="session-section">
+
+      <div class="session-header">
+        <span class="session-number">جلسه اول</span>
+        <h1 class="session-title">مقدمه علم حقوق</h1>
+        <div class="session-meta">
+          <span class="session-date">📅 جلسه اول دوره</span>
+          <span class="session-badge">🔑 ۷ مفهوم کلیدی</span>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           بخش اول: معانی چهارگانه کلمه «حقوق»
+           ═══════════════════════════════════════ -->
+      <h2 class="section-title"><span class="icon">📖</span> معانی چهارگانه کلمه «حقوق»</h2>
+
+      <div class="prose">
+        <p>
+          کلمه «حقوق» در ادبیات حقوقی در چهار معنا به کار می‌رود. همه این معانی مورد استفاده قرار می‌گیرند، اما مفاهیم آن‌ها با یکدیگر متفاوت است. برای فهم دقیق هر متن یا موضوع حقوقی، باید تشخیص داده شود که این کلمه در کدام معنا به کار رفته است.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────────────────
+           معنای اول
+           ─────────────────────────────────────── -->
+      <h2 class="section-title"><span class="icon">1️⃣</span> معنای اول: مجموعه قواعد و مقررات (Law)</h2>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">حقوق (معنای اول)</span>
+        </div>
+        <div class="def-body">
+          مجموعه قواعد و مقرراتی است که بر زندگی اجتماعی بشر حاکم است. جنس این قواعد از نوع «باید» و «نباید» است؛ یعنی الزام می‌کنند، نه توصیه یا تقاضا. معادل انگلیسی این معنا <strong>Law</strong> است. این کلمه در این معنا، مفرد است و جمع کلمه «حق» نیست.
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          در این معنا، قواعد حقوقی <strong>الزام</strong> می‌کنند. توصیه نمی‌کنند، تقاضا نمی‌کنند؛ بلکه الزام می‌کنند.
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال‌های کلاسی: حقوق در معنای اول</span>
+        </div>
+        <div class="example-body">
+          <ul class="numbered-list" style="margin-bottom:0;">
+            <li>
+              <span class="num-badge">۱</span>
+              <span><strong>حقوق مدنی:</strong> مجموعه قواعد و مقررات حاکم بر روابط انسان‌ها در زندگی شهرنشینی (از ریشه «مدنیّت»)</span>
             </li>
-        </ul>
+            <li>
+              <span class="num-badge">۲</span>
+              <span><strong>حقوق خصوصی:</strong> مجموعه قواعد و مقررات حاکم بر روابط اشخاص (نه دولت)</span>
+            </li>
+            <li>
+              <span class="num-badge">۳</span>
+              <span><strong>حقوق جزا:</strong> مجموعه قواعد و مقررات حاکم بر تعیین جرم و مجازات</span>
+            </li>
+            <li>
+              <span class="num-badge">۴</span>
+              <span><strong>حقوق عمومی:</strong> مجموعه قواعد و مقررات حاکم بر روابط بین دولت و مردم</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        <h3>۲. معنی دوم: جمع کلمه «حق» (Rights)</h3>
-        <ul>
-            <li><strong>تعریف:</strong> «حقوق» به معنی «حق‌ها».</li>
-            <li><strong>تعریف «حق»:</strong> امتیازی که قانون‌گذار به افراد می‌دهد و از آن حمایت می‌کند.</li>
-            <li><strong>مثال‌ها:</strong> حق مالکیت، حق حیات، حقوق شهروندی.</li>
-        </ul>
+      <div class="controversy-card">
+        <div class="controversy-header">
+          <span>⚡</span>
+          <span>تحلیل کلاسی: حجاب اجباری</span>
+        </div>
+        <div>
+          استاد تصریح کردند که عبارت «حجاب اجباری» از منظر حقوقی نادرست است، چون هر قاعده‌ای که وارد حوزه قانون شود، ذاتاً اجباری است. سؤال صحیح این است: <em>«آیا مسأله حجاب باید در قانون بیاید یا نه؟»</em> اگر چیزی در حوزه قانون قرار گیرد، قطعاً اجباری است. مقایسه‌ای که استاد مطرح کردند: نماز از حجاب هم واجب‌تر است، اما قانون‌گذار آن را وارد عرصه قانون‌گذاری نکرده و تنها مجازات اخروی دارد. در مقابل، «روزه‌خواری در ملأ عام» جرم محسوب می‌شود؛ حتی اگر روزه برای آن شخص واجب نباشد.
+        </div>
+      </div>
 
-        <h3>۳. معنی سوم: دستمزد یا حق‌الزحمه (Salary/Wages)</h3>
-        <ul>
-            <li><strong>تعریف:</strong> دستمزد ماهانه یا حق‌الزحمه.</li>
-            <li><strong>مثال مقایسه‌ای:</strong> اگر منظور از «حقوق کارگر» فقط دستمزد ماهانه باشد، در معنای سوم است؛ اگر منظور تمام حقوق (دستمزد، بیمه، مرخصی و...) باشد، در معنای دوم است.</li>
-        </ul>
+      <!-- ───────────────────────────────────────
+           معنای دوم
+           ─────────────────────────────────────── -->
+      <h2 class="section-title"><span class="icon">2️⃣</span> معنای دوم: جمع «حق» (Rights)</h2>
 
-        <h3>۴. معنی چهارم: یک رشته علمی (Jurisprudence)</h3>
-        <ul>
-            <li><strong>تعریف:</strong> حقوق به‌عنوان یک رشته علمی و دانشگاهی.</li>
-            <li><strong>مثال:</strong> در جمله «قبولی در رشته حقوق»، کلمه حقوق در این معنا به کار رفته است.</li>
-        </ul>
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">حقوق (معنای دوم)</span>
+        </div>
+        <div class="def-body">
+          جمع کلمه «حق» است. در این معنا، «حقوق» یعنی حق‌ها. معادل انگلیسی این معنا <strong>Rights</strong> است.
+        </div>
+      </div>
 
-        <h2>بخش دوم: اوصاف و تعریف قاعده حقوقی</h2>
-        <p>هر قاعده‌ای که <strong>چهار ویژگی</strong> زیر را همزمان داشته باشد، یک قاعده حقوقی است.</p>
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">حق</span>
+        </div>
+        <div class="def-body">
+          امتیازی که قانون‌گذار به افراد می‌دهد و از آن حمایت می‌کند.
+        </div>
+      </div>
 
-        <h3>ویژگی اول: الزام‌آور بودن (اجباری بودن)</h3>
-        <ul>
-            <li>قواعد حقوقی همگی اجباری و زوری هستند.</li>
-            <li>هر چیزی که قانونی باشد، قطعاً اجباری است.</li>
-        </ul>
-        <div class="note">
-            <p><strong>تفاوت قاعده حقوقی و قانون:</strong><br>
-            «قانون» تنها <strong>یکی از منابع</strong> حقوق است. چهار منبع اصلی حقوق عبارتند از:
-            <strong>۱. قانون</strong> (مهم‌ترین منبع)، <strong>۲. عرف</strong>، <strong>۳. رویه قضایی</strong>، و <strong>۴. دکترین</strong> (اندیشه‌های حقوقی).</p>
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: انواع حق‌ها</span>
+        </div>
+        <div class="example-body">
+          <ul class="numbered-list" style="margin-bottom:0;">
+            <li>
+              <span class="num-badge">۱</span>
+              <span><strong>حق مالکیت:</strong> افراد حق دارند مالک اموال خود باشند و دولت باید آن را به رسمیت بشناسد.</span>
+            </li>
+            <li>
+              <span class="num-badge">۲</span>
+              <span><strong>حق حیات:</strong> افراد حق دارند زندگی کنند. اگر کسی به‌صورت عمدی این حق را سلب کند، قانون‌گذار مجازات قصاص مقرر کرده است. اگر غیر عمد باشد، پرداخت دیه و احتمالاً مجازات حبس در نظر گرفته شده است.</span>
+            </li>
+            <li>
+              <span class="num-badge">۳</span>
+              <span><strong>حق‌های شهروندی:</strong> مجموعه‌ای از امتیازاتی که دولت موظف به به رسمیت شناختن آن‌هاست.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          <strong>تمییز دقیق معنای اول از دوم:</strong> وقتی از «حقوق کارگر» سخن می‌رویم، اگر منظور <em>همه حق‌های کارگر</em> باشد (از جمله: حق دستمزد، بیمه، تأمین اجتماعی، مرخصی، پاداش، عیدی) — این «حقوق» در <strong>معنای دوم</strong> (جمع حق) به کار رفته است.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────────────────
+           معنای سوم
+           ─────────────────────────────────────── -->
+      <h2 class="section-title"><span class="icon">3️⃣</span> معنای سوم: دستمزد و حق‌الزحمه</h2>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">حقوق (معنای سوم)</span>
+        </div>
+        <div class="def-body">
+          به معنای دستمزد یا حق‌الزحمه. این معنا در میان مردم عادی بیشتر رایج است. وقتی از «حقوق کارگر» سخن می‌رویم و منظور <em>فقط دستمزد ماهیانه</em> باشد، «حقوق» در این معنا به کار رفته است.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: تمییز معنای دوم از سوم</span>
+        </div>
+        <div class="example-body">
+          اگر بگوییم «حقوق کارگر باید پرداخت شود» و منظور <em>فقط دستمزد ماهیانه</em> باشد ← معنای سوم.<br>
+          اگر منظور <em>همه حق‌ها</em> (دستمزد + بیمه + مرخصی + پاداش + ...) باشد ← معنای دوم.
+        </div>
+      </div>
+
+      <!-- ───────────────────────────────────────
+           معنای چهارم
+           ─────────────────────────────────────── -->
+      <h2 class="section-title"><span class="icon">4️⃣</span> معنای چهارم: رشته علمی (علم حقوق)</h2>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">حقوق (معنای چهارم)</span>
+        </div>
+        <div class="def-body">
+          به معنای یک رشته علمی و دانشگاهی است؛ یعنی «علم حقوق» یا «رشته حقوق». در این معنا نه مجموعه قواعد است، نه جمع حق، و نه دستمزد.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: معنای چهارم</span>
+        </div>
+        <div class="example-body">
+          «قبولی در رشته حقوق» — اینجا «حقوق» در معنای چهارم (رشته دانشگاهی) به کار رفته است.
+        </div>
+      </div>
+
+      <!-- جدول مقایسه‌ای -->
+      <h2 class="section-title"><span class="icon">📊</span> جدول تطبیقی چهار معنا</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>معنا</th>
+            <th>مفهوم</th>
+            <th>معادل انگلیسی</th>
+            <th>مثال</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>اول</strong></td>
+            <td>مجموعه قواعد و مقررات</td>
+            <td>Law</td>
+            <td>حقوق مدنی، حقوق جزا</td>
+          </tr>
+          <tr>
+            <td><strong>دوم</strong></td>
+            <td>جمع «حق» (حق‌ها)</td>
+            <td>Rights</td>
+            <td>حقوق شهروندی، حقوق بشر</td>
+          </tr>
+          <tr>
+            <td><strong>سوم</strong></td>
+            <td>دستمزد / حق‌الزحمه</td>
+            <td>Salary / Wage</td>
+            <td>حقوق ماهیانه کارگر</td>
+          </tr>
+          <tr>
+            <td><strong>چهارم</strong></td>
+            <td>رشته علمی/دانشگاهی</td>
+            <td>Law (as a discipline)</td>
+            <td>رشته حقوق، علم حقوق</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="controversy-card">
+        <div class="controversy-header">
+          <span>⚡</span>
+          <span>نکته: آیا «حقوق» مفرد است یا جمع؟</span>
+        </div>
+        <div>
+          بستگی دارد در کجا استفاده شود. در <strong>معنای اول</strong> (مجموعه قواعد) — مفرد است. در <strong>معنای دوم</strong> (جمع حق) — جمع است. معمولاً معنای سوم در حوزه علم حقوق مدنظر نیست.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           بخش دوم: تعریف و اوصاف قاعده حقوقی
+           ═══════════════════════════════════════ -->
+      <h2 class="section-title"><span class="icon">⚖️</span> تعریف و اوصاف قاعده حقوقی</h2>
+
+      <div class="prose">
+        <p>
+          قاعده حقوقی دارای <strong>چهار وصف</strong> است. هر قاعده‌ای که همه این چهار ویژگی را با هم داشته باشد، قاعده حقوقی محسوب می‌شود. اگر حتی یکی از این ویژگی‌ها وجود نداشته باشد، آن قاعده در عرصه حقوق قرار ندارد.
+        </p>
+      </div>
+
+      <!-- وصف اول: الزام‌آور بودن -->
+      <h2 class="section-title"><span class="icon">🔒</span> وصف اول: الزام‌آور بودن (اجباری بودن)</h2>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">الزام‌آور بودن</span>
+        </div>
+        <div class="def-body">
+          تمام قواعد حقوقی الزامی و اجباری‌اند. در عرصه حقوق، هر آنچه گفته شود اجباری است. خواهش، توصیه و تقاضا در حقوق جایی ندارد. هر قاعده‌ای که الزامی نباشد، قانونی و حقوقی نیست.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: چراغ قرمز</span>
+        </div>
+        <div class="example-body">
+          فرض کنید چراغ قرمز «اختیاری» باشد؛ هرکس دوست داشت رعایت کند و هرکس نخواست عمل نکند. در این صورت بی‌نظمی ایجاد می‌شود و اصلاً نبودن چنین قاعده‌ای بهتر از اختیاری بودن آن است. بنابراین محال است قاعده‌ای در حقوق وجود داشته باشد که الزامی نباشد.
+        </div>
+      </div>
+
+      <!-- تمییز قاعده امری از تکمیلی در بحث الزام -->
+      <div class="prose">
+        <p>
+          استاد در این بخش به دو دسته قواعد اشاره کردند. این تمییز بسیار مهم است:
+        </p>
+      </div>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">قواعد امری (آمره)</span>
+        </div>
+        <div class="def-body">
+          قواعدی هستند که <strong>برخلاف آن‌ها نمی‌توان توافق کرد</strong>. این قواعد خط قرمز قانون‌گذار هستند. حتی در صورت توافق طرفین، قانون‌گذار این توافق را به رسمیت نمی‌شناسد.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: قواعد امری</span>
+        </div>
+        <div class="example-body">
+          <ul class="numbered-list" style="margin-bottom:0;">
+            <li><span class="num-badge">۱</span><span>جرایم و مجازات‌ها مثل سرقت — نمی‌توان خلاف آن عمل کرد.</span></li>
+            <li><span class="num-badge">۲</span><span>ربا — جرم است حتی در صورت توافق طرفین.</span></li>
+            <li><span class="num-badge">۳</span><span>اجاره دادن محل برای تولید شیشه یا خانه فساد — حتی با توافق، قانون‌گذار جرم می‌شناسد.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">قواعد تکمیلی (تفسیری)</span>
+        </div>
+        <div class="def-body">
+          قواعدی هستند که <strong>برخلاف آن‌ها می‌توان توافق کرد</strong>. قانون‌گذار نسبت به آن‌ها حساسیت کمتری دارد. این قواعد وضع می‌شوند اما اگر طرفین برخلافشان توافق کنند، آن توافق پذیرفته می‌شود.
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: قواعد تکمیلی (محل تحویل کالا)</span>
+        </div>
+        <div class="example-body">
+          قانون‌گذار مقرر کرده که محل تحویل کالا، محل انعقاد قرارداد است. اما این یک قاعده تکمیلی است؛ اگر طرفین توافق کنند که کالا به‌صورت رایگان به مقصد دیگری حمل شود، این توافق معتبر است. اگر هیچ توافقی نباشد، قاعده تکمیلی اجرا می‌شود.
+        </div>
+      </div>
+
+      <div class="controversy-card">
+        <div class="controversy-header">
+          <span>⚡</span>
+          <span>نکته مهم: قاعده تکمیلی اختیاری نیست!</span>
+        </div>
+        <div>
+          <p>استاد تصریح کردند که قاعده تکمیلی در هیچ شرایطی «اختیاری» نیست. تمایز اصلی بین قاعده امری و تکمیلی در موضوع <strong>ضمانت اجرا</strong> است، نه در الزامی بودن. منطق آن به این شرح است:</p>
+          <ul style="margin-top:0.6rem; padding-right:1.2rem;">
+            <li style="margin-bottom:0.4rem;">یا برخلاف قاعده تکمیلی توافق می‌شود → آن توافق اجرا می‌شود.</li>
+            <li>یا توافقی صورت نمی‌گیرد → خود قاعده تکمیلی اجرا می‌شود و اجباری است.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="law-block">
+        <span class="law-badge">قاعده کلی</span>
+        <div class="law-content">
+          «هر قاعده الزامی، حقوقی نیست — اما هر قاعده حقوقی، الزامی است.»<br>
+          <small style="font-style:normal; opacity:0.8;">مثال: دروغ نگفتن قاعده‌ای الزامی است اما حقوقی نیست، زیرا چهار ویژگی قاعده حقوقی را ندارد.</small>
+        </div>
+      </div>
+
+      <!-- وصف دوم: ضمانت اجرا -->
+      <h2 class="section-title"><span class="icon">🛡️</span> وصف دوم: داشتن ضمانت اجرا</h2>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">ضمانت اجرا</span>
+        </div>
+        <div class="def-body">
+          مکانیزمی است که قانون‌گذار برای تضمین اجرای قاعده حقوقی در نظر می‌گیرد. ضمانت اجرای مدنظر در حقوق، <strong>ضمانت اجرای حاکمیتی (دولتی / دنیوی)</strong> است؛ یعنی ضمانت اجرایی که دولت اعمال می‌کند و امکان پیگیری آن از طریق دادگاه وجود دارد. این وصف، مکمل «الزامی بودن» است؛ چون اگر چیزی الزامی باشد اما ضمانت اجرا نداشته باشد، عملاً فایده‌ای ندارد.
+        </div>
+      </div>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">ضمانت اجرای حاکمیتی</span>
+        </div>
+        <div class="def-body">
+          ضمانت اجرایی که از قدرت و اقتدار حاکمیت (قدرت برتر) ناشی می‌شود و توسط دولت اعمال می‌گردد. برای اعمال ضمانت اجرای حقوقی، وجود یک حاکمیت یا قدرت برتر ضروری است.
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          افراد در جامعه در کنار حاکمیت زندگی می‌کنند و این حاکمیت در جایگاهی بالاتر از اشخاص قرار دارد. قدرت از حاکمیت می‌آید. به همین دلیل می‌گوییم ضمانت اجرا «حاکمیتی» است. هرچه اقتدار حاکمیت بیشتر باشد، اقتدار قانون هم بیشتر خواهد بود.
+        </p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span>💡</span>
+          <span>مثال کلاسی: ضمانت اجرای حاکمیتی</span>
+        </div>
+        <div class="example-body">
+          مالیات — اداره دارایی از قدرت حاکمیت ناشی می‌شود. این اداره جزئی از حاکمیت است و به همین دلیل قدرت اعمال ضمانت اجرا را دارد.
+        </div>
+      </div>
+
+      <div class="controversy-card">
+        <div class="controversy-header">
+          <span>⚡</span>
+          <span>ضمانت اجرا در حقوق بین‌الملل</span>
+        </div>
+        <div>
+          <p>در حقوق بین‌الملل، ضمانت اجراها کمرنگ‌تر است. دلیل آن این است که در حوزه حقوق بین‌الملل، <strong>حاکمیت برتر</strong> وجود ندارد. حتی سازمان‌های بین‌الملل هم قدرتی برتر از قدرت دولت‌ها ندارند و خیلی وقت‌ها تصمیمات آن‌ها تحت تأثیر دولت‌های قدرتمند (مانند آمریکا) است.</p>
+          <p style="margin-top:0.5rem; margin-bottom:0;"><strong>نتیجه:</strong> آن چیزی که در قواعد حقوقی کم‌وزیاد دارد و درجه‌بندی می‌شود، <strong>ضمانت اجرا</strong> است، نه الزامی بودن. الزام یا هست یا نیست.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           بخش سوم: منابع حقوق
+           ═══════════════════════════════════════ -->
+      <h2 class="section-title"><span class="icon">📚</span> منابع حقوق</h2>
+
+      <div class="prose">
+        <p>
+          میان «قانون» و «قاعده حقوقی» تفاوت وجود دارد. قانون، یکی از منابع حقوق است؛ اما تنها منبع آن نیست.
+        </p>
+      </div>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">منابع حقوق</span>
+        </div>
+        <div class="def-body">
+          حقوق چهار منبع اصلی دارد:
+          <ol style="padding-right:1.2rem; margin-top:0.5rem;">
+            <li style="margin-bottom:0.3rem;"><strong>قانون</strong> — مهم‌ترین منبع (تقریباً ۹۰٪ قواعد حقوقی)</li>
+            <li style="margin-bottom:0.3rem;"><strong>عرف</strong></li>
+            <li style="margin-bottom:0.3rem;"><strong>رویه قضایی</strong></li>
+            <li><strong>دکترین</strong> — اندیشه‌ها و نظریه‌های حقوق‌دانان</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="definition-card">
+        <div class="def-header">
+          <span class="def-icon">📌</span>
+          <span class="def-term">دکترین</span>
+        </div>
+        <div class="def-body">
+          اندیشه‌ها و نظریه‌های علمی حقوق‌دانان که یکی از منابع حقوق به شمار می‌رود.
+        </div>
+      </div>
+
+      <div class="law-block">
+        <span class="law-badge">اصل کلی</span>
+        <div class="law-content">
+          اصولاً و تقریباً در همه جا، استفاده از عرف، رویه‌های قضایی و دکترین ناظر به زمانی است که قانون حکمی ندارد، یا ناظر به مواردی است که خود قانون به عرف ارجاع داده است.
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          گاهی قانون‌گذار حکمی می‌دهد اما می‌گوید «اگر عرف متعارف به‌گونه دیگری بود، طبق عرف عمل کنید.» این شبیه قواعد تکمیلی است. در قواعد تکمیلی هم قانون‌گذار می‌گوید «من یک حکم می‌گویم، مگر اینکه عرف متعارف به‌گونه دیگری باشد یا طرفین برخلافش توافق کنند.»
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           بخش چهارم: سرفصل‌های آینده
+           ═══════════════════════════════════════ -->
+      <h2 class="section-title"><span class="icon">🗺️</span> سرفصل‌های درس (معرفی‌شده توسط استاد)</h2>
+
+      <div class="prose">
+        <p>استاد در این جلسه سرفصل‌های اصلی درس مقدمه علم حقوق را معرفی کردند:</p>
+      </div>
+
+      <ul class="numbered-list">
+        <li>
+          <span class="num-badge">۱</span>
+          <span>اوصاف و تعریف قاعده حقوقی <em>(جلسه جاری)</em></span>
+        </li>
+        <li>
+          <span class="num-badge">۲</span>
+          <span>رابطه حقوق با سایر رشته‌ها</span>
+        </li>
+        <li>
+          <span class="num-badge">۳</span>
+          <span>تقسیم‌بندی‌های رشته حقوق</span>
+        </li>
+        <li>
+          <span class="num-badge">۴</span>
+          <span>منابع حقوق: قانون، رویه قضایی، دکترین و عرف</span>
+        </li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <!-- ═══════════════════════════════════════
+           نکات ظریف و کنکوری
+           ═══════════════════════════════════════ -->
+      <div class="key-notes-block">
+        <div class="key-notes-title">
+          <span>🎯</span>
+          <span>نکات ظریف و کنکوری — جلسه اول</span>
         </div>
         <ul>
-            <li><strong>قواعد آمِره (اَمری):</strong> قواعدی که نمی‌توان برخلاف آن‌ها توافق کرد (مانند قوانین کیفری).</li>
-            <li><strong>قواعد تکمیلی (تفسیری):</strong> قواعدی که می‌توان برخلاف آن‌ها توافق کرد. اما اگر توافقی صورت نگیرد، خود این قواعد نیز <strong>اجباری</strong> هستند.</li>
+          <li>«حقوق» در معنای اول (Law) مفرد است، نه جمع کلمه «حق».</li>
+          <li>جنس قواعد حقوقی از نوع «باید» و «نباید» است؛ توصیه یا تقاضا نیست.</li>
+          <li>هر قاعده‌ی الزامی، حقوقی نیست — اما هر قاعده‌ی حقوقی، الزامی است. (مثال: دروغ نگفتن)</li>
+          <li>قاعده تکمیلی در هیچ شرایطی «اختیاری» نیست؛ فقط می‌توان برخلافش توافق کرد.</li>
+          <li>آنچه در قواعد حقوقی درجه‌بندی و کم‌وزیاد دارد، <strong>ضمانت اجرا</strong> است، نه الزامی بودن.</li>
+          <li>ضمانت اجرای مدنظر در حقوق، <strong>حاکمیتی (دنیوی)</strong> است، نه اخروی.</li>
+          <li>قانون مهم‌ترین منبع حقوق است (تقریباً ۹۰٪ قواعد) اما تنها منبع نیست.</li>
+          <li>عرف، رویه قضایی و دکترین اصولاً در غیاب قانون یا با ارجاع قانون به کار می‌روند.</li>
+          <li>در حقوق بین‌الملل ضمانت اجرا کمرنگ‌تر است چون حاکمیت برتر وجود ندارد.</li>
+          <li>قواعد امری = خط قرمز قانون‌گذار — هیچ توافقی خلاف آن پذیرفته نمی‌شود.</li>
+          <li>معنای سوم «حقوق» (دستمزد) عموماً در علم حقوق مدنظر نیست.</li>
         </ul>
-        
-        <h3>ویژگی دوم: داشتن ضمانت اجرا</h3>
-        <ul>
-            <li>این ویژگی، تکمیل‌کننده «الزام‌آور بودن» است.</li>
-            <li>منظور، ضمانت اجرای <strong>حاکمیتی و دولتی</strong> است که از طریق قدرت برتر (مانند دادگاه) اعمال می‌شود.</li>
-            <li>هرچه اقتدار حاکمیت بیشتر باشد، اقتدار قانون نیز بیشتر است. برای همین در حقوق بین‌الملل، ضمانت اجراها کم‌رنگ‌تر است.</li>
-        </ul>
+      </div>
+
     </section>
 
-    <!-- برای افزودن جلسه بعدی، همین زیر یک بلوک
-    <section class="session">
-        ... محتوای جلسه جدید ...
-    </section>
-    را کپی کنید و محتوا را عوض کنید. -->
-</main>
+    <!-- ============================================
+         ⬇️ جلسات بعدی را اینجا paste کن
+         هر جلسه = یک <section> با id="session-N"
+         + یک <button data-target="session-N"> در nav بالا
+
+         الگو:
+         <section id="session-2" class="session-section">
+           <div class="session-header">
+             <span class="session-number">جلسه دوم</span>
+             <h1 class="session-title">عنوان جلسه</h1>
+             <div class="session-meta">
+               <span class="session-date">📅 تاریخ</span>
+               <span class="session-badge">🔑 N مفهوم کلیدی</span>
+             </div>
+           </div>
+           محتوا...
+         </section>
+         ============================================ -->
+
+  </main>
+
+  <script>
+    // === THEME MANAGEMENT ===
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+
+    function getStoredTheme() {
+      return localStorage.getItem('theme');
+    }
+
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      themeToggle.title = theme === 'dark' ? 'تغییر به حالت روز' : 'تغییر به حالت شب';
+    }
+
+    // Init theme
+    const stored = getStoredTheme();
+    const initialTheme = stored ? stored : getSystemTheme();
+    applyTheme(initialTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Listen to system changes (only if no stored preference)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!getStoredTheme()) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    // === SESSION NAVIGATION ===
+    const navChips = document.querySelectorAll('.nav-chip');
+
+    navChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const targetId = chip.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const navHeight = document.getElementById('session-nav').offsetHeight;
+          const top = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // === INTERSECTION OBSERVER (active nav chip) ===
+    const sessionSections = document.querySelectorAll('.session-section');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navChips.forEach(chip => {
+            if (chip.getAttribute('data-target') === id) {
+              chip.classList.add('active');
+              // Scroll chip into view inside nav
+              chip.scrollIntoView({ inline: 'center', behavior: 'smooth' });
+            } else {
+              chip.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sessionSections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
 </html>
